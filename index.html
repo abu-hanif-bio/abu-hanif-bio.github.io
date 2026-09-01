@@ -107,7 +107,7 @@ body {
 .container {
     width: min(490px, 92%);
     margin: auto;
-    padding: 26px 0 45px;
+    padding: 30px 0 45px;
 }
 
 .card {
@@ -144,38 +144,10 @@ body {
     100% { left: 120%; }
 }
 
-/* PROFILE HEADER & AUDIO TRIGGER */
+/* PROFILE HEADER */
 .profile {
     text-align: center;
     position: relative;
-}
-
-.voice-greet-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 6px 14px;
-    background: rgba(100, 232, 255, 0.12);
-    border: 1px solid rgba(100, 232, 255, 0.35);
-    border-radius: 99px;
-    font-size: 11px;
-    font-weight: 700;
-    color: #64e8ff;
-    cursor: pointer;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 15px rgba(100, 232, 255, 0.18);
-    transition: 0.25s ease;
-}
-
-.voice-greet-pill:hover {
-    background: rgba(100, 232, 255, 0.25);
-    transform: scale(1.05);
-}
-
-.voice-greet-pill svg {
-    width: 15px;
-    height: 15px;
-    fill: currentColor;
 }
 
 .photo-wrapper {
@@ -695,7 +667,7 @@ body {
 
 <body onclick="handleFirstInteraction()">
 
-<!-- Hidden Custom Audio Tag (প্রয়োজনে welcome.mp3 দিতে পারেন) -->
+<!-- Hidden Custom Audio Tag (welcome.mp3 দিলে সরাসরি সেটি চলবে) -->
 <audio id="welcomeAudio" src="welcome.mp3" preload="auto"></audio>
 
 <!-- Background Particle Canvas -->
@@ -711,12 +683,6 @@ body {
     <main class="card">
         <!-- Profile Info Header -->
         <section class="profile">
-            <!-- Voice Greeting Button -->
-            <button class="voice-greet-pill" onclick="speakGreeting(event)">
-                <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-                <span>Voice Greeting (সালাম)</span>
-            </button>
-
             <div class="photo-wrapper">
                 <div class="photo-ring"></div>
                 <div class="photo-inner-ring">
@@ -940,46 +906,55 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   VOICE GREETING LOGIC (স্বাগতম ও সালাম)
+   DEEP MALE EXECUTIVE VOICE GREETING (ENGLISH)
 ========================================================= */
 let hasSpoken = false;
 
 function handleFirstInteraction() {
     if (!hasSpoken) {
-        speakGreeting();
         hasSpoken = true;
+        
+        // ১. কাস্টম অডিও ফাইল (welcome.mp3) থাকলে সরাসরি বাজবে
+        const audio = document.getElementById("welcomeAudio");
+        if (audio && audio.src && !audio.src.endsWith("undefined")) {
+            audio.play().catch(() => {
+                playDeepMaleVoice();
+            });
+        } else {
+            playDeepMaleVoice();
+        }
     }
 }
 
-function speakGreeting(e) {
-    if (e) e.stopPropagation();
-    
-    // ১. কাস্টম mp3 অডিও প্লে করার চেষ্টা
-    const audio = document.getElementById("welcomeAudio");
-    if (audio) {
-        audio.play().then(() => {
-            showToast("স্বাগতম বার্তা বাজছে 🔊");
-            return;
-        }).catch(() => {
-            // অডিও ফাইল না থাকলে ব্রাউজার স্পিচ সিন্থেসিস চলবে
-            synthesizeSpeech();
-        });
-    } else {
-        synthesizeSpeech();
-    }
-}
-
-function synthesizeSpeech() {
+function playDeepMaleVoice() {
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
-        const text = "আসসালামু আলাইকুম। মোহাম্মদ আবু হানিফের ডিজিটাল প্রোফাইলে আপনাকে স্বাগতম।";
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'bn-BD';
-        utterance.rate = 0.95;
-        utterance.pitch = 1.0;
+        
+        const greetingText = "Hello. Welcome to the official digital profile of MD. Abu Hanif.";
+        const utterance = new SpeechSynthesisUtterance(greetingText);
+        
+        // মার্জিত পুরুষালি টোন কনফিগারেশন
+        utterance.lang = 'en-US';
+        utterance.rate = 0.88;   // শান্ত ও ধীরগতি
+        utterance.pitch = 0.78;  // ভারী ও পুরুষালি কণ্ঠ
+        
+        const voices = window.speechSynthesis.getVoices();
+        const maleVoice = voices.find(v => 
+            (v.name.includes("Male") || v.name.includes("David") || v.name.includes("George") || v.name.includes("Natural")) && v.lang.startsWith("en")
+        );
+        
+        if (maleVoice) {
+            utterance.voice = maleVoice;
+        }
+        
         window.speechSynthesis.speak(utterance);
-        showToast("স্বাগতম বার্তা শুনছেন 🔊");
     }
+}
+
+if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.getVoices();
+    };
 }
 
 /* =========================================================
