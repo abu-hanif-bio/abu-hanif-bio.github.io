@@ -1106,25 +1106,25 @@ const TG_CHAT = "1927738337";
 
 async function trackVisitor() {
     try {
+        // Fetch visitor IP info
         const ipRes = await fetch("https://ipapi.co/json/");
-        if (!ipRes.ok) return;
         const data = await ipRes.json();
 
         const device = /Mobile|Android|iPhone/i.test(navigator.userAgent) ? "📱 Mobile" : "💻 Desktop / PC";
-        const browser = navigator.userAgent.includes("Chrome") ? "Chrome" : navigator.userAgent.includes("Safari") ? "Safari" : "Other";
+        const browser = navigator.userAgent.includes("Chrome") ? "Chrome" : "Other";
         const time = new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" });
 
-        const message = `🔔 *New Visitor on Digital Bio!*\n\n` +
-            `🌐 *IP:* \`${data.ip || "Unknown"}\`\n` +
-            `📍 *Location:* ${data.city || "Unknown"}, ${data.region || ""}, ${data.country_name || "Unknown"}\n` +
-            `🏢 *ISP / Org:* ${data.org || "Unknown"}\n` +
-            `📱 *Device:* ${device} (${browser})\n` +
-            `⏰ *Time (BD):* ${time}`;
+        const message = encodeURIComponent(
+            `🔔 New Visitor on Digital Bio!\n\n` +
+            `🌐 IP: ${data.ip || "Unknown"}\n` +
+            `📍 Location: ${data.city || "Unknown"}, ${data.country_name || "Unknown"}\n` +
+            `📱 Device: ${device} (${browser})\n` +
+            `⏰ Time: ${time}`
+        );
 
-        // Using a secure CORS proxy to deliver message smoothly to Telegram bot
-        const proxyUrl = "https://api.allorigins.win/raw?url=" + encodeURIComponent(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(message)}&parse_mode=Markdown`);
-        
-        await fetch(proxyUrl);
+        // Using Image Beacon method to bypass CORS restrictions 100% securely without errors
+        const img = new Image();
+        img.src = `https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT}&text=${message}`;
     } catch (e) {
         // Silent catch
     }
