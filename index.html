@@ -253,12 +253,14 @@ body {
     to { background-position: 200% center; }
 }
 
+/* Digital Profile Designation */
 .profession {
     margin-top: 6px;
     color: #9bdcff;
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
+    font-weight: 800;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
 }
 
 .divider {
@@ -512,77 +514,80 @@ body {
 }
 
 /* =========================================================
-   LIVE CARD 1: CYBER HOLOGRAPHIC ID BADGE
+   LIVE RADAR: VISITOR NETWORK & SYSTEM TELEMETRY
 ========================================================= */
-.hologram-id-card {
+.network-radar-card {
     margin-top: 10px;
-    padding: 18px;
-    border-radius: 24px;
-    background: linear-gradient(145deg, rgba(100, 232, 255, 0.08), rgba(6, 13, 22, 0.7));
-    border: 1px solid rgba(100, 232, 255, 0.28);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    padding: 16px 18px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(35, 125, 255, 0.08), rgba(6, 13, 22, 0.65));
+    border: 1px solid rgba(100, 232, 255, 0.22);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
-.hologram-id-card::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 40%,
-        rgba(100, 232, 255, 0.06) 50%,
-        transparent 60%
-    );
-    animation: holoScan 6s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes holoScan {
-    0% { transform: translateY(-30%) rotate(25deg); }
-    100% { transform: translateY(30%) rotate(25deg); }
-}
-
-.holo-top {
+.radar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: #64e8ff;
-    letter-spacing: 1.2px;
-    border-bottom: 1px dashed rgba(100, 232, 255, 0.2);
-    padding-bottom: 9px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 10px;
     margin-bottom: 12px;
 }
 
-.holo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+.radar-title-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #64e8ff;
+    letter-spacing: 1px;
 }
 
-.holo-item-label {
-    font-size: 8.5px;
-    font-weight: 700;
-    color: #7d93ab;
-    letter-spacing: 1.2px;
-}
-
-.holo-item-val {
+.radar-live-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 9px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #f1f7fe;
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.12);
+    padding: 3px 8px;
+    border-radius: 99px;
+}
+
+.radar-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+
+.radar-metric-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 10px 4px;
+}
+
+.radar-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 800;
+    color: #ffffff;
     margin-top: 3px;
 }
 
+.radar-lbl {
+    font-size: 8px;
+    font-weight: 700;
+    color: #7e94ac;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
 /* =========================================================
-   LIVE CARD 2: REAL-TIME WEATHER & ATMOSPHERE
+   LIVE CARD 2: REAL-TIME WEATHER
 ========================================================= */
 .live-weather-card {
     margin-top: 10px;
@@ -645,7 +650,7 @@ body {
 }
 
 /* =========================================================
-   LIVE CARD 3: BANGLADESH TIME & LOCAL SYSTEM
+   LIVE CARD 3: BANGLADESH TIME
 ========================================================= */
 .live-clock-card {
     margin-top: 10px;
@@ -830,7 +835,7 @@ body {
             </div>
 
             <h1 class="name">MD. ABU HANIF</h1>
-            <div class="profession">BUSINESS</div>
+            <div class="profession">DIGITAL PROFILE</div>
             <div class="divider"></div>
             <p class="intro">
                 স্বাগতম আমার ডিজিটাল প্রোফাইলে।<br>
@@ -905,17 +910,17 @@ body {
             </button>
         </section>
 
-        <!-- MOBILE FINANCIAL SERVICES -->
+        <!-- MOBILE FINANCIAL SERVICES (UPDATED WITH "PERSONAL") -->
         <div class="section-title">MOBILE FINANCIAL SERVICES</div>
 
         <section class="payment-list">
-            <!-- BKASH -->
+            <!-- BKASH PERSONAL -->
             <div class="payment-card">
                 <div class="logo">
                     <img src="bkash.png.png" alt="bKash">
                 </div>
                 <div class="details">
-                    <div class="label">BKASH</div>
+                    <div class="label">BKASH PERSONAL</div>
                     <div class="number">+880 1318 773075</div>
                     <div class="small">Payment Number</div>
                 </div>
@@ -924,13 +929,13 @@ body {
                 </button>
             </div>
 
-            <!-- NAGAD -->
+            <!-- NAGAD PERSONAL -->
             <div class="payment-card">
                 <div class="logo">
                     <img src="nagad.png.png" alt="Nagad">
                 </div>
                 <div class="details">
-                    <div class="label">NAGAD</div>
+                    <div class="label">NAGAD PERSONAL</div>
                     <div class="number">+880 1645 472943</div>
                     <div class="small">Payment Number</div>
                 </div>
@@ -939,13 +944,13 @@ body {
                 </button>
             </div>
 
-            <!-- ROCKET -->
+            <!-- ROCKET PERSONAL -->
             <div class="payment-card">
                 <div class="logo">
                     <img src="rocket.png.png" alt="Rocket">
                 </div>
                 <div class="details">
-                    <div class="label">ROCKET</div>
+                    <div class="label">ROCKET PERSONAL</div>
                     <div class="number">+880 1318 773075</div>
                     <div class="small">DBBL Rocket Number</div>
                 </div>
@@ -990,35 +995,37 @@ body {
             </div>
         </section>
 
-        <!-- LIVE CARD 1: CYBER HOLOGRAPHIC ID BADGE -->
-        <div class="section-title">DIGITAL PROFILE METRICS</div>
+        <!-- LIVE RADAR: REAL-TIME NETWORK & PERFORMANCE -->
+        <div class="section-title">LIVE CLIENT TELEMETRY</div>
 
-        <section class="hologram-id-card">
-            <div class="holo-top">
-                <span>IDENTITY: VERIFIED</span>
-                <span id="livePing">PING: 24ms</span>
+        <section class="network-radar-card">
+            <div class="radar-header">
+                <div class="radar-title-group">
+                    <span style="font-size:14px;">📡</span>
+                    <span>LIVE ENVIRONMENT RADAR</span>
+                </div>
+                <div class="radar-live-badge">
+                    <span class="status-dot" style="width:6px;height:6px;"></span>
+                    <span>CONNECTED</span>
+                </div>
             </div>
-            <div class="holo-grid">
-                <div>
-                    <div class="holo-item-label">USER ID</div>
-                    <div class="holo-item-val">AH-2026-X89</div>
+            <div class="radar-metrics-grid">
+                <div class="radar-metric-box">
+                    <div class="radar-lbl">CONNECTION</div>
+                    <div class="radar-val" id="clientNet">4G / WiFi</div>
                 </div>
-                <div>
-                    <div class="holo-item-label">NETWORK PROTOCOL</div>
-                    <div class="holo-item-val">TLS 1.3 / HTTP3</div>
+                <div class="radar-metric-box">
+                    <div class="radar-lbl">LATENCY</div>
+                    <div class="radar-val" id="clientLatency">22ms</div>
                 </div>
-                <div>
-                    <div class="holo-item-label">LOCAL SYSTEM</div>
-                    <div class="holo-item-val" id="userDevice">Mobile / Web</div>
-                </div>
-                <div>
-                    <div class="holo-item-label">SECURITY STATUS</div>
-                    <div class="holo-item-val" style="color:#34d399;">● ENCRYPTED</div>
+                <div class="radar-metric-box">
+                    <div class="radar-lbl">RENDER FPS</div>
+                    <div class="radar-val" style="color:#64e8ff;">60 FPS</div>
                 </div>
             </div>
         </section>
 
-        <!-- LIVE CARD 2: REAL-TIME WEATHER & ATMOSPHERE -->
+        <!-- LIVE CARD 2: REAL-TIME WEATHER -->
         <div class="section-title">LIVE ATMOSPHERE</div>
 
         <div class="live-weather-card">
@@ -1035,7 +1042,7 @@ body {
             </div>
         </div>
 
-        <!-- LIVE CARD 3: BANGLADESH TIME & LOCAL SYSTEM -->
+        <!-- LIVE CARD 3: BANGLADESH TIME -->
         <div class="section-title">LOCAL TIME & TIMEZONE</div>
 
         <div class="live-clock-card">
@@ -1085,22 +1092,25 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   1. HOLOGRAPHIC SYSTEM METRICS
+   1. LIVE NETWORK & RADAR SENSORS
 ========================================================= */
-function updateHologramMetrics() {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    document.getElementById('userDevice').textContent = isMobile ? 'Mobile OS' : 'Desktop OS';
+function initRadarTelemetry() {
+    // Network Type Detection
+    if (navigator.connection) {
+        const netType = navigator.connection.effectiveType ? navigator.connection.effectiveType.toUpperCase() : 'WIFI';
+        document.getElementById('clientNet').textContent = netType;
+    }
 
-    // Live Realistic Ping Simulation
+    // Dynamic Micro-Ping simulation
     setInterval(() => {
-        const ping = Math.floor(Math.random() * 12) + 20;
-        document.getElementById('livePing').textContent = `PING: ${ping}ms`;
-    }, 3000);
+        const ping = Math.floor(Math.random() * 10) + 18;
+        document.getElementById('clientLatency').textContent = `${ping}ms`;
+    }, 2500);
 }
-updateHologramMetrics();
+initRadarTelemetry();
 
 /* =========================================================
-   2. REAL-TIME WEATHER API (Open-Meteo)
+   2. REAL-TIME WEATHER API (DHAKA)
 ========================================================= */
 async function fetchLiveWeather() {
     try {
@@ -1226,7 +1236,7 @@ function saveContact() {
         'VERSION:3.0',
         'FN:MD. ABU HANIF',
         'N:HANIF;MD.;ABU;;',
-        'ORG:Business',
+        'ORG:Personal Profile',
         'TEL;TYPE=CELL,VOICE:+8801645472943',
         'TEL;TYPE=CELL,VOICE:+8801318773075',
         'TEL;TYPE=WhatsApp:+8801645472943',
