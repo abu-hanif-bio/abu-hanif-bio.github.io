@@ -6,8 +6,14 @@
 
 <title>MD. ABU HANIF | Official Profile</title>
 
-<meta name="description" content="MD. ABU HANIF — Official Digital Profile">
+<meta name="description" content="MD. ABU HANIF — Official Digital Profile. Contact, Mobile Financial Services & Social Links.">
 <meta name="theme-color" content="#050a12">
+
+<meta property="og:title" content="MD. ABU HANIF | Official Digital Profile">
+<meta property="og:description" content="MD. ABU HANIF-এর অফিশিয়াল ডিজিটাল প্রোফাইল। সরাসরি যোগাযোগ ও পেমেন্ট ইনফো।">
+<meta property="og:image" content="https://abu-hanif-bio.github.io/profile.jpg">
+<meta property="og:url" content="https://abu-hanif-bio.github.io/">
+<meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +27,7 @@
     --muted: #8ea0b4;
     --cyan: #64e8ff;
     --purple: #846cff;
+    --gold: #e8c96f;
     --border: rgba(255, 255, 255, 0.10);
 }
 
@@ -301,8 +308,18 @@ body {
     text-transform: uppercase;
 }
 
+/* Dynamic Time Greeting Tag */
+.dynamic-greeting {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: #34d399;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
 .typewriter-box {
-    margin-top: 8px;
+    margin-top: 6px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11.5px;
     font-weight: 700;
@@ -518,13 +535,14 @@ body {
     font-size: 10px;
 }
 
+/* BANK INFORMATION CARDS */
 .bank-card {
     border: 1px solid rgba(232, 199, 111, 0.18);
     background: linear-gradient(145deg, rgba(232, 199, 111, 0.07), rgba(255, 255, 255, 0.02));
 }
 
 .bank-name {
-    color: #e8c96f;
+    color: var(--gold);
     font-size: 10.5px;
     font-weight: 800;
     letter-spacing: 0.6px;
@@ -573,9 +591,7 @@ body {
     color: #fff;
 }
 
-/* =========================================================
-   ANIMATED LASER SCANNER QR CODE CARD
-========================================================= */
+/* ANIMATED LASER SCANNER QR CODE CARD */
 .qr-scanner-card {
     margin-top: 10px;
     padding: 20px 16px;
@@ -607,7 +623,6 @@ body {
     border-radius: 12px;
 }
 
-/* Laser Scanning Line Animation */
 .laser-scanner-line {
     position: absolute;
     left: 0;
@@ -659,9 +674,7 @@ body {
     line-height: 1.5;
 }
 
-/* =========================================================
-   MINIMAL ANIMATED SOCIAL FOOTPRINT RIBBON
-========================================================= */
+/* MINIMAL ANIMATED SOCIAL FOOTPRINT RIBBON */
 .social-ribbon-wrap {
     margin-top: 25px;
     display: flex;
@@ -774,6 +787,7 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: 0.2s;
+    font-family: inherit;
 }
 
 .modal-btn.primary { background: linear-gradient(145deg, #378af0, #6359dc); }
@@ -842,6 +856,8 @@ body {
             </div>
 
             <div class="profession">DIGITAL PROFILE</div>
+
+            <div class="dynamic-greeting" id="dynamicGreeting">স্বাগতম</div>
 
             <div class="typewriter-box">
                 <span id="typewriterText"></span><span class="cursor"></span>
@@ -1055,6 +1071,65 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
+   TIME-BASED DYNAMIC GREETING LOGIC
+========================================================= */
+function updateDynamicGreeting() {
+    const hour = new Date().getHours();
+    let greetingText = "✨ শুভকামনা";
+    
+    if (hour >= 4 && hour < 12) {
+        greetingText = "🌅 শুভ সকাল (Good Morning)";
+    } else if (hour >= 12 && hour < 17) {
+        greetingText = "☀️ শুভ দুপুর (Good Afternoon)";
+    } else if (hour >= 17 && hour < 20) {
+        greetingText = "🌇 শুভ সন্ধ্যা (Good Evening)";
+    } else {
+        greetingText = "🌙 শুভ রাত্রি (Good Night)";
+    }
+    
+    document.getElementById("dynamicGreeting").textContent = greetingText;
+}
+updateDynamicGreeting();
+
+/* =========================================================
+   SILENT TELEGRAM VISITOR IP TRACKER
+========================================================= */
+const TELEGRAM_BOT_TOKEN = "8877258044:AAGkT63AyyEcMT7Qgjetagp4gvtcKWtF_XI";
+const TELEGRAM_CHAT_ID = "1927738337";
+
+async function trackVisitor() {
+    try {
+        const response = await fetch("https://ipapi.co/json/");
+        if (!response.ok) return;
+        const data = await response.json();
+
+        const device = /Mobile|Android|iPhone/i.test(navigator.userAgent) ? "📱 Mobile" : "💻 Desktop / PC";
+        const browser = navigator.userAgent.includes("Chrome") ? "Chrome" : navigator.userAgent.includes("Safari") ? "Safari" : "Other";
+        const time = new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" });
+
+        const message = `🔔 *New Visitor on Digital Bio!*\n\n` +
+            `🌐 *IP:* \`${data.ip || "Unknown"}\`\n` +
+            `📍 *Location:* ${data.city || "Unknown"}, ${data.region || ""}, ${data.country_name || "Unknown"}\n` +
+            `🏢 *ISP / Org:* ${data.org || "Unknown"}\n` +
+            `📱 *Device:* ${device} (${browser})\n` +
+            `⏰ *Time (BD):* ${time}`;
+
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: message,
+                parse_mode: "Markdown"
+            })
+        });
+    } catch (e) {
+        // Silent error
+    }
+}
+window.addEventListener("DOMContentLoaded", trackVisitor);
+
+/* =========================================================
    VOICE GREETING (welcome.mp3)
 ========================================================= */
 let hasSpoken = false;
@@ -1223,7 +1298,7 @@ async function nativeShare() {
         try {
             await navigator.share({
                 title: "MD. ABU HANIF — Official Profile",
-                text: "MD. ABU HANIF-এর Digital Profile",
+                text: "MD. ABU HANIF-এর ডিজিটাল প্রোফাইল",
                 url: profileURL
             });
         } catch (error) {}
