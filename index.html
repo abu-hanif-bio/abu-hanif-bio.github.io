@@ -21,7 +21,6 @@
     --muted: #8ea0b4;
     --cyan: #64e8ff;
     --purple: #846cff;
-    --gold: #ffb703;
     --border: rgba(255, 255, 255, 0.10);
 }
 
@@ -145,10 +144,38 @@ body {
     100% { left: 120%; }
 }
 
-/* PROFILE HEADER */
+/* PROFILE HEADER & AUDIO TRIGGER */
 .profile {
     text-align: center;
     position: relative;
+}
+
+.voice-greet-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    background: rgba(100, 232, 255, 0.12);
+    border: 1px solid rgba(100, 232, 255, 0.35);
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #64e8ff;
+    cursor: pointer;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(100, 232, 255, 0.18);
+    transition: 0.25s ease;
+}
+
+.voice-greet-pill:hover {
+    background: rgba(100, 232, 255, 0.25);
+    transform: scale(1.05);
+}
+
+.voice-greet-pill svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
 }
 
 .photo-wrapper {
@@ -574,226 +601,12 @@ body {
     color: #fff;
 }
 
-/* =========================================================
-   NEW 3D FEATURE 1: 3D SOCIAL CONNECT HUB
-========================================================= */
-.social-3d-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 10px;
-    perspective: 1000px;
-}
-
-.social-3d-card {
-    position: relative;
-    padding: 16px;
-    border-radius: 20px;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: #fff;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    overflow: hidden;
-}
-
-.social-3d-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-}
-
-.social-3d-card:hover {
-    transform: translateY(-5px) rotateX(4deg) scale(1.03);
-    border-color: rgba(100, 232, 255, 0.4);
-    box-shadow: 0 16px 35px rgba(16, 137, 245, 0.3);
-}
-
-.social-3d-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-.social-3d-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: #ffffff;
-}
-
-.icon-tg { background: linear-gradient(145deg, #2aabee, #229ed9); }
-.icon-fb { background: linear-gradient(145deg, #1877f2, #0d5cbd); }
-.icon-wa { background: linear-gradient(145deg, #25d366, #128c7e); }
-.icon-em { background: linear-gradient(145deg, #ea4335, #c5221f); }
-
-.social-3d-name {
-    font-size: 13px;
-    font-weight: 800;
-}
-
-.social-3d-sub {
-    font-size: 9.5px;
-    color: #8ea0b4;
-    margin-top: 2px;
-}
-
-/* =========================================================
-   NEW 3D FEATURE 2: 3D 5-STAR INTERACTIVE APPRECIATION
-========================================================= */
-.rating-3d-card {
-    margin-top: 14px;
-    padding: 22px 18px;
-    border-radius: 26px;
-    background: linear-gradient(145deg, rgba(255, 183, 3, 0.1), rgba(6, 13, 22, 0.7));
-    border: 1px solid rgba(255, 183, 3, 0.3);
-    text-align: center;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-    position: relative;
-    overflow: hidden;
-}
-
-.rating-title {
-    font-size: 13.5px;
-    font-weight: 900;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-}
-
-.rating-sub {
-    font-size: 10.5px;
-    color: #9cb0c6;
-    margin-top: 4px;
-    font-family: "Noto Serif Bengali", serif;
-}
-
-.star-rating-box {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 14px;
-}
-
-.star-btn {
-    background: transparent;
-    border: 0;
-    font-size: 26px;
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-    filter: grayscale(1) opacity(0.4);
-    transform: scale(0.9);
-}
-
-.star-btn.active, .star-btn:hover {
-    filter: grayscale(0) opacity(1);
-    transform: scale(1.25) rotate(-6deg);
-    text-shadow: 0 0 15px rgba(255, 183, 3, 0.8);
-}
-
-.rating-status-text {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 700;
-    color: #ffb703;
-    margin-top: 12px;
-}
-
-/* =========================================================
-   NEW 3D FEATURE 3: 3D AUDIO VIBE CAPSULE
-========================================================= */
-.audio-capsule-3d {
-    margin-top: 14px;
-    padding: 16px 18px;
-    border-radius: 24px;
-    background: linear-gradient(145deg, rgba(132, 108, 255, 0.14), rgba(6, 13, 22, 0.7));
-    border: 1px solid rgba(132, 108, 255, 0.35);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
-}
-
-.capsule-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.capsule-play-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: linear-gradient(145deg, #8b5cf6, #6d28d9);
-    border: 0;
-    color: #fff;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
-    transition: 0.25s;
-    flex-shrink: 0;
-}
-
-.capsule-play-btn:hover {
-    transform: scale(1.1);
-}
-
-.capsule-play-btn svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-}
-
-.capsule-title {
-    font-size: 12.5px;
-    font-weight: 800;
-    color: #ffffff;
-}
-
-.capsule-sub {
-    font-size: 10px;
-    color: #8da2bb;
-    margin-top: 2px;
-}
-
-/* 3D Wave Visualizer */
-.audio-visualizer-bars {
-    display: flex;
-    align-items: flex-end;
-    gap: 3.5px;
-    height: 24px;
-}
-
-.v-bar {
-    width: 3px;
-    background: #a78bfa;
-    border-radius: 99px;
-    height: 4px;
-    transition: 0.2s;
-}
-
-.audio-visualizer-bars.playing .v-bar:nth-child(1) { animation: waveAnim 1s infinite ease-in-out; }
-.audio-visualizer-bars.playing .v-bar:nth-child(2) { animation: waveAnim 0.7s infinite ease-in-out; }
-.audio-visualizer-bars.playing .v-bar:nth-child(3) { animation: waveAnim 1.3s infinite ease-in-out; }
-.audio-visualizer-bars.playing .v-bar:nth-child(4) { animation: waveAnim 0.8s infinite ease-in-out; }
-.audio-visualizer-bars.playing .v-bar:nth-child(5) { animation: waveAnim 1.1s infinite ease-in-out; }
-
-@keyframes waveAnim {
-    0%, 100% { height: 4px; }
-    50% { height: 24px; background: #64e8ff; }
-}
-
+/* CLEAN MINIMAL FOOTER */
 .footer {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 35px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     color: #53677c;
     font-size: 9.5px;
     letter-spacing: 2px;
@@ -880,9 +693,12 @@ body {
 </style>
 </head>
 
-<body>
+<body onclick="handleFirstInteraction()">
 
-<!-- Particle Background -->
+<!-- Hidden Custom Audio Tag (প্রয়োজনে welcome.mp3 দিতে পারেন) -->
+<audio id="welcomeAudio" src="welcome.mp3" preload="auto"></audio>
+
+<!-- Background Particle Canvas -->
 <canvas id="particleCanvas"></canvas>
 
 <div class="background">
@@ -895,6 +711,12 @@ body {
     <main class="card">
         <!-- Profile Info Header -->
         <section class="profile">
+            <!-- Voice Greeting Button -->
+            <button class="voice-greet-pill" onclick="speakGreeting(event)">
+                <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                <span>Voice Greeting (সালাম)</span>
+            </button>
+
             <div class="photo-wrapper">
                 <div class="photo-ring"></div>
                 <div class="photo-inner-ring">
@@ -904,7 +726,7 @@ body {
                 </div>
             </div>
 
-            <!-- Active Status Badge -->
+            <!-- Clean Status Badge -->
             <div class="profile-tags">
                 <div class="live-status-badge">
                     <span class="status-dot"></span>
@@ -1086,98 +908,7 @@ body {
             </div>
         </section>
 
-        <!-- NEW 3D FEATURE 1: 3D SOCIAL CONNECT HUB -->
-        <div class="section-title">3D SOCIAL NETWORKING</div>
-
-        <section class="social-3d-grid">
-            <!-- Telegram -->
-            <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-3d-card">
-                <div class="social-3d-icon icon-tg">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.98-1.73 6.64-2.87 7.97-3.44 3.79-1.61 4.58-1.89 5.09-1.9.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.22-.04.36z"/></svg>
-                </div>
-                <div>
-                    <div class="social-3d-name">Telegram</div>
-                    <div class="social-3d-sub">Direct Chat</div>
-                </div>
-            </a>
-
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="social-3d-card">
-                <div class="social-3d-icon icon-fb">
-                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </div>
-                <div>
-                    <div class="social-3d-name">Facebook</div>
-                    <div class="social-3d-sub">Follow Profile</div>
-                </div>
-            </a>
-
-            <!-- WhatsApp -->
-            <a href="https://wa.me/8801645472943" target="_blank" rel="noopener noreferrer" class="social-3d-card">
-                <div class="social-3d-icon icon-wa">
-                    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
-                </div>
-                <div>
-                    <div class="social-3d-name">WhatsApp</div>
-                    <div class="social-3d-sub">Instant Ping</div>
-                </div>
-            </a>
-
-            <!-- Email -->
-            <a href="mailto:millat.ahhanif@gmail.com" class="social-3d-card">
-                <div class="social-3d-icon icon-em">
-                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </div>
-                <div>
-                    <div class="social-3d-name">Mail Box</div>
-                    <div class="social-3d-sub">Send Email</div>
-                </div>
-            </a>
-        </section>
-
-        <!-- NEW 3D FEATURE 2: 3D 5-STAR INTERACTIVE APPRECIATION -->
-        <div class="section-title">PROFILE APPRECIATION</div>
-
-        <section class="rating-3d-card">
-            <div class="rating-title">RATE THIS DIGITAL PROFILE</div>
-            <div class="rating-sub">প্রোফাইলটি ভালো লাগলে স্টার চাপ দিয়ে আপনার মতামত জানান ✨</div>
-
-            <div class="star-rating-box">
-                <button class="star-btn active" onclick="rateProfile(1)">⭐</button>
-                <button class="star-btn active" onclick="rateProfile(2)">⭐</button>
-                <button class="star-btn active" onclick="rateProfile(3)">⭐</button>
-                <button class="star-btn active" onclick="rateProfile(4)">⭐</button>
-                <button class="star-btn active" onclick="rateProfile(5)">⭐</button>
-            </div>
-            <div class="rating-status-text" id="ratingStatusText">5.0 / 5.0 (EXCELLENT)</div>
-        </section>
-
-        <!-- NEW 3D FEATURE 3: 3D AUDIO VIBE CAPSULE -->
-        <div class="section-title">AMBIENT AUDIO VIBES</div>
-
-        <section class="audio-capsule-3d">
-            <div class="capsule-left">
-                <button class="capsule-play-btn" id="capsuleAudioBtn" onclick="toggleCapsuleAudio()">
-                    <svg id="cpPlayIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    <svg id="cpPauseIcon" style="display:none;" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                </button>
-                <div>
-                    <div class="capsule-title">Peaceful Ambient Sounds</div>
-                    <div class="capsule-sub">3D Interactive Sound Wave</div>
-                </div>
-            </div>
-
-            <div class="audio-visualizer-bars" id="audioBars">
-                <div class="v-bar"></div>
-                <div class="v-bar"></div>
-                <div class="v-bar"></div>
-                <div class="v-bar"></div>
-                <div class="v-bar"></div>
-            </div>
-
-            <audio id="vibeAudio" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3"></audio>
-        </section>
-
+        <!-- CLEAN MINIMAL FOOTER -->
         <footer class="footer">
             DIGITAL PROFILE • MD. ABU HANIF
         </footer>
@@ -1209,7 +940,50 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   1. TYPEWRITER EFFECT
+   VOICE GREETING LOGIC (স্বাগতম ও সালাম)
+========================================================= */
+let hasSpoken = false;
+
+function handleFirstInteraction() {
+    if (!hasSpoken) {
+        speakGreeting();
+        hasSpoken = true;
+    }
+}
+
+function speakGreeting(e) {
+    if (e) e.stopPropagation();
+    
+    // ১. কাস্টম mp3 অডিও প্লে করার চেষ্টা
+    const audio = document.getElementById("welcomeAudio");
+    if (audio) {
+        audio.play().then(() => {
+            showToast("স্বাগতম বার্তা বাজছে 🔊");
+            return;
+        }).catch(() => {
+            // অডিও ফাইল না থাকলে ব্রাউজার স্পিচ সিন্থেসিস চলবে
+            synthesizeSpeech();
+        });
+    } else {
+        synthesizeSpeech();
+    }
+}
+
+function synthesizeSpeech() {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const text = "আসসালামু আলাইকুম। মোহাম্মদ আবু হানিফের ডিজিটাল প্রোফাইলে আপনাকে স্বাগতম।";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'bn-BD';
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        window.speechSynthesis.speak(utterance);
+        showToast("স্বাগতম বার্তা শুনছেন 🔊");
+    }
+}
+
+/* =========================================================
+   TYPEWRITER EFFECT
 ========================================================= */
 const words = ["Entrepreneur", "Tech Enthusiast", "Digital Creator", "Business Mindset"];
 let wordIndex = 0;
@@ -1243,58 +1017,7 @@ function typeEffect() {
 typeEffect();
 
 /* =========================================================
-   2. 3D 5-STAR RATING CONTROLLER
-========================================================= */
-function rateProfile(stars) {
-    const starBtns = document.querySelectorAll('.star-btn');
-    starBtns.forEach((btn, index) => {
-        if (index < stars) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-
-    const statusTexts = [
-        "1.0 / 5.0 (THANK YOU)",
-        "2.0 / 5.0 (APPRECIATED)",
-        "3.0 / 5.0 (GOOD VIBES)",
-        "4.0 / 5.0 (AWESOME)",
-        "5.0 / 5.0 (EXCELLENT ✨)"
-    ];
-    document.getElementById('ratingStatusText').textContent = statusTexts[stars - 1];
-    showToast(`ধন্যবাদ! আপনি ${stars}★ রেটিং দিয়েছেন ⭐`);
-}
-
-/* =========================================================
-   3. 3D AUDIO CAPSULE CONTROLLER
-========================================================= */
-const vibeAudio = document.getElementById('vibeAudio');
-const cpPlayIcon = document.getElementById('cpPlayIcon');
-const cpPauseIcon = document.getElementById('cpPauseIcon');
-const audioBars = document.getElementById('audioBars');
-
-function toggleCapsuleAudio() {
-    if (vibeAudio.paused) {
-        vibeAudio.play().then(() => {
-            cpPlayIcon.style.display = 'none';
-            cpPauseIcon.style.display = 'block';
-            audioBars.classList.add('playing');
-            showToast("Playing 3D Ambient Waves 🎵");
-        }).catch(() => {
-            showToast("Click play button again");
-        });
-    } else {
-        vibeAudio.pause();
-        cpPlayIcon.style.display = 'block';
-        cpPauseIcon.style.display = 'none';
-        audioBars.classList.remove('playing');
-        showToast("Audio Paused ⏸️");
-    }
-}
-
-/* =========================================================
-   4. FLOATING PARTICLES
+   FLOATING PARTICLES
 ========================================================= */
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
@@ -1345,7 +1068,7 @@ function animateParticles() {
 animateParticles();
 
 /* =========================================================
-   5. COPY & SHARE
+   COPY & SHARE
 ========================================================= */
 function copyNumber(text) {
     if (navigator.clipboard && window.isSecureContext) {
