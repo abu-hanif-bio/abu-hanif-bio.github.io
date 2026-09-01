@@ -17,9 +17,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
-/* =========================================================
-   PREMIUM VARIABLES & RESET
-========================================================= */
 :root {
     --bg: #050a12;
     --card: #0b1421;
@@ -51,7 +48,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Background Animation */
 .background {
     position: fixed;
     inset: 0;
@@ -103,7 +99,6 @@ body {
     background-size: 48px 48px;
 }
 
-/* Container & Card */
 .container {
     width: min(490px, 92%);
     margin: auto;
@@ -144,7 +139,6 @@ body {
     100% { left: 120%; }
 }
 
-/* Profile Section */
 .profile { text-align: center; }
 
 .photo-wrapper {
@@ -279,7 +273,6 @@ body {
     font-family: inherit;
 }
 
-/* Shimmer animation on all buttons */
 .btn::before {
     content: "";
     position: absolute;
@@ -308,7 +301,6 @@ body {
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 0 5px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Specific Colors for Ordered Buttons */
 .btn-call-1   { background: linear-gradient(145deg, #1d77f3, #3855db); }
 .btn-call-2   { background: linear-gradient(145deg, #0284c7, #0369a1); }
 .btn-whatsapp { background: linear-gradient(145deg, #10b981, #047857); }
@@ -342,7 +334,7 @@ body {
 }
 
 /* =========================================================
-   SECTIONS & BRAND CARDS
+   SECTIONS & LOGO STYLING (FIXED)
 ========================================================= */
 .section-title {
     display: flex;
@@ -384,23 +376,26 @@ body {
     transform: translateY(-2px);
 }
 
+/* নিখুঁত লোগো সাইজ ও ফিট */
 .logo, .bank-logo {
-    width: 54px;
-    height: 54px;
-    flex: 0 0 54px;
-    border-radius: 16px;
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #ffffff;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    padding: 5px;
+    padding: 3px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-.logo svg, .bank-logo svg {
+.logo img, .bank-logo img {
     width: 100%;
     height: 100%;
+    object-fit: contain !important;
+    border-radius: 10px;
     display: block;
 }
 
@@ -485,9 +480,7 @@ body {
     color: #fff;
 }
 
-/* =========================================================
-   QR SECTION
-========================================================= */
+/* QR Section */
 .qr-section {
     margin-top: 28px;
     padding: 22px 14px;
@@ -541,9 +534,7 @@ body {
     letter-spacing: 2px;
 }
 
-/* =========================================================
-   SHARE MODAL
-========================================================= */
+/* Modal */
 .share-overlay {
     position: fixed;
     inset: 0;
@@ -612,9 +603,7 @@ body {
 .modal-btn.primary { background: linear-gradient(145deg, #378af0, #6359dc); }
 .modal-btn:hover { filter: brightness(1.15); }
 
-/* =========================================================
-   TOAST
-========================================================= */
+/* Toast */
 .toast {
     position: fixed;
     left: 50%;
@@ -667,7 +656,7 @@ body {
             </p>
         </section>
 
-        <!-- EXACT ORDERED BUTTONS -->
+        <!-- ORDERED BUTTONS -->
         <section class="actions">
             <!-- 1. Call 1 -->
             <a href="tel:+8801645472943" class="btn btn-call-1">
@@ -685,7 +674,7 @@ body {
                 <span class="btn-text">Call — +880 1318 773075</span>
             </a>
 
-            <!-- 3. WhatsApp (Corrected Number) -->
+            <!-- 3. WhatsApp -->
             <a href="https://wa.me/8801645472943" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
                 <span class="icon-box">
                     <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 16.67c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.39c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 012.41 5.83c.02 4.54-3.68 8.25-8.21 8.25zm4.51-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.13.17 1.74 2.65 4.21 3.72.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.18-.48-.3z"/></svg>
@@ -734,7 +723,7 @@ body {
             </button>
         </section>
 
-       <!-- MOBILE FINANCIAL SERVICES -->
+        <!-- MOBILE FINANCIAL SERVICES -->
         <div class="section-title">MOBILE FINANCIAL SERVICES</div>
 
         <section class="payment-list">
@@ -818,6 +807,7 @@ body {
                 </button>
             </div>
         </section>
+
         <!-- QR Code Section -->
         <section class="qr-section">
             <div class="qr-title">MY DIGITAL PROFILE</div>
@@ -851,13 +841,12 @@ body {
     </div>
 </div>
 
-<!-- Toast Notification -->
+<!-- Toast -->
 <div class="toast" id="toast"></div>
 
 <script>
 const profileURL = "https://abu-hanif-bio.github.io/";
 
-// Initialize QR Codes
 window.addEventListener('DOMContentLoaded', () => {
     new QRCode(document.getElementById("qrcode"), {
         text: profileURL,
@@ -878,7 +867,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Copy Function
 function copyNumber(text) {
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text)
@@ -899,7 +887,6 @@ function fallbackCopy(text) {
     showToast("Copied successfully ✓");
 }
 
-// Save Contact (vCard)
 function saveContact() {
     const vcard = [
         'BEGIN:VCARD',
@@ -927,7 +914,6 @@ function saveContact() {
     showToast("Contact card তৈরি হয়েছে ✓");
 }
 
-// Modal Handlers
 function openShare() {
     document.getElementById("shareOverlay").classList.add("active");
 }
@@ -956,7 +942,6 @@ async function nativeShare() {
     }
 }
 
-// Toast
 function showToast(message) {
     const toast = document.getElementById("toast");
     toast.textContent = message;
