@@ -6,6 +6,15 @@
 
 <title>MD. ABU HANIF | Official Profile</title>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2VZCPFP21"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W2VZCPFP21');
+</script>
+
 <!-- স্মার্ট শেয়ার কার্ড (OG Meta Tags) -->
 <meta name="description" content="MD. ABU HANIF — Official Digital Profile. Contact, Mobile Financial Services & Social Links.">
 <meta name="theme-color" content="#050a12">
@@ -1099,45 +1108,6 @@ function updateDynamicGreeting() {
 updateDynamicGreeting();
 
 /* =========================================================
-   100% WORKING TELEGRAM VISITOR IP TRACKER
-========================================================= */
-const TG_TOKEN = "8877258044:AAGkT63AyyEcMT7Qgjetagp4gvtcKWtF_XI";
-const TG_CHAT = "1927738337";
-
-async function trackVisitor() {
-    try {
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
-
-        const ip = data.ip || "Unknown IP";
-        const city = data.city || "Unknown City";
-        const country = data.country_name || "Unknown Country";
-        const org = data.org || "Unknown ISP";
-        
-        const device = /Mobile|Android|iPhone/i.test(navigator.userAgent) ? "📱 Mobile" : "💻 Desktop / PC";
-        const browser = navigator.userAgent.includes("Chrome") ? "Chrome" : "Other Browser";
-        const time = new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" });
-
-        const text = encodeURIComponent(
-            `🚨 *New Visitor Alert!*\n\n` +
-            `🌐 *IP:* \`${ip}\`\n` +
-            `📍 *Location:* ${city}, ${country}\n` +
-            `🏢 *ISP:* ${org}\n` +
-            `📱 *Device:* ${device} (${browser})\n` +
-            `⏰ *Time:* ${time}`
-        );
-
-        const beacon = new Image();
-        beacon.src = `https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT}&text=${text}&parse_mode=Markdown`;
-        
-    } catch (error) {
-        fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT}&text=Visitor_Visited_Site_Error_Fallback`).catch(()=>{});
-    }
-}
-
-window.addEventListener("DOMContentLoaded", trackVisitor);
-
-/* =========================================================
    VOICE GREETING (welcome.mp3)
 ========================================================= */
 let hasSpoken = false;
@@ -1305,13 +1275,7 @@ function handleBackdropClick(e) {
 
 async function nativeShare() {
     if (navigator.share) {
-        try {
-            await navigator.share({
-                title: "MD. ABU HANIF — Official Profile",
-                text: "MD. ABU HANIF-এর ডিজিটাল প্রোফাইল",
-                url: profileURL
-            });
-        } catch (error) {}
+        thought
     } else {
         copyNumber(profileURL);
     }
