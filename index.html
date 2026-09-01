@@ -21,6 +21,7 @@
     --muted: #8ea0b4;
     --cyan: #64e8ff;
     --purple: #846cff;
+    --gold: #ffb703;
     --border: rgba(255, 255, 255, 0.10);
 }
 
@@ -574,245 +575,220 @@ body {
 }
 
 /* =========================================================
-   NEW FEATURE 1: DIGITAL NFC EXECUTIVE CARD
+   NEW 3D FEATURE 1: 3D SOCIAL CONNECT HUB
 ========================================================= */
-.nfc-card {
-    position: relative;
-    padding: 22px 20px;
-    border-radius: 26px;
-    background: linear-gradient(135deg, #101c2d, #08111c 60%, #162438);
-    border: 1px solid rgba(232, 199, 111, 0.35);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    overflow: hidden;
-}
-
-.nfc-card::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 45%,
-        rgba(232, 199, 111, 0.08) 50%,
-        transparent 55%
-    );
-    animation: nfcShine 6s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes nfcShine {
-    0% { transform: translateY(-40%) rotate(25deg); }
-    100% { transform: translateY(40%) rotate(25deg); }
-}
-
-.nfc-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Metallic Gold SIM Chip */
-.gold-chip {
-    width: 38px;
-    height: 28px;
-    border-radius: 6px;
-    background: linear-gradient(135deg, #e8c76f, #b38938, #f5df93);
-    border: 1px solid #7c5c1e;
-    position: relative;
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-.gold-chip::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border: 1px solid rgba(0,0,0,0.3);
-    border-radius: 2px;
-}
-
-.nfc-badge-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 800;
-    color: #e8c96f;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.nfc-middle {
-    margin-top: 18px;
-}
-
-.nfc-card-no {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 15px;
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: 2.5px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-}
-
-.nfc-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 16px;
-}
-
-.nfc-holder-name {
-    font-size: 12px;
-    font-weight: 800;
-    color: #e8c96f;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-}
-
-.nfc-sub {
-    font-size: 8.5px;
-    color: #8da2bb;
-    letter-spacing: 1px;
-}
-
-/* =========================================================
-   NEW FEATURE 2: 1-CLICK WHATSAPP QUICK MESSAGE BOX
-========================================================= */
-.quick-msg-card {
+.social-3d-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     margin-top: 10px;
-    padding: 18px;
-    border-radius: 24px;
-    background: linear-gradient(145deg, rgba(16, 185, 129, 0.08), rgba(6, 13, 22, 0.7));
-    border: 1px solid rgba(16, 185, 129, 0.28);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    perspective: 1000px;
 }
 
-.quick-msg-title {
-    font-size: 12.5px;
-    font-weight: 800;
-    color: #f1f7fe;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.quick-msg-input {
-    width: 100%;
-    margin-top: 12px;
-    padding: 12px 14px;
-    border-radius: 14px;
-    background: rgba(0, 0, 0, 0.35);
+.social-3d-card {
+    position: relative;
+    padding: 16px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
     border: 1px solid rgba(255, 255, 255, 0.12);
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 12px;
-    outline: none;
-    transition: 0.25s;
-}
-
-.quick-msg-input:focus {
-    border-color: #10b981;
-    box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
-}
-
-.quick-msg-btn {
-    width: 100%;
-    margin-top: 10px;
-    height: 44px;
-    border-radius: 14px;
-    background: linear-gradient(145deg, #10b981, #057a44);
-    border: 0;
-    color: #ffffff;
-    font-size: 12.5px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
-    transition: 0.25s;
-}
-
-.quick-msg-btn:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-}
-
-.quick-msg-btn svg {
-    width: 17px;
-    height: 17px;
-    fill: currentColor;
-}
-
-/* =========================================================
-   NEW FEATURE 3: EXECUTIVE LIVE TIME & STATUS
-========================================================= */
-.live-clock-card {
-    margin-top: 10px;
-    padding: 16px 18px;
-    border-radius: 22px;
-    border: 1px solid rgba(132, 108, 255, 0.2);
-    background: linear-gradient(145deg, rgba(132, 108, 255, 0.08), rgba(6, 13, 22, 0.6));
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-.clock-left {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    overflow: hidden;
 }
 
-.clock-icon-pulse {
-    width: 42px;
-    height: 42px;
-    border-radius: 14px;
-    background: rgba(132, 108, 255, 0.15);
-    color: #a78bfa;
+.social-3d-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.social-3d-card:hover {
+    transform: translateY(-5px) rotateX(4deg) scale(1.03);
+    border-color: rgba(100, 232, 255, 0.4);
+    box-shadow: 0 16px 35px rgba(16, 137, 245, 0.3);
+}
+
+.social-3d-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
     display: grid;
     place-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-.clock-icon-pulse svg {
-    width: 22px;
-    height: 22px;
-    fill: currentColor;
+.social-3d-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
 }
 
-.clock-title {
-    font-size: 9.5px;
+.icon-tg { background: linear-gradient(145deg, #2aabee, #229ed9); }
+.icon-fb { background: linear-gradient(145deg, #1877f2, #0d5cbd); }
+.icon-wa { background: linear-gradient(145deg, #25d366, #128c7e); }
+.icon-em { background: linear-gradient(145deg, #ea4335, #c5221f); }
+
+.social-3d-name {
+    font-size: 13px;
     font-weight: 800;
-    color: #8da2bb;
-    letter-spacing: 1.5px;
 }
 
-.clock-date {
-    font-size: 11.5px;
-    font-weight: 600;
-    color: #e9f1f8;
+.social-3d-sub {
+    font-size: 9.5px;
+    color: #8ea0b4;
     margin-top: 2px;
+}
+
+/* =========================================================
+   NEW 3D FEATURE 2: 3D 5-STAR INTERACTIVE APPRECIATION
+========================================================= */
+.rating-3d-card {
+    margin-top: 14px;
+    padding: 22px 18px;
+    border-radius: 26px;
+    background: linear-gradient(145deg, rgba(255, 183, 3, 0.1), rgba(6, 13, 22, 0.7));
+    border: 1px solid rgba(255, 183, 3, 0.3);
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    position: relative;
+    overflow: hidden;
+}
+
+.rating-title {
+    font-size: 13.5px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.rating-sub {
+    font-size: 10.5px;
+    color: #9cb0c6;
+    margin-top: 4px;
     font-family: "Noto Serif Bengali", serif;
 }
 
-.live-time-display {
-    text-align: right;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
-    font-weight: 800;
-    color: #64e8ff;
-    text-shadow: 0 0 12px rgba(100, 232, 255, 0.45);
+.star-rating-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
 }
 
-.live-timezone {
-    font-size: 8px;
+.star-btn {
+    background: transparent;
+    border: 0;
+    font-size: 26px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: grayscale(1) opacity(0.4);
+    transform: scale(0.9);
+}
+
+.star-btn.active, .star-btn:hover {
+    filter: grayscale(0) opacity(1);
+    transform: scale(1.25) rotate(-6deg);
+    text-shadow: 0 0 15px rgba(255, 183, 3, 0.8);
+}
+
+.rating-status-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffb703;
+    margin-top: 12px;
+}
+
+/* =========================================================
+   NEW 3D FEATURE 3: 3D AUDIO VIBE CAPSULE
+========================================================= */
+.audio-capsule-3d {
+    margin-top: 14px;
+    padding: 16px 18px;
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(132, 108, 255, 0.14), rgba(6, 13, 22, 0.7));
+    border: 1px solid rgba(132, 108, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
+}
+
+.capsule-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.capsule-play-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #8b5cf6, #6d28d9);
+    border: 0;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+    transition: 0.25s;
+    flex-shrink: 0;
+}
+
+.capsule-play-btn:hover {
+    transform: scale(1.1);
+}
+
+.capsule-play-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.capsule-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.capsule-sub {
+    font-size: 10px;
     color: #8da2bb;
-    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* 3D Wave Visualizer */
+.audio-visualizer-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3.5px;
+    height: 24px;
+}
+
+.v-bar {
+    width: 3px;
+    background: #a78bfa;
+    border-radius: 99px;
+    height: 4px;
+    transition: 0.2s;
+}
+
+.audio-visualizer-bars.playing .v-bar:nth-child(1) { animation: waveAnim 1s infinite ease-in-out; }
+.audio-visualizer-bars.playing .v-bar:nth-child(2) { animation: waveAnim 0.7s infinite ease-in-out; }
+.audio-visualizer-bars.playing .v-bar:nth-child(3) { animation: waveAnim 1.3s infinite ease-in-out; }
+.audio-visualizer-bars.playing .v-bar:nth-child(4) { animation: waveAnim 0.8s infinite ease-in-out; }
+.audio-visualizer-bars.playing .v-bar:nth-child(5) { animation: waveAnim 1.1s infinite ease-in-out; }
+
+@keyframes waveAnim {
+    0%, 100% { height: 4px; }
+    50% { height: 24px; background: #64e8ff; }
 }
 
 .footer {
@@ -906,7 +882,7 @@ body {
 
 <body>
 
-<!-- Live Floating Particle Background -->
+<!-- Particle Background -->
 <canvas id="particleCanvas"></canvas>
 
 <div class="background">
@@ -917,9 +893,8 @@ body {
 
 <div class="container">
     <main class="card">
-        <!-- Enhanced Profile Info Header -->
+        <!-- Profile Info Header -->
         <section class="profile">
-            <!-- Dual Rotating Aura Rings Around Photo -->
             <div class="photo-wrapper">
                 <div class="photo-ring"></div>
                 <div class="photo-inner-ring">
@@ -929,7 +904,7 @@ body {
                 </div>
             </div>
 
-            <!-- Single Clean Status Badge -->
+            <!-- Active Status Badge -->
             <div class="profile-tags">
                 <div class="live-status-badge">
                     <span class="status-dot"></span>
@@ -1111,67 +1086,97 @@ body {
             </div>
         </section>
 
-        <!-- NEW FEATURE 1: DIGITAL NFC EXECUTIVE CARD -->
-        <div class="section-title">DIGITAL MEMBERSHIP & ID</div>
+        <!-- NEW 3D FEATURE 1: 3D SOCIAL CONNECT HUB -->
+        <div class="section-title">3D SOCIAL NETWORKING</div>
 
-        <section class="nfc-card">
-            <div class="nfc-top">
-                <div class="gold-chip"></div>
-                <div class="nfc-badge-tag">
-                    <svg style="width:14px;height:14px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    <span>NFC SMART ID</span>
-                </div>
-            </div>
-
-            <div class="nfc-middle">
-                <div class="nfc-card-no">8801 • 6454 • 7294 • 3000</div>
-            </div>
-
-            <div class="nfc-bottom">
-                <div>
-                    <div class="nfc-sub">OFFICIAL PROFILE HOLDER</div>
-                    <div class="nfc-holder-name">MD. ABU HANIF</div>
-                </div>
-                <div style="text-align:right;">
-                    <div class="nfc-sub">STATUS</div>
-                    <div style="font-family:'JetBrains Mono', monospace; font-size:11px; font-weight:800; color:#34d399;">VERIFIED</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- NEW FEATURE 2: 1-CLICK WHATSAPP QUICK MESSAGE BOX -->
-        <div class="section-title">DIRECT MESSAGE BOX</div>
-
-        <section class="quick-msg-card">
-            <div class="quick-msg-title">
-                <span>💬</span>
-                <span>Send Instant Message via WhatsApp</span>
-            </div>
-            <input type="text" id="quickMsgInput" class="quick-msg-input" placeholder="আপনার বার্তা বা প্রশ্ন এখানে লিখুন...">
-            <button class="quick-msg-btn" onclick="sendWhatsAppQuickMsg()">
-                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                <span>Send to WhatsApp</span>
-            </button>
-        </section>
-
-        <!-- NEW FEATURE 3: EXECUTIVE LIVE TIME & STATUS -->
-        <div class="section-title">LOCAL TIME & TIMEZONE</div>
-
-        <div class="live-clock-card">
-            <div class="clock-left">
-                <div class="clock-icon-pulse">
-                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+        <section class="social-3d-grid">
+            <!-- Telegram -->
+            <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="social-3d-card">
+                <div class="social-3d-icon icon-tg">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.98-1.73 6.64-2.87 7.97-3.44 3.79-1.61 4.58-1.89 5.09-1.9.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.22-.04.36z"/></svg>
                 </div>
                 <div>
-                    <div class="clock-title">DHAKA, BANGLADESH</div>
-                    <div class="clock-date" id="liveDate">Loading date...</div>
+                    <div class="social-3d-name">Telegram</div>
+                    <div class="social-3d-sub">Direct Chat</div>
+                </div>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="social-3d-card">
+                <div class="social-3d-icon icon-fb">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </div>
+                <div>
+                    <div class="social-3d-name">Facebook</div>
+                    <div class="social-3d-sub">Follow Profile</div>
+                </div>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/8801645472943" target="_blank" rel="noopener noreferrer" class="social-3d-card">
+                <div class="social-3d-icon icon-wa">
+                    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+                </div>
+                <div>
+                    <div class="social-3d-name">WhatsApp</div>
+                    <div class="social-3d-sub">Instant Ping</div>
+                </div>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:millat.ahhanif@gmail.com" class="social-3d-card">
+                <div class="social-3d-icon icon-em">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div>
+                    <div class="social-3d-name">Mail Box</div>
+                    <div class="social-3d-sub">Send Email</div>
+                </div>
+            </a>
+        </section>
+
+        <!-- NEW 3D FEATURE 2: 3D 5-STAR INTERACTIVE APPRECIATION -->
+        <div class="section-title">PROFILE APPRECIATION</div>
+
+        <section class="rating-3d-card">
+            <div class="rating-title">RATE THIS DIGITAL PROFILE</div>
+            <div class="rating-sub">প্রোফাইলটি ভালো লাগলে স্টার চাপ দিয়ে আপনার মতামত জানান ✨</div>
+
+            <div class="star-rating-box">
+                <button class="star-btn active" onclick="rateProfile(1)">⭐</button>
+                <button class="star-btn active" onclick="rateProfile(2)">⭐</button>
+                <button class="star-btn active" onclick="rateProfile(3)">⭐</button>
+                <button class="star-btn active" onclick="rateProfile(4)">⭐</button>
+                <button class="star-btn active" onclick="rateProfile(5)">⭐</button>
+            </div>
+            <div class="rating-status-text" id="ratingStatusText">5.0 / 5.0 (EXCELLENT)</div>
+        </section>
+
+        <!-- NEW 3D FEATURE 3: 3D AUDIO VIBE CAPSULE -->
+        <div class="section-title">AMBIENT AUDIO VIBES</div>
+
+        <section class="audio-capsule-3d">
+            <div class="capsule-left">
+                <button class="capsule-play-btn" id="capsuleAudioBtn" onclick="toggleCapsuleAudio()">
+                    <svg id="cpPlayIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg id="cpPauseIcon" style="display:none;" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div>
+                    <div class="capsule-title">Peaceful Ambient Sounds</div>
+                    <div class="capsule-sub">3D Interactive Sound Wave</div>
                 </div>
             </div>
-            <div>
-                <div class="live-time-display" id="liveTime">00:00:00</div>
-                <div class="live-timezone">GMT+6 (BST)</div>
+
+            <div class="audio-visualizer-bars" id="audioBars">
+                <div class="v-bar"></div>
+                <div class="v-bar"></div>
+                <div class="v-bar"></div>
+                <div class="v-bar"></div>
+                <div class="v-bar"></div>
             </div>
-        </div>
+
+            <audio id="vibeAudio" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3"></audio>
+        </section>
 
         <footer class="footer">
             DIGITAL PROFILE • MD. ABU HANIF
@@ -1238,35 +1243,55 @@ function typeEffect() {
 typeEffect();
 
 /* =========================================================
-   2. 1-CLICK WHATSAPP QUICK MSG
+   2. 3D 5-STAR RATING CONTROLLER
 ========================================================= */
-function sendWhatsAppQuickMsg() {
-    const msg = document.getElementById('quickMsgInput').value.trim();
-    const phone = "8801645472943";
-    
-    if (!msg) {
-        showToast("দয়া করে কোনো বার্তা লিখুন ✏️");
-        return;
-    }
-    
-    const encodedMsg = encodeURIComponent(msg);
-    const waUrl = `https://wa.me/${phone}?text=${encodedMsg}`;
-    window.open(waUrl, '_blank');
+function rateProfile(stars) {
+    const starBtns = document.querySelectorAll('.star-btn');
+    starBtns.forEach((btn, index) => {
+        if (index < stars) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    const statusTexts = [
+        "1.0 / 5.0 (THANK YOU)",
+        "2.0 / 5.0 (APPRECIATED)",
+        "3.0 / 5.0 (GOOD VIBES)",
+        "4.0 / 5.0 (AWESOME)",
+        "5.0 / 5.0 (EXCELLENT ✨)"
+    ];
+    document.getElementById('ratingStatusText').textContent = statusTexts[stars - 1];
+    showToast(`ধন্যবাদ! আপনি ${stars}★ রেটিং দিয়েছেন ⭐`);
 }
 
 /* =========================================================
-   3. LIVE CLOCK (BANGLADESH TIME)
+   3. 3D AUDIO CAPSULE CONTROLLER
 ========================================================= */
-function updateLiveClock() {
-    const now = new Date();
-    const timeOptions = { timeZone: 'Asia/Dhaka', hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    const dateOptions = { timeZone: 'Asia/Dhaka', day: 'numeric', month: 'short', year: 'numeric' };
-    
-    document.getElementById('liveTime').textContent = now.toLocaleTimeString('en-US', timeOptions);
-    document.getElementById('liveDate').textContent = now.toLocaleDateString('en-US', dateOptions);
+const vibeAudio = document.getElementById('vibeAudio');
+const cpPlayIcon = document.getElementById('cpPlayIcon');
+const cpPauseIcon = document.getElementById('cpPauseIcon');
+const audioBars = document.getElementById('audioBars');
+
+function toggleCapsuleAudio() {
+    if (vibeAudio.paused) {
+        vibeAudio.play().then(() => {
+            cpPlayIcon.style.display = 'none';
+            cpPauseIcon.style.display = 'block';
+            audioBars.classList.add('playing');
+            showToast("Playing 3D Ambient Waves 🎵");
+        }).catch(() => {
+            showToast("Click play button again");
+        });
+    } else {
+        vibeAudio.pause();
+        cpPlayIcon.style.display = 'block';
+        cpPauseIcon.style.display = 'none';
+        audioBars.classList.remove('playing');
+        showToast("Audio Paused ⏸️");
+    }
 }
-setInterval(updateLiveClock, 1000);
-updateLiveClock();
 
 /* =========================================================
    4. FLOATING PARTICLES
