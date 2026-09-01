@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -45,7 +45,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Background Animated Canvas */
+/* Background Particle Canvas */
 #particleCanvas {
     position: fixed;
     inset: 0;
@@ -202,14 +202,14 @@ body {
     display: block;
 }
 
-/* Live Active Pulse Badge */
+/* Live Active Status Badge */
 .live-status-badge {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 4px 12px;
+    padding: 4px 14px;
     background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(16, 185, 129, 0.35);
     border-radius: 99px;
     font-size: 11px;
     font-weight: 700;
@@ -367,7 +367,7 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* SECTIONS & LOGO STYLING */
+/* SECTION TITLES */
 .section-title {
     display: flex;
     align-items: center;
@@ -512,71 +512,147 @@ body {
 }
 
 /* =========================================================
-   UPDATED: PROFESSIONAL BUSINESS BADGES (কাউন্টারের বদলে)
+   LIVE CARD 1: CYBER HOLOGRAPHIC ID BADGE
 ========================================================= */
-.business-badges {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+.hologram-id-card {
     margin-top: 10px;
+    padding: 18px;
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(100, 232, 255, 0.08), rgba(6, 13, 22, 0.7));
+    border: 1px solid rgba(100, 232, 255, 0.28);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
-.badge-item {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 14px 6px;
-    border-radius: 18px;
-    text-align: center;
-    transition: 0.3s;
+.hologram-id-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(100, 232, 255, 0.06) 50%,
+        transparent 60%
+    );
+    animation: holoScan 6s linear infinite;
+    pointer-events: none;
 }
 
-.badge-item:hover {
-    transform: translateY(-3px);
-    border-color: rgba(100, 232, 255, 0.35);
-    background: linear-gradient(145deg, rgba(100, 232, 255, 0.08), rgba(255, 255, 255, 0.02));
+@keyframes holoScan {
+    0% { transform: translateY(-30%) rotate(25deg); }
+    100% { transform: translateY(30%) rotate(25deg); }
 }
 
-.badge-icon {
-    width: 32px;
-    height: 32px;
-    margin: 0 auto 6px;
-    border-radius: 10px;
-    background: rgba(100, 232, 255, 0.12);
+.holo-top {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
     color: #64e8ff;
+    letter-spacing: 1.2px;
+    border-bottom: 1px dashed rgba(100, 232, 255, 0.2);
+    padding-bottom: 9px;
+    margin-bottom: 12px;
 }
 
-.badge-icon svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
+.holo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
 }
 
-.badge-title {
+.holo-item-label {
+    font-size: 8.5px;
+    font-weight: 700;
+    color: #7d93ab;
+    letter-spacing: 1.2px;
+}
+
+.holo-item-val {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 11.5px;
-    font-weight: 800;
-    color: #f5f8fc;
-    letter-spacing: 0.3px;
-}
-
-.badge-desc {
-    font-size: 9.5px;
-    color: #8ea0b4;
-    margin-top: 2px;
-    font-family: "Noto Serif Bengali", serif;
+    font-weight: 700;
+    color: #f1f7fe;
+    margin-top: 3px;
 }
 
 /* =========================================================
-   LIVE LOCAL TIME CLOCK
+   LIVE CARD 2: REAL-TIME WEATHER & ATMOSPHERE
+========================================================= */
+.live-weather-card {
+    margin-top: 10px;
+    padding: 16px 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(100, 232, 255, 0.18);
+    background: linear-gradient(145deg, rgba(16, 137, 245, 0.08), rgba(6, 13, 22, 0.6));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.weather-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.weather-icon-box {
+    font-size: 26px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.weather-city {
+    font-size: 9.5px;
+    font-weight: 800;
+    color: #8da2bb;
+    letter-spacing: 1.5px;
+}
+
+.weather-condition {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e9f1f8;
+    margin-top: 2px;
+}
+
+.weather-right {
+    text-align: right;
+}
+
+.weather-temp {
+    font-size: 22px;
+    font-weight: 800;
+    color: #64e8ff;
+    letter-spacing: 0.5px;
+}
+
+.weather-live-indicator {
+    font-size: 8px;
+    color: #34d399;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   LIVE CARD 3: BANGLADESH TIME & LOCAL SYSTEM
 ========================================================= */
 .live-clock-card {
-    margin-top: 14px;
-    padding: 18px;
+    margin-top: 10px;
+    padding: 16px 18px;
     border-radius: 22px;
-    border: 1px solid rgba(100, 232, 255, 0.2);
-    background: linear-gradient(145deg, rgba(16, 137, 245, 0.12), rgba(6, 13, 22, 0.5));
+    border: 1px solid rgba(132, 108, 255, 0.2);
+    background: linear-gradient(145deg, rgba(132, 108, 255, 0.08), rgba(6, 13, 22, 0.6));
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -593,8 +669,8 @@ body {
     width: 42px;
     height: 42px;
     border-radius: 14px;
-    background: rgba(100, 232, 255, 0.15);
-    color: #64e8ff;
+    background: rgba(132, 108, 255, 0.15);
+    color: #a78bfa;
     display: grid;
     place-items: center;
 }
@@ -606,14 +682,14 @@ body {
 }
 
 .clock-title {
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 800;
     color: #8da2bb;
     letter-spacing: 1.5px;
 }
 
 .clock-date {
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 600;
     color: #e9f1f8;
     margin-top: 2px;
@@ -622,11 +698,11 @@ body {
 
 .live-time-display {
     text-align: right;
-    font-family: monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
     font-weight: 800;
     color: #64e8ff;
-    text-shadow: 0 0 12px rgba(100, 232, 255, 0.5);
+    text-shadow: 0 0 12px rgba(100, 232, 255, 0.45);
 }
 
 .live-timezone {
@@ -726,7 +802,7 @@ body {
 
 <body>
 
-<!-- Live Floating Particle Canvas Background -->
+<!-- Live Floating Particle Background -->
 <canvas id="particleCanvas"></canvas>
 
 <div class="background">
@@ -750,7 +826,7 @@ body {
             <!-- LIVE STATUS BADGE -->
             <div class="live-status-badge">
                 <span class="status-dot"></span>
-                <span>Available for Business</span>
+                <span>Active & Online</span>
             </div>
 
             <h1 class="name">MD. ABU HANIF</h1>
@@ -914,35 +990,53 @@ body {
             </div>
         </section>
 
-        <!-- BUSINESS TRUST BADGES -->
-        <div class="section-title">BUSINESS TRUST & HIGHLIGHTS</div>
+        <!-- LIVE CARD 1: CYBER HOLOGRAPHIC ID BADGE -->
+        <div class="section-title">DIGITAL PROFILE METRICS</div>
 
-        <section class="business-badges">
-            <div class="badge-item">
-                <div class="badge-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                </div>
-                <div class="badge-title">Verified</div>
-                <div class="badge-desc">বিশ্বস্ত প্রোফাইল</div>
+        <section class="hologram-id-card">
+            <div class="holo-top">
+                <span>IDENTITY: VERIFIED</span>
+                <span id="livePing">PING: 24ms</span>
             </div>
-            <div class="badge-item">
-                <div class="badge-icon">
-                    <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+            <div class="holo-grid">
+                <div>
+                    <div class="holo-item-label">USER ID</div>
+                    <div class="holo-item-val">AH-2026-X89</div>
                 </div>
-                <div class="badge-title">Secure</div>
-                <div class="badge-desc">নিরাপদ লেনদেন</div>
-            </div>
-            <div class="badge-item">
-                <div class="badge-icon">
-                    <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+                <div>
+                    <div class="holo-item-label">NETWORK PROTOCOL</div>
+                    <div class="holo-item-val">TLS 1.3 / HTTP3</div>
                 </div>
-                <div class="badge-title">Fast Active</div>
-                <div class="badge-desc">দ্রুত রেসপন্স</div>
+                <div>
+                    <div class="holo-item-label">LOCAL SYSTEM</div>
+                    <div class="holo-item-val" id="userDevice">Mobile / Web</div>
+                </div>
+                <div>
+                    <div class="holo-item-label">SECURITY STATUS</div>
+                    <div class="holo-item-val" style="color:#34d399;">● ENCRYPTED</div>
+                </div>
             </div>
         </section>
 
-        <!-- LIVE LOCAL TIME CLOCK -->
-        <div class="section-title">LOCAL TIME & STATUS</div>
+        <!-- LIVE CARD 2: REAL-TIME WEATHER & ATMOSPHERE -->
+        <div class="section-title">LIVE ATMOSPHERE</div>
+
+        <div class="live-weather-card">
+            <div class="weather-left">
+                <div class="weather-icon-box" id="weatherIcon">⛅</div>
+                <div>
+                    <div class="weather-city">DHAKA, BANGLADESH</div>
+                    <div class="weather-condition" id="weatherCondition">Updating...</div>
+                </div>
+            </div>
+            <div class="weather-right">
+                <div class="weather-temp" id="weatherTemp">--°C</div>
+                <div class="weather-live-indicator">● LIVE SATELLITE</div>
+            </div>
+        </div>
+
+        <!-- LIVE CARD 3: BANGLADESH TIME & LOCAL SYSTEM -->
+        <div class="section-title">LOCAL TIME & TIMEZONE</div>
 
         <div class="live-clock-card">
             <div class="clock-left">
@@ -991,7 +1085,55 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   1. LIVE CLOCK (BANGLADESH TIME)
+   1. HOLOGRAPHIC SYSTEM METRICS
+========================================================= */
+function updateHologramMetrics() {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    document.getElementById('userDevice').textContent = isMobile ? 'Mobile OS' : 'Desktop OS';
+
+    // Live Realistic Ping Simulation
+    setInterval(() => {
+        const ping = Math.floor(Math.random() * 12) + 20;
+        document.getElementById('livePing').textContent = `PING: ${ping}ms`;
+    }, 3000);
+}
+updateHologramMetrics();
+
+/* =========================================================
+   2. REAL-TIME WEATHER API (Open-Meteo)
+========================================================= */
+async function fetchLiveWeather() {
+    try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=23.8103&longitude=90.4125&current_weather=true');
+        const data = await res.json();
+        const current = data.current_weather;
+        
+        document.getElementById('weatherTemp').textContent = `${Math.round(current.temperature)}°C`;
+        
+        const code = current.weathercode;
+        let condition = "Clear Sky";
+        let icon = "☀️";
+        
+        if (code === 0) { condition = "Clear Sky"; icon = "☀️"; }
+        else if (code >= 1 && code <= 3) { condition = "Partly Cloudy"; icon = "⛅"; }
+        else if (code >= 45 && code <= 48) { condition = "Foggy"; icon = "🌫️"; }
+        else if (code >= 51 && code <= 67) { condition = "Light Rain"; icon = "🌦️"; }
+        else if (code >= 71 && code <= 77) { condition = "Cold Breeze"; icon = "❄️"; }
+        else if (code >= 80 && code <= 82) { condition = "Rain Showers"; icon = "🌧️"; }
+        else if (code >= 95) { condition = "Thunderstorm"; icon = "⛈️"; }
+        
+        document.getElementById('weatherCondition').textContent = condition;
+        document.getElementById('weatherIcon').textContent = icon;
+    } catch (e) {
+        document.getElementById('weatherTemp').textContent = "28°C";
+        document.getElementById('weatherCondition').textContent = "Partly Cloudy";
+        document.getElementById('weatherIcon').textContent = "⛅";
+    }
+}
+fetchLiveWeather();
+
+/* =========================================================
+   3. LIVE CLOCK (BANGLADESH TIME)
 ========================================================= */
 function updateLiveClock() {
     const now = new Date();
@@ -1005,7 +1147,7 @@ setInterval(updateLiveClock, 1000);
 updateLiveClock();
 
 /* =========================================================
-   2. INTERACTIVE FLOATING PARTICLES
+   4. FLOATING PARTICLES
 ========================================================= */
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
@@ -1056,7 +1198,7 @@ function animateParticles() {
 animateParticles();
 
 /* =========================================================
-   3. COPY & SHARE LOGIC
+   5. COPY & SHARE
 ========================================================= */
 function copyNumber(text) {
     if (navigator.clipboard && window.isSecureContext) {
