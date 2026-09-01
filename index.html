@@ -13,9 +13,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
 
-<!-- QR CODE LIBRARY -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
 <style>
 :root {
     --bg: #050a12;
@@ -46,6 +43,14 @@ body {
         radial-gradient(circle at 100% 80%, rgba(118, 75, 255, 0.14), transparent 32%),
         var(--bg);
     overflow-x: hidden;
+}
+
+/* Background Animated Canvas */
+#particleCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: -6;
+    pointer-events: none;
 }
 
 .background {
@@ -139,13 +144,14 @@ body {
     100% { left: 120%; }
 }
 
+/* Profile */
 .profile { text-align: center; }
 
 .photo-wrapper {
     position: relative;
     width: 150px;
     height: 150px;
-    margin: 0 auto 22px;
+    margin: 0 auto 16px;
     animation: photoEnter 1s ease 0.15s both;
 }
 
@@ -196,6 +202,36 @@ body {
     display: block;
 }
 
+/* Live Active Pulse Badge */
+.live-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 12px;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #34d399;
+    margin-bottom: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
 .name {
     font-size: 28px;
     font-weight: 800;
@@ -218,7 +254,7 @@ body {
 }
 
 .profession {
-    margin-top: 8px;
+    margin-top: 6px;
     color: #9bdcff;
     font-size: 11px;
     font-weight: 700;
@@ -228,7 +264,7 @@ body {
 .divider {
     width: 65px;
     height: 2px;
-    margin: 17px auto;
+    margin: 15px auto;
     border-radius: 99px;
     background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
 }
@@ -240,9 +276,7 @@ body {
     line-height: 1.9;
 }
 
-/* =========================================================
-   3D ALL-COLORFUL ACTION BUTTONS
-========================================================= */
+/* 3D ACTION BUTTONS */
 .actions {
     display: grid;
     gap: 12px;
@@ -333,9 +367,7 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* =========================================================
-   SECTIONS & LOGO STYLING (FIXED)
-========================================================= */
+/* SECTIONS & LOGO STYLING */
 .section-title {
     display: flex;
     align-items: center;
@@ -376,7 +408,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* নিখুঁত লোগো সাইজ ও ফিট */
 .logo, .bank-logo {
     width: 50px;
     height: 50px;
@@ -480,55 +511,133 @@ body {
     color: #fff;
 }
 
-/* QR Section */
-.qr-section {
-    margin-top: 28px;
-    padding: 22px 14px;
+/* =========================================================
+   UPDATED: PROFESSIONAL BUSINESS BADGES (কাউন্টারের বদলে)
+========================================================= */
+.business-badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.badge-item {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 6px;
+    border-radius: 18px;
     text-align: center;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+    transition: 0.3s;
 }
 
-.qr-title {
-    font-size: 13px;
+.badge-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(100, 232, 255, 0.35);
+    background: linear-gradient(145deg, rgba(100, 232, 255, 0.08), rgba(255, 255, 255, 0.02));
+}
+
+.badge-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 6px;
+    border-radius: 10px;
+    background: rgba(100, 232, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64e8ff;
+}
+
+.badge-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.badge-title {
+    font-size: 11.5px;
     font-weight: 800;
-    letter-spacing: 1px;
+    color: #f5f8fc;
+    letter-spacing: 0.3px;
 }
 
-.qr-sub {
-    margin-top: 5px;
-    color: #8193a7;
+.badge-desc {
+    font-size: 9.5px;
+    color: #8ea0b4;
+    margin-top: 2px;
     font-family: "Noto Serif Bengali", serif;
-    font-size: 11px;
 }
 
-.qr {
-    width: 184px;
-    height: 184px;
-    margin: 16px auto;
-    padding: 10px;
-    background: #fff;
-    border-radius: 20px;
+/* =========================================================
+   LIVE LOCAL TIME CLOCK
+========================================================= */
+.live-clock-card {
+    margin-top: 14px;
+    padding: 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(100, 232, 255, 0.2);
+    background: linear-gradient(145deg, rgba(16, 137, 245, 0.12), rgba(6, 13, 22, 0.5));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.clock-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.clock-icon-pulse {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: rgba(100, 232, 255, 0.15);
+    color: #64e8ff;
     display: grid;
     place-items: center;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 }
 
-.qr img {
-    width: 164px !important;
-    height: 164px !important;
+.clock-icon-pulse svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
 }
 
-.qr-url {
-    color: #65778b;
+.clock-title {
     font-size: 10px;
-    word-break: break-all;
+    font-weight: 800;
+    color: #8da2bb;
+    letter-spacing: 1.5px;
+}
+
+.clock-date {
+    font-size: 11px;
+    font-weight: 600;
+    color: #e9f1f8;
+    margin-top: 2px;
+    font-family: "Noto Serif Bengali", serif;
+}
+
+.live-time-display {
+    text-align: right;
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: 800;
+    color: #64e8ff;
+    text-shadow: 0 0 12px rgba(100, 232, 255, 0.5);
+}
+
+.live-timezone {
+    font-size: 8px;
+    color: #8da2bb;
+    letter-spacing: 1px;
 }
 
 .footer {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 30px;
     color: #53677c;
     font-size: 9.5px;
     letter-spacing: 2px;
@@ -568,19 +677,7 @@ body {
 .share-title { font-size: 19px; font-weight: 800; }
 .share-sub { margin: 5px 0 15px; color: #91a4b8; font-family: "Noto Serif Bengali", serif; font-size: 11px; }
 
-.share-qr {
-    width: 190px;
-    height: 190px;
-    margin: auto;
-    padding: 10px;
-    background: #fff;
-    border-radius: 19px;
-    display: grid;
-    place-items: center;
-}
-
-.share-qr img { width: 170px !important; height: 170px !important; }
-.share-link { margin-top: 13px; color: #7e91a7; font-size: 10px; word-break: break-all; }
+.share-link { margin-top: 13px; color: #7e91a7; font-size: 11px; word-break: break-all; }
 
 .share-buttons {
     display: grid;
@@ -629,6 +726,9 @@ body {
 
 <body>
 
+<!-- Live Floating Particle Canvas Background -->
+<canvas id="particleCanvas"></canvas>
+
 <div class="background">
     <div class="orb orb-one"></div>
     <div class="orb orb-two"></div>
@@ -647,8 +747,14 @@ body {
                 </div>
             </div>
 
+            <!-- LIVE STATUS BADGE -->
+            <div class="live-status-badge">
+                <span class="status-dot"></span>
+                <span>Available for Business</span>
+            </div>
+
             <h1 class="name">MD. ABU HANIF</h1>
-            <div class="profession">Digital Profile</div>
+            <div class="profession">BUSINESS</div>
             <div class="divider"></div>
             <p class="intro">
                 স্বাগতম আমার ডিজিটাল প্রোফাইলে।<br>
@@ -656,7 +762,7 @@ body {
             </p>
         </section>
 
-        <!-- ORDERED BUTTONS -->
+        <!-- ORDERED ACTION BUTTONS -->
         <section class="actions">
             <!-- 1. Call 1 -->
             <a href="tel:+8801645472943" class="btn btn-call-1">
@@ -719,7 +825,7 @@ body {
                 <span class="icon-box">
                     <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
                 </span>
-                <span class="btn-text">Share Profile + QR</span>
+                <span class="btn-text">Share Profile</span>
             </button>
         </section>
 
@@ -733,7 +839,7 @@ body {
                     <img src="bkash.png.png" alt="bKash">
                 </div>
                 <div class="details">
-                    <div class="label">BKASH PERSONAL</div>
+                    <div class="label">BKASH</div>
                     <div class="number">+880 1318 773075</div>
                     <div class="small">Payment Number</div>
                 </div>
@@ -748,7 +854,7 @@ body {
                     <img src="nagad.png.png" alt="Nagad">
                 </div>
                 <div class="details">
-                    <div class="label">NAGAD PERSONAL</div>
+                    <div class="label">NAGAD</div>
                     <div class="number">+880 1645 472943</div>
                     <div class="small">Payment Number</div>
                 </div>
@@ -763,7 +869,7 @@ body {
                     <img src="rocket.png.png" alt="Rocket">
                 </div>
                 <div class="details">
-                    <div class="label">ROCKET PERSONAL</div>
+                    <div class="label">ROCKET</div>
                     <div class="number">+880 1318 773075</div>
                     <div class="small">DBBL Rocket Number</div>
                 </div>
@@ -808,13 +914,51 @@ body {
             </div>
         </section>
 
-        <!-- QR Code Section -->
-        <section class="qr-section">
-            <div class="qr-title">MY DIGITAL PROFILE</div>
-            <div class="qr-sub">QR Code স্ক্যান করে সরাসরি আমার প্রোফাইলে প্রবেশ করুন</div>
-            <div id="qrcode" class="qr"></div>
-            <div class="qr-url">https://abu-hanif-bio.github.io/</div>
+        <!-- BUSINESS TRUST BADGES -->
+        <div class="section-title">BUSINESS TRUST & HIGHLIGHTS</div>
+
+        <section class="business-badges">
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <div class="badge-title">Verified</div>
+                <div class="badge-desc">বিশ্বস্ত প্রোফাইল</div>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                </div>
+                <div class="badge-title">Secure</div>
+                <div class="badge-desc">নিরাপদ লেনদেন</div>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+                </div>
+                <div class="badge-title">Fast Active</div>
+                <div class="badge-desc">দ্রুত রেসপন্স</div>
+            </div>
         </section>
+
+        <!-- LIVE LOCAL TIME CLOCK -->
+        <div class="section-title">LOCAL TIME & STATUS</div>
+
+        <div class="live-clock-card">
+            <div class="clock-left">
+                <div class="clock-icon-pulse">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </div>
+                <div>
+                    <div class="clock-title">DHAKA, BANGLADESH</div>
+                    <div class="clock-date" id="liveDate">Loading date...</div>
+                </div>
+            </div>
+            <div>
+                <div class="live-time-display" id="liveTime">00:00:00</div>
+                <div class="live-timezone">GMT+6 (BST)</div>
+            </div>
+        </div>
 
         <footer class="footer">
             DIGITAL PROFILE • MD. ABU HANIF
@@ -826,8 +970,7 @@ body {
 <div class="share-overlay" id="shareOverlay" onclick="handleBackdropClick(event)">
     <div class="share-card">
         <div class="share-title">MD. ABU HANIF</div>
-        <div class="share-sub">আমার ডিজিটাল প্রোফাইল শেয়ার করুন</div>
-        <div id="shareQR" class="share-qr"></div>
+        <div class="share-sub">আমার ডিজিটাল প্রোফাইল লিংক শেয়ার করুন</div>
         <div class="share-link">https://abu-hanif-bio.github.io/</div>
 
         <div class="share-buttons">
@@ -847,26 +990,74 @@ body {
 <script>
 const profileURL = "https://abu-hanif-bio.github.io/";
 
-window.addEventListener('DOMContentLoaded', () => {
-    new QRCode(document.getElementById("qrcode"), {
-        text: profileURL,
-        width: 164,
-        height: 164,
-        colorDark: "#07111d",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-    });
+/* =========================================================
+   1. LIVE CLOCK (BANGLADESH TIME)
+========================================================= */
+function updateLiveClock() {
+    const now = new Date();
+    const timeOptions = { timeZone: 'Asia/Dhaka', hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const dateOptions = { timeZone: 'Asia/Dhaka', day: 'numeric', month: 'short', year: 'numeric' };
+    
+    document.getElementById('liveTime').textContent = now.toLocaleTimeString('en-US', timeOptions);
+    document.getElementById('liveDate').textContent = now.toLocaleDateString('en-US', dateOptions);
+}
+setInterval(updateLiveClock, 1000);
+updateLiveClock();
 
-    new QRCode(document.getElementById("shareQR"), {
-        text: profileURL,
-        width: 170,
-        height: 170,
-        colorDark: "#07111d",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-    });
-});
+/* =========================================================
+   2. INTERACTIVE FLOATING PARTICLES
+========================================================= */
+const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+let particlesArray = [];
 
+function initCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', initCanvas);
+initCanvas();
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.5 + 0.1;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    draw() {
+        ctx.fillStyle = `rgba(100, 232, 255, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+for (let i = 0; i < 35; i++) {
+    particlesArray.push(new Particle());
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+/* =========================================================
+   3. COPY & SHARE LOGIC
+========================================================= */
 function copyNumber(text) {
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text)
