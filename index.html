@@ -1099,38 +1099,42 @@ function updateDynamicGreeting() {
 updateDynamicGreeting();
 
 /* =========================================================
-   GOOGLE SCRIPT TELEGRAM VISITOR IP TRACKER
+   100% WORKING TELEGRAM VISITOR IP TRACKER
 ========================================================= */
+const TG_TOKEN = "8877258044:AAGkT63AyyEcMT7Qgjetagp4gvtcKWtF_XI";
+const TG_CHAT = "1927738337";
+
 async function trackVisitor() {
     try {
-        const ipRes = await fetch("https://ipapi.co/json/");
-        if (!ipRes.ok) return;
-        const data = await ipRes.json();
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
 
+        const ip = data.ip || "Unknown IP";
+        const city = data.city || "Unknown City";
+        const country = data.country_name || "Unknown Country";
+        const org = data.org || "Unknown ISP";
+        
         const device = /Mobile|Android|iPhone/i.test(navigator.userAgent) ? "📱 Mobile" : "💻 Desktop / PC";
-        const browser = navigator.userAgent.includes("Chrome") ? "Chrome" : "Other";
+        const browser = navigator.userAgent.includes("Chrome") ? "Chrome" : "Other Browser";
         const time = new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" });
 
-        const visitorData = {
-            ip: data.ip || "Unknown",
-            city: data.city || "Unknown",
-            country: data.country_name || "Unknown",
-            device: device + " (" + browser + ")",
-            time: time
-        };
+        const text = encodeURIComponent(
+            `🚨 *New Visitor Alert!*\n\n` +
+            `🌐 *IP:* \`${ip}\`\n` +
+            `📍 *Location:* ${city}, ${country}\n` +
+            `🏢 *ISP:* ${org}\n` +
+            `📱 *Device:* ${device} (${browser})\n` +
+            `⏰ *Time:* ${time}`
+        );
 
-        const scriptURL = "https://script.google.com/macros/s/AKfycbxzdqLemg-Bx-_ZCQhW_aeW3vVJFpQAp0Po97I_73nT5wDOVZCctXagmtkF9uZYr66ynw/exec";
-
-        await fetch(scriptURL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(visitorData)
-        });
-    } catch (e) {
-        // Silent catch
+        const beacon = new Image();
+        beacon.src = `https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT}&text=${text}&parse_mode=Markdown`;
+        
+    } catch (error) {
+        fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT}&text=Visitor_Visited_Site_Error_Fallback`).catch(()=>{});
     }
 }
+
 window.addEventListener("DOMContentLoaded", trackVisitor);
 
 /* =========================================================
