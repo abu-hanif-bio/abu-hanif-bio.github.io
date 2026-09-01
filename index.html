@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -107,14 +107,14 @@ body {
 .container {
     width: min(490px, 92%);
     margin: auto;
-    padding: 30px 0 45px;
+    padding: 26px 0 45px;
 }
 
 .card {
     position: relative;
-    padding: 32px 20px;
-    border-radius: 34px;
-    background: linear-gradient(145deg, rgba(18, 31, 49, 0.86), rgba(6, 13, 22, 0.80));
+    padding: 34px 20px;
+    border-radius: 36px;
+    background: linear-gradient(145deg, rgba(18, 31, 49, 0.88), rgba(6, 13, 22, 0.82));
     border: 1px solid var(--border);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
@@ -144,13 +144,18 @@ body {
     100% { left: 120%; }
 }
 
-/* Profile */
-.profile { text-align: center; }
+/* =========================================================
+   ENHANCED PROFILE HEADER & DUAL ROTATING AURA
+========================================================= */
+.profile {
+    text-align: center;
+    position: relative;
+}
 
 .photo-wrapper {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 154px;
+    height: 154px;
     margin: 0 auto 16px;
     animation: photoEnter 1s ease 0.15s both;
 }
@@ -160,36 +165,49 @@ body {
     to { opacity: 1; transform: none; }
 }
 
+/* Outer Pulsing Glow */
 .photo-wrapper::before {
     content: "";
     position: absolute;
-    inset: -14px;
+    inset: -16px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(70, 160, 255, 0.25), transparent 68%);
-    filter: blur(9px);
+    background: radial-gradient(circle, rgba(100, 232, 255, 0.28), rgba(116, 77, 255, 0.15) 60%, transparent 75%);
+    filter: blur(12px);
     animation: photoGlow 4s ease-in-out infinite;
 }
 
 @keyframes photoGlow {
-    0%, 100% { transform: scale(0.96); opacity: 0.65; }
-    50% { transform: scale(1.05); opacity: 1; }
+    0%, 100% { transform: scale(0.96); opacity: 0.7; }
+    50% { transform: scale(1.08); opacity: 1; }
 }
 
+/* Dual Rotating Cosmic Rings */
 .photo-ring {
     position: absolute;
-    inset: 0;
-    padding: 3px;
+    inset: -3px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #72ebff, #438fff 48%, #8b68ff);
-    box-shadow: 0 0 35px rgba(77, 166, 255, 0.20);
+    background: conic-gradient(from 0deg, #64e8ff, #3d91ff, #846cff, transparent, #64e8ff);
+    animation: spinRing 6s linear infinite;
+    padding: 3px;
+    box-shadow: 0 0 30px rgba(100, 232, 255, 0.3);
+}
+
+@keyframes spinRing {
+    100% { transform: rotate(360deg); }
+}
+
+.photo-inner-ring {
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: #07111d;
+    padding: 4px;
 }
 
 .photo {
     width: 100%;
     height: 100%;
-    padding: 4px;
     border-radius: 50%;
-    background: #07111d;
     overflow: hidden;
     position: relative;
 }
@@ -202,24 +220,44 @@ body {
     display: block;
 }
 
-/* Live Active Status Badge */
+/* Quick Status Badges Bar */
+.profile-tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
 .live-status-badge {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    padding: 4px 14px;
+    gap: 6px;
+    padding: 5px 13px;
     background: rgba(16, 185, 129, 0.12);
     border: 1px solid rgba(16, 185, 129, 0.35);
     border-radius: 99px;
     font-size: 11px;
     font-weight: 700;
     color: #34d399;
-    margin-bottom: 12px;
+}
+
+.location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    background: rgba(100, 232, 255, 0.08);
+    border: 1px solid rgba(100, 232, 255, 0.2);
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #8ee9ff;
 }
 
 .status-dot {
-    width: 8px;
-    height: 8px;
+    width: 7.5px;
+    height: 7.5px;
     border-radius: 50%;
     background: #10b981;
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
@@ -232,11 +270,19 @@ body {
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 
+/* Name with Verified Badge */
+.name-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
 .name {
     font-size: 28px;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 1.5px;
-    background: linear-gradient(100deg, #fff, #bceaff, #fff);
+    background: linear-gradient(100deg, #fff, #c2edff, #fff);
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
@@ -253,7 +299,19 @@ body {
     to { background-position: 200% center; }
 }
 
-/* Digital Profile Designation */
+.verified-badge {
+    width: 20px;
+    height: 20px;
+    fill: #2086ff;
+    filter: drop-shadow(0 0 6px rgba(32, 134, 255, 0.6));
+    animation: bounceBadge 2.5s ease-in-out infinite;
+}
+
+@keyframes bounceBadge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
 .profession {
     margin-top: 6px;
     color: #9bdcff;
@@ -263,10 +321,33 @@ body {
     text-transform: uppercase;
 }
 
+/* Typewriter Dynamic Tagline */
+.typewriter-box {
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #8edcff;
+    min-height: 18px;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    background-color: #64e8ff;
+    margin-left: 2px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .divider {
     width: 65px;
     height: 2px;
-    margin: 15px auto;
+    margin: 14px auto;
     border-radius: 99px;
     background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
 }
@@ -278,7 +359,9 @@ body {
     line-height: 1.9;
 }
 
-/* 3D ACTION BUTTONS */
+/* =========================================================
+   3D ACTION BUTTONS
+========================================================= */
 .actions {
     display: grid;
     gap: 12px;
@@ -818,24 +901,44 @@ body {
 
 <div class="container">
     <main class="card">
-        <!-- Profile Info -->
+        <!-- Enhanced Profile Info Header -->
         <section class="profile">
+            <!-- Dual Rotating Aura Rings Around Photo -->
             <div class="photo-wrapper">
-                <div class="photo-ring">
+                <div class="photo-ring"></div>
+                <div class="photo-inner-ring">
                     <div class="photo">
                         <img src="profile.jpg" alt="MD. ABU HANIF" onerror="this.src='https://ui-avatars.com/api/?name=Abu+Hanif&background=0D8ABC&color=fff&size=256'">
                     </div>
                 </div>
             </div>
 
-            <!-- LIVE STATUS BADGE -->
-            <div class="live-status-badge">
-                <span class="status-dot"></span>
-                <span>Active & Online</span>
+            <!-- Badges Bar -->
+            <div class="profile-tags">
+                <div class="live-status-badge">
+                    <span class="status-dot"></span>
+                    <span>Active & Online</span>
+                </div>
+                <div class="location-badge">
+                    <span>📍 Dhaka, BD</span>
+                </div>
             </div>
 
-            <h1 class="name">MD. ABU HANIF</h1>
+            <!-- Name with Animated Blue Verification Tick -->
+            <div class="name-container">
+                <h1 class="name">MD. ABU HANIF</h1>
+                <svg class="verified-badge" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.2 14.2l-3.5-3.5 1.4-1.4 2.1 2.1 5.3-5.3 1.4 1.4-6.7 6.7z"/>
+                </svg>
+            </div>
+
             <div class="profession">DIGITAL PROFILE</div>
+
+            <!-- Dynamic Interactive Typewriter -->
+            <div class="typewriter-box">
+                <span id="typewriterText"></span><span class="cursor"></span>
+            </div>
+
             <div class="divider"></div>
             <p class="intro">
                 স্বাগতম আমার ডিজিটাল প্রোফাইলে।<br>
@@ -910,7 +1013,7 @@ body {
             </button>
         </section>
 
-        <!-- MOBILE FINANCIAL SERVICES (UPDATED WITH "PERSONAL") -->
+        <!-- MOBILE FINANCIAL SERVICES -->
         <div class="section-title">MOBILE FINANCIAL SERVICES</div>
 
         <section class="payment-list">
@@ -1092,16 +1195,48 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   1. LIVE NETWORK & RADAR SENSORS
+   1. TYPEWRITER EFFECT
+========================================================= */
+const words = ["Entrepreneur", "Tech Enthusiast", "Digital Creator", "Business Mindset"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typeElement = document.getElementById("typewriterText");
+
+function typeEffect() {
+    const currentWord = words[wordIndex];
+    if (isDeleting) {
+        typeElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typeElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 40 : 90;
+
+    if (!isDeleting && charIndex === currentWord.length) {
+        typeSpeed = 1800; // Pause at end
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 400;
+    }
+
+    setTimeout(typeEffect, typeSpeed);
+}
+typeEffect();
+
+/* =========================================================
+   2. LIVE NETWORK & RADAR SENSORS
 ========================================================= */
 function initRadarTelemetry() {
-    // Network Type Detection
     if (navigator.connection) {
         const netType = navigator.connection.effectiveType ? navigator.connection.effectiveType.toUpperCase() : 'WIFI';
         document.getElementById('clientNet').textContent = netType;
     }
 
-    // Dynamic Micro-Ping simulation
     setInterval(() => {
         const ping = Math.floor(Math.random() * 10) + 18;
         document.getElementById('clientLatency').textContent = `${ping}ms`;
@@ -1110,7 +1245,7 @@ function initRadarTelemetry() {
 initRadarTelemetry();
 
 /* =========================================================
-   2. REAL-TIME WEATHER API (DHAKA)
+   3. REAL-TIME WEATHER API (DHAKA)
 ========================================================= */
 async function fetchLiveWeather() {
     try {
@@ -1143,7 +1278,7 @@ async function fetchLiveWeather() {
 fetchLiveWeather();
 
 /* =========================================================
-   3. LIVE CLOCK (BANGLADESH TIME)
+   4. LIVE CLOCK (BANGLADESH TIME)
 ========================================================= */
 function updateLiveClock() {
     const now = new Date();
@@ -1157,7 +1292,7 @@ setInterval(updateLiveClock, 1000);
 updateLiveClock();
 
 /* =========================================================
-   4. FLOATING PARTICLES
+   5. FLOATING PARTICLES
 ========================================================= */
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
@@ -1208,7 +1343,7 @@ function animateParticles() {
 animateParticles();
 
 /* =========================================================
-   5. COPY & SHARE
+   6. COPY & SHARE
 ========================================================= */
 function copyNumber(text) {
     if (navigator.clipboard && window.isSecureContext) {
