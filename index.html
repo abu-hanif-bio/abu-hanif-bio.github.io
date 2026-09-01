@@ -51,7 +51,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Background animated glow */
+/* Background Animation */
 .background {
     position: fixed;
     inset: 0;
@@ -103,7 +103,7 @@ body {
     background-size: 48px 48px;
 }
 
-/* Container */
+/* Container & Card */
 .container {
     width: min(490px, 92%);
     margin: auto;
@@ -308,13 +308,13 @@ body {
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 0 5px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Unique Vibrant Gradients for EVERY button */
+/* Specific Colors for Ordered Buttons */
 .btn-call-1   { background: linear-gradient(145deg, #1d77f3, #3855db); }
 .btn-call-2   { background: linear-gradient(145deg, #0284c7, #0369a1); }
 .btn-whatsapp { background: linear-gradient(145deg, #10b981, #047857); }
-.btn-email    { background: linear-gradient(145deg, #e11d48, #be123c); }
-.btn-facebook { background: linear-gradient(145deg, #1877f2, #0d5cbd); }
 .btn-imo      { background: linear-gradient(145deg, #0284c7, #0e7490); }
+.btn-facebook { background: linear-gradient(145deg, #1877f2, #0d5cbd); }
+.btn-email    { background: linear-gradient(145deg, #e11d48, #be123c); }
 .btn-save     { background: linear-gradient(145deg, #f59e0b, #d97706); }
 .btn-share    { background: linear-gradient(145deg, #8b5cf6, #6d28d9); }
 
@@ -384,7 +384,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Official Logo Styling */
 .logo, .bank-logo {
     width: 54px;
     height: 54px;
@@ -396,13 +395,12 @@ body {
     background: #ffffff;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    padding: 6px;
+    padding: 5px;
 }
 
-.logo img, .bank-logo img {
+.logo svg, .bank-logo svg {
     width: 100%;
     height: 100%;
-    object-fit: contain;
     display: block;
 }
 
@@ -669,9 +667,9 @@ body {
             </p>
         </section>
 
-        <!-- All Animated Colorful 3D Action Buttons -->
+        <!-- EXACT ORDERED BUTTONS -->
         <section class="actions">
-            <!-- Call 1 -->
+            <!-- 1. Call 1 -->
             <a href="tel:+8801645472943" class="btn btn-call-1">
                 <span class="icon-box">
                     <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.59 3.68a1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
@@ -679,7 +677,7 @@ body {
                 <span class="btn-text">Call — +880 1645 472943</span>
             </a>
 
-            <!-- Call 2 -->
+            <!-- 2. Call 2 -->
             <a href="tel:+8801318773075" class="btn btn-call-2">
                 <span class="icon-box">
                     <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.59 3.68a1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
@@ -687,31 +685,15 @@ body {
                 <span class="btn-text">Call — +880 1318 773075</span>
             </a>
 
-            <!-- WhatsApp -->
-            <a href="https://wa.me/8801318773075" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <!-- 3. WhatsApp (Corrected Number) -->
+            <a href="https://wa.me/8801645472943" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
                 <span class="icon-box">
                     <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 16.67c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.39c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 012.41 5.83c.02 4.54-3.68 8.25-8.21 8.25zm4.51-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.13.17 1.74 2.65 4.21 3.72.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.18-.48-.3z"/></svg>
                 </span>
                 <span class="btn-text">WhatsApp</span>
             </a>
 
-            <!-- Email -->
-            <a href="mailto:millat.ahhanif@gmail.com" class="btn btn-email">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </span>
-                <span class="btn-text">Email</span>
-            </a>
-
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="btn btn-facebook">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </span>
-                <span class="btn-text">Facebook</span>
-            </a>
-
-            <!-- IMO -->
+            <!-- 4. IMO -->
             <a href="https://imo.im/" target="_blank" rel="noopener noreferrer" class="btn btn-imo">
                 <span class="icon-box">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.94.55 3.75 1.5 5.28L2 22l4.85-1.45C8.34 21.48 10.11 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 5h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg>
@@ -719,7 +701,23 @@ body {
                 <span class="btn-text">IMO — +880 1645 472943</span>
             </a>
 
-            <!-- Save Contact -->
+            <!-- 5. Facebook -->
+            <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="btn btn-facebook">
+                <span class="icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </span>
+                <span class="btn-text">Facebook</span>
+            </a>
+
+            <!-- 6. Email -->
+            <a href="mailto:millat.ahhanif@gmail.com" class="btn btn-email">
+                <span class="icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </span>
+                <span class="btn-text">Email</span>
+            </a>
+
+            <!-- 7. Save Contact -->
             <button onclick="saveContact()" class="btn btn-save">
                 <span class="icon-box">
                     <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
@@ -727,7 +725,7 @@ body {
                 <span class="btn-text">Save Contact</span>
             </button>
 
-            <!-- Share Profile -->
+            <!-- 8. Share Profile -->
             <button onclick="openShare()" class="btn btn-share">
                 <span class="icon-box">
                     <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
@@ -736,14 +734,19 @@ body {
             </button>
         </section>
 
-        <!-- OFFICIAL MOBILE BANKING LOGOS -->
+        <!-- OFFICIAL MOBILE FINANCIAL SERVICES -->
         <div class="section-title">MOBILE FINANCIAL SERVICES</div>
 
         <section class="payment-list">
-            <!-- BKASH -->
+            <!-- BKASH OFFICIAL LOGO -->
             <div class="payment-card">
                 <div class="logo">
-                    <img src="https://raw.githubusercontent.com/t-kabir/bd-bank-logos/main/bkash.png" alt="bKash" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg'">
+                    <svg viewBox="0 0 100 100">
+                        <polygon points="5,50 48,8 48,92" fill="#E2136E" />
+                        <polygon points="52,8 95,50 52,92" fill="#E2136E" />
+                        <polygon points="48,15 20,50 48,50" fill="#FFFFFF" />
+                        <polygon points="52,50 80,50 52,15" fill="#FFFFFF" />
+                    </svg>
                 </div>
                 <div class="details">
                     <div class="label">BKASH</div>
@@ -755,10 +758,15 @@ body {
                 </button>
             </div>
 
-            <!-- NAGAD -->
+            <!-- NAGAD OFFICIAL LOGO -->
             <div class="payment-card">
                 <div class="logo">
-                    <img src="https://raw.githubusercontent.com/t-kabir/bd-bank-logos/main/nagad.png" alt="Nagad">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="46" fill="#F7941D" />
+                        <path d="M22 66 C 30 24, 70 24, 78 66 C 65 80, 35 80, 22 66 Z" fill="#ED1C24" />
+                        <circle cx="50" cy="48" r="16" fill="#FFFFFF" />
+                        <circle cx="50" cy="48" r="9" fill="#ED1C24" />
+                    </svg>
                 </div>
                 <div class="details">
                     <div class="label">NAGAD</div>
@@ -770,10 +778,14 @@ body {
                 </button>
             </div>
 
-            <!-- ROCKET -->
+            <!-- ROCKET OFFICIAL LOGO -->
             <div class="payment-card">
                 <div class="logo">
-                    <img src="https://raw.githubusercontent.com/t-kabir/bd-bank-logos/main/rocket.png" alt="Rocket">
+                    <svg viewBox="0 0 100 100">
+                        <rect width="100" height="100" rx="20" fill="#8C338E" />
+                        <path d="M50 14 L68 44 L57 44 L68 72 L50 62 L32 72 L43 44 L32 44 Z" fill="#FFFFFF" />
+                        <polygon points="50,62 55,78 45,78" fill="#F15A24" />
+                    </svg>
                 </div>
                 <div class="details">
                     <div class="label">ROCKET</div>
@@ -786,14 +798,20 @@ body {
             </div>
         </section>
 
-        <!-- OFFICIAL BANK LOGOS -->
+        <!-- OFFICIAL BANK INFORMATION -->
         <div class="section-title">BANK INFORMATION</div>
 
         <section class="bank-list">
-            <!-- ISLAMI BANK -->
+            <!-- ISLAMI BANK OFFICIAL LOGO -->
             <div class="bank-card">
                 <div class="bank-logo">
-                    <img src="https://raw.githubusercontent.com/t-kabir/bd-bank-logos/main/ibbl.png" alt="Islami Bank">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#006A4E" />
+                        <circle cx="50" cy="50" r="37" fill="#FFFFFF" />
+                        <path d="M34 32 L66 32 L50 66 Z" fill="#006A4E" />
+                        <circle cx="50" cy="43" r="5" fill="#D4AF37" />
+                        <rect x="30" y="70" width="40" height="5" rx="2" fill="#D4AF37" />
+                    </svg>
                 </div>
                 <div class="details">
                     <div class="bank-name">ISLAMI BANK BANGLADESH PLC</div>
@@ -805,10 +823,16 @@ body {
                 </button>
             </div>
 
-            <!-- DUTCH-BANGLA BANK -->
+            <!-- DUTCH-BANGLA BANK OFFICIAL LOGO -->
             <div class="bank-card">
                 <div class="bank-logo">
-                    <img src="https://raw.githubusercontent.com/t-kabir/bd-bank-logos/main/dbbl.png" alt="Dutch-Bangla Bank">
+                    <svg viewBox="0 0 100 100">
+                        <rect width="100" height="100" rx="16" fill="#FFFFFF" />
+                        <polygon points="50,14 86,50 50,86 14,50" fill="#ED1C24" />
+                        <circle cx="50" cy="50" r="17" fill="#0072BC" />
+                        <polygon points="50,27 73,50 50,73 27,50" fill="#FFFFFF" />
+                        <circle cx="50" cy="50" r="9" fill="#00A651" />
+                    </svg>
                 </div>
                 <div class="details">
                     <div class="bank-name">DUTCH-BANGLA BANK LIMITED</div>
@@ -902,7 +926,7 @@ function fallbackCopy(text) {
     showToast("Copied successfully ✓");
 }
 
-// Save Contact
+// Save Contact (vCard)
 function saveContact() {
     const vcard = [
         'BEGIN:VCARD',
@@ -912,6 +936,7 @@ function saveContact() {
         'ORG:Business',
         'TEL;TYPE=CELL,VOICE:+8801645472943',
         'TEL;TYPE=CELL,VOICE:+8801318773075',
+        'TEL;TYPE=WhatsApp:+8801645472943',
         'EMAIL;TYPE=PREF,INTERNET:millat.ahhanif@gmail.com',
         'URL:https://abu-hanif-bio.github.io/',
         'END:VCARD'
