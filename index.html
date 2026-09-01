@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MD. ABU HANIF | Official Profile</title>
+
+<meta name="description" content="MD. ABU HANIF — Official Digital Profile">
+<meta name="theme-color" content="#07111d">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+
+:root{
+    --bg:#050a12;
+    --card:rgba(13,22,36,.72);
+    --line:rgba(255,255,255,.10);
+    --text:#f5f8fc;
+    --muted:#93a4b8;
+    --blue:#4da6ff;
+    --cyan:#62e6ff;
+    --purple:#8b6cff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--text);
+    font-family:Inter,"Noto Serif Bengali",sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(45,130,255,.15),transparent 28%),
+        radial-gradient(circle at 85% 85%,rgba(126,76,255,.13),transparent 30%),
+        var(--bg);
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   PREMIUM BACKGROUND
+===================================================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-2;
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.16;
+}
+
+.orb.one{
+    width:380px;
+    height:380px;
+    background:#147cff;
+    top:-180px;
+    left:-160px;
+    animation:orbOne 15s ease-in-out infinite alternate;
+}
+
+.orb.two{
+    width:330px;
+    height:330px;
+    background:#7b4dff;
+    right:-140px;
+    bottom:-130px;
+    animation:orbTwo 18s ease-in-out infinite alternate;
+}
+
+@keyframes orbOne{
+    to{
+        transform:translate(80px,70px) scale(1.12);
+    }
+}
+
+@keyframes orbTwo{
+    to{
+        transform:translate(-70px,-50px) scale(1.1);
+    }
+}
+
+
+/* Fine grid */
+
+.grid{
+    position:absolute;
+    inset:0;
+    opacity:.025;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);
+
+    background-size:45px 45px;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.wrapper{
+    width:min(470px,92%);
+    margin:auto;
+    padding:38px 0;
+}
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.card{
+
+    position:relative;
+
+    padding:34px 24px;
+
+    border-radius:34px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid var(--line);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.48),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+    animation:cardReveal 1s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes cardReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* Elegant border light */
+
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:1px;
+
+    top:0;
+    left:-200px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(98,230,255,.9),
+            transparent
+        );
+
+    animation:borderSweep 6s ease-in-out infinite;
+}
+
+@keyframes borderSweep{
+
+    0%,65%{
+        left:-220px;
+    }
+
+    100%{
+        left:110%;
+    }
+}
+
+
+/* =====================================================
+   PROFILE AREA
+===================================================== */
+
+.profile{
+    text-align:center;
+}
+
+
+/* Photo frame — NO ROTATION */
+
+.photo-wrap{
+
+    position:relative;
+
+    width:154px;
+    height:154px;
+
+    margin:0 auto 24px;
+
+    animation:photoEnter 1.1s cubic-bezier(.2,.8,.2,1) .15s both;
+}
+
+@keyframes photoEnter{
+
+    from{
+        opacity:0;
+        transform:translateY(15px) scale(.94);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+
+/* soft halo */
+
+.photo-wrap::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-13px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(77,166,255,.20),
+            transparent 68%
+        );
+
+    filter:blur(9px);
+
+    animation:haloPulse 4s ease-in-out infinite;
+}
+
+@keyframes haloPulse{
+
+    0%,100%{
+        transform:scale(.96);
+        opacity:.65;
+    }
+
+    50%{
+        transform:scale(1.05);
+        opacity:1;
+    }
+}
+
+
+/* elegant static gradient border */
+
+.photo-border{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50%;
+
+    padding:3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6be8ff,
+            #4b8cff 45%,
+            #8c67ff
+        );
+
+    box-shadow:
+        0 0 35px rgba(77,166,255,.18);
+}
+
+
+/* photo */
+
+.photo{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    padding:4px;
+
+    background:#07111d;
+
+    overflow:hidden;
+}
+
+
+/* Image */
+
+.photo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    display:block;
+
+    transform:scale(1.01);
+
+    transition:
+        transform .8s cubic-bezier(.2,.8,.2,1),
+        filter .8s ease;
+}
+
+
+/* subtle premium hover */
+
+.photo-wrap:hover .photo img{
+
+    transform:scale(1.045);
+
+    filter:brightness(1.04);
+}
+
+
+/* Light sweep over photo */
+
+.photo::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:45%;
+    height:160%;
+
+    top:-30%;
+    left:-80%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.18),
+            transparent
+        );
+
+    transform:rotate(18deg);
+
+    animation:photoSweep 6s ease-in-out infinite;
+}
+
+@keyframes photoSweep{
+
+    0%,55%{
+        left:-80%;
+    }
+
+    75%,100%{
+        left:140%;
+    }
+}
+
+
+/* =====================================================
+   TEXT ANIMATIONS
+===================================================== */
+
+.name{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    line-height:1.2;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff 15%,
+            #bfeaff 50%,
+            #ffffff 85%
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    background-size:200% auto;
+
+    animation:
+        textReveal .9s ease .4s both,
+        textShine 6s linear 1.5s infinite;
+}
+
+@keyframes textReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+        filter:blur(5px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+}
+
+@keyframes textShine{
+
+    to{
+        background-position:200% center;
+    }
+}
+
+
+.profession{
+
+    margin-top:9px;
+
+    color:#9cdcff;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:4px;
+
+    animation:textReveal .9s ease .55s both;
+}
+
+
+.divider{
+
+    width:70px;
+    height:2px;
+
+    margin:19px auto;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #5edcff,
+            #8b6cff,
+            transparent
+        );
+
+    animation:dividerReveal 1s ease .7s both;
+}
+
+@keyframes dividerReveal{
+
+    from{
+        width:0;
+        opacity:0;
+    }
+
+    to{
+        width:70px;
+        opacity:1;
+    }
+}
+
+
+.intro{
+
+    max-width:340px;
+
+    margin:0 auto 25px;
+
+    color:#aebdcd;
+
+    font-family:"Noto Serif Bengali",serif;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    animation:textReveal .9s ease .8s both;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.buttons{
+
+    display:grid;
+
+    gap:11px;
+}
+
+
+.btn{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:11px;
+
+    width:100%;
+
+    min-height:54px;
+
+    padding:14px 18px;
+
+    border-radius:17px;
+
+    color:#f7fbff;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:
+        rgba(255,255,255,.045);
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    transition:
+        transform .35s cubic-bezier(.2,.8,.2,1),
+        border-color .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
+
+    animation:buttonReveal .8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.btn:nth-child(1){animation-delay:.55s}
+.btn:nth-child(2){animation-delay:.62s}
+.btn:nth-child(3){animation-delay:.69s}
+.btn:nth-child(4){animation-delay:.76s}
+.btn:nth-child(5){animation-delay:.83s}
+.btn:nth-child(6){animation-delay:.90s}
+
+@keyframes buttonReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* button light */
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 25%,
+            rgba(255,255,255,.08) 50%,
+            transparent 75%
+        );
+
+    transform:translateX(-100%);
+
+    transition:transform .7s ease;
+}
+
+.btn:hover::before{
+    transform:translateX(100%);
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    border-color:
+        rgba(110,220,255,.25);
+
+    background:
+        rgba(255,255,255,.075);
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,.25);
+}
+
+.btn:active{
+    transform:scale(.98);
+}
+
+
+/* primary */
+
+.btn.primary{
+
+    background:
+        linear-gradient(
+            110deg,
+            #1678e8,
+            #5a5bea
+        );
+
+    border:0;
+
+    box-shadow:
+        0 12px 30px rgba(40,105,240,.20);
+}
+
+
+/* whatsapp */
+
+.btn.whatsapp{
+
+    background:
+        linear-gradient(
+            110deg,
+            #087c4c,
+            #0eaa69
+        );
+
+    border:0;
+}
+
+
+.icon{
+
+    width:26px;
+    height:26px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:rgba(255,255,255,.10);
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   INFORMATION
+===================================================== */
+
+.info{
+
+    margin-top:20px;
+
+    display:grid;
+
+    gap:9px;
+}
+
+
+.info-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    padding:12px 13px;
+
+    border-radius:16px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    background:
+        rgba(255,255,255,.035);
+
+    animation:infoReveal .8s ease both;
+}
+
+.info-item:nth-child(1){animation-delay:1s}
+.info-item:nth-child(2){animation-delay:1.08s}
+.info-item:nth-child(3){animation-delay:1.16s}
+.info-item:nth-child(4){animation-delay:1.24s}
+
+@keyframes infoReveal{
+
+    from{
+        opacity:0;
+        transform:translateX(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+
+.info-icon{
+
+    width:39px;
+    height:39px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(77,166,255,.12),
+            rgba(139,108,255,.10)
+        );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    font-size:17px;
+}
+
+
+.info-label{
+
+    display:block;
+
+    color:#687b91;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:3px;
+}
+
+
+.info-value{
+
+    display:block;
+
+    color:#e7eef6;
+
+    font-size:13px;
+
+    word-break:break-word;
+}
+
+
+/* =====================================================
+   QR
+===================================================== */
+
+.qr{
+
+    margin-top:22px;
+
+    padding:22px 15px;
+
+    text-align:center;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    animation:qrReveal .9s ease 1.3s both;
+}
+
+@keyframes qrReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+.qr-title{
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+}
+
+
+.qr-subtitle{
+
+    margin-top:5px;
+
+    color:#8193a7;
+
+    font-family:"Noto Serif Bengali",serif;
+
+    font-size:12px;
+}
+
+
+#qrcode{
+
+    width:178px;
+    height:178px;
+
+    margin:17px auto;
+
+    padding:10px;
+
+    background:#fff;
+
+    border-radius:19px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.25);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+#qrcode img{
+
+    width:158px !important;
+    height:158px !important;
+}
+
+
+.qr-note{
+
+    color:#63758a;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    margin-top:24px;
+
+    text-align:center;
+
+    color:#52657a;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    animation:textReveal 1s ease 1.5s both;
+}
+
+.footer strong{
+    color:#8ca0b5;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    transform:
+        translate(-50%,25px);
+
+    padding:12px 19px;
+
+    border-radius:14px;
+
+    background:#101b29;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#fff;
+
+    font-size:12px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.35s ease;
+
+    z-index:99;
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:380px){
+
+    .wrapper{
+        width:94%;
+        padding:25px 0;
+    }
+
+    .card{
+        padding:29px 17px;
+        border-radius:28px;
+    }
+
+    .name{
+        font-size:25px;
+    }
+
+    .photo-wrap{
+        width:140px;
+        height:140px;
+    }
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- Background -->
+
+<div class="background">
+
+    <div class="orb one"></div>
+
+    <div class="orb two"></div>
+
+    <div class="grid"></div>
+
+</div>
+
+
+<div class="wrapper">
+
+
+<main class="card">
+
+
+<!-- ================= PROFILE ================= -->
+
+<section class="profile">
+
+
+    <div class="photo-wrap">
+
+        <div class="photo-border">
+
+            <div class="photo">
+
+                <img
+                    src="profile.jpg"
+                    alt="MD. ABU HANIF"
+                    onerror="this.style.display='none';document.getElementById('photoFallback').style.display='flex';"
+                >
+
+                <div
+                    id="photoFallback"
+                    style="
+                    display:none;
+                    width:100%;
+                    height:100%;
+                    border-radius:50%;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:46px;
+                    background:#0b1625;
+                    "
+                >
+                    👤
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <h1 class="name">
+        MD. ABU HANIF
+    </h1>
+
+
+    <div class="profession">
+        BUSINESS
+    </div>
+
+
+    <div class="divider"></div>
+
+
+    <p class="intro">
+        স্বাগতম আমার ডিজিটাল প্রোফাইলে।<br>
+        যোগাযোগ ও ব্যবসায়িক প্রয়োজনে সরাসরি যোগাযোগ করুন।
+    </p>
+
+
+</section>
+
+
+
+<!-- ================= BUTTONS ================= -->
+
+<section class="buttons">
+
+
+    <a
+        class="btn primary"
+        href="tel:+8801645472943"
+    >
+
+        <span class="icon">☎</span>
+
+        <span>Call Now</span>
+
+    </a>
+
+
+    <a
+        class="btn whatsapp"
+        href="https://wa.me/8801645472943"
+        target="_blank"
+        rel="noopener"
+    >
+
+        <span class="icon">◉</span>
+
+        <span>WhatsApp</span>
+
+    </a>
+
+
+    <a
+        class="btn"
+        href="mailto:millat.ahhanif@gmail.com"
+    >
+
+        <span class="icon">✉</span>
+
+        <span>Email Me</span>
+
+    </a>
+
+
+    <a
+        class="btn"
+        href="https://www.facebook.com/AH.HANIF"
+        target="_blank"
+        rel="noopener"
+    >
+
+        <span class="icon">f</span>
+
+        <span>Facebook Profile</span>
+
+    </a>
+
+
+    <button
+        class="btn"
+        onclick="saveContact()"
+    >
+
+        <span class="icon">＋</span>
+
+        <span>Save Contact</span>
+
+    </button>
+
+
+    <button
+        class="btn"
+        onclick="shareProfile()"
+    >
+
+        <span class="icon">↗</span>
+
+        <span>Share Profile</span>
+
+    </button>
+
+
+</section>
+
+
+
+<!-- ================= INFORMATION ================= -->
+
+<section class="info">
+
+
+    <div class="info-item">
+
+        <div class="info-icon">
+            ◇
+        </div>
+
+        <div>
+
+            <span class="info-label">
+                NAME
+            </span>
+
+            <span class="info-value">
+                MD. ABU HANIF
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <div class="info-icon">
+            ◈
+        </div>
+
+        <div>
+
+            <span class="info-label">
+                PROFESSION
+            </span>
+
+            <span class="info-value">
+                Business
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <div class="info-icon">
+            ☎
+        </div>
+
+        <div>
+
+            <span class="info-label">
+                PHONE
+            </span>
+
+            <span class="info-value">
+                +880 1645 472943
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <div class="info-icon">
+            @
+        </div>
+
+        <div>
+
+            <span class="info-label">
+                EMAIL
+            </span>
+
+            <span class="info-value">
+                millat.ahhanif@gmail.com
+            </span>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= QR ================= -->
+
+<section class="qr">
+
+
+    <div class="qr-title">
+        MY DIGITAL PROFILE
+    </div>
+
+
+    <div class="qr-subtitle">
+        QR Code স্ক্যান করে সরাসরি প্রোফাইলে প্রবেশ করুন
+    </div>
+
+
+    <div id="qrcode"></div>
+
+
+    <div class="qr-note">
+        MD. ABU HANIF • OFFICIAL PROFILE
+    </div>
+
+
+</section>
+
+
+
+<footer class="footer">
+
+    DIGITAL PROFILE&nbsp; • &nbsp;
+
+    <strong>
+        MD. ABU HANIF
+    </strong>
+
+</footer>
+
+
+</main>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast"
+>
+    Done
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   PROFILE URL
+===================================================== */
+
+const profileURL =
+"https://abu-hanif-bio.github.io/";
+
+
+/* =====================================================
+   QR CODE
+===================================================== */
+
+new QRCode(
+
+    document.getElementById("qrcode"),
+
+    {
+
+        text:profileURL,
+
+        width:158,
+
+        height:158,
+
+        colorDark:"#07111d",
+
+        colorLight:"#ffffff",
+
+        correctLevel:QRCode.CorrectLevel.H
+
+    }
+
+);
+
+
+/* =====================================================
+   SAVE CONTACT
+===================================================== */
+
+function saveContact(){
+
+    const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:MD. ABU HANIF
+N:HANIF;ABU;;;
+ORG:Business
+TEL;TYPE=CELL:+8801645472943
+EMAIL:millat.ahhanif@gmail.com
+URL:https://abu-hanif-bio.github.io/
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/AH.HANIF
+END:VCARD`;
+
+    const blob =
+        new Blob(
+            [vcard],
+            {type:"text/vcard"}
+        );
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const link =
+        document.createElement("a");
+
+    link.href=url;
+
+    link.download="MD-ABU-HANIF.vcf";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+    URL.revokeObjectURL(url);
+
+    showToast("Contact card তৈরি হয়েছে ✓");
+
+}
+
+
+/* =====================================================
+   SHARE
+===================================================== */
+
+async function shareProfile(){
+
+    if(navigator.share){
+
+        try{
+
+            await navigator.share({
+
+                title:"MD. ABU HANIF",
+
+                text:"MD. ABU HANIF — Official Digital Profile",
+
+                url:profileURL
+
+            });
+
+        }
+
+        catch(error){}
+
+    }
+
+    else{
+
+        try{
+
+            await navigator.clipboard.writeText(profileURL);
+
+            showToast("Profile link copied ✓");
+
+        }
+
+        catch(error){
+
+            showToast(profileURL);
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent=message;
+
+    toast.classList.add("show");
+
+    setTimeout(
+
+        ()=>{
+
+            toast.classList.remove("show");
+
+        },
+
+        2300
+
+    );
+
+}
+
+</script>
+
+
+</body>
+  </html> 
