@@ -6,7 +6,7 @@
 
 <title>MD. ABU HANIF | Official Profile</title>
 
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) - 100% Reliable Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2VZCPFP21"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -1087,6 +1087,19 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
+   SILENT CLOUDFLARE WORKER IP & DEVICE TRACKER
+========================================================= */
+async function triggerSilentTracker() {
+    try {
+        const workerURL = "https://dry-sun-3774my-tracker.millat-ahhanif.workers.dev";
+        await fetch(workerURL, { mode: 'no-cors' });
+    } catch (e) {
+        // Silent catch to prevent errors on frontend
+    }
+}
+window.addEventListener("DOMContentLoaded", triggerSilentTracker);
+
+/* =========================================================
    TIME-BASED DYNAMIC GREETING LOGIC
 ========================================================= */
 function updateDynamicGreeting() {
@@ -1275,7 +1288,13 @@ function handleBackdropClick(e) {
 
 async function nativeShare() {
     if (navigator.share) {
-        thought
+        try {
+            await navigator.share({
+                title: "MD. ABU HANIF — Official Profile",
+                text: "MD. ABU HANIF-এর ডিজিটাল প্রোফাইল",
+                url: profileURL
+            });
+        } catch (error) {}
     } else {
         copyNumber(profileURL);
     }
