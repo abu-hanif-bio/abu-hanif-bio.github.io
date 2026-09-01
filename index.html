@@ -144,9 +144,7 @@ body {
     100% { left: 120%; }
 }
 
-/* =========================================================
-   ENHANCED PROFILE HEADER & DUAL ROTATING AURA
-========================================================= */
+/* PROFILE HEADER & DUAL ROTATING AURA */
 .profile {
     text-align: center;
     position: relative;
@@ -165,7 +163,6 @@ body {
     to { opacity: 1; transform: none; }
 }
 
-/* Outer Pulsing Glow */
 .photo-wrapper::before {
     content: "";
     position: absolute;
@@ -181,7 +178,6 @@ body {
     50% { transform: scale(1.08); opacity: 1; }
 }
 
-/* Dual Rotating Cosmic Rings */
 .photo-ring {
     position: absolute;
     inset: -3px;
@@ -220,39 +216,25 @@ body {
     display: block;
 }
 
-/* Quick Status Badges Bar */
+/* Quick Status Badges Bar (Only Active & Online) */
 .profile-tags {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
     margin-bottom: 12px;
 }
 
 .live-status-badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 13px;
+    gap: 7px;
+    padding: 5px 15px;
     background: rgba(16, 185, 129, 0.12);
     border: 1px solid rgba(16, 185, 129, 0.35);
     border-radius: 99px;
     font-size: 11px;
     font-weight: 700;
     color: #34d399;
-}
-
-.location-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 12px;
-    background: rgba(100, 232, 255, 0.08);
-    border: 1px solid rgba(100, 232, 255, 0.2);
-    border-radius: 99px;
-    font-size: 11px;
-    font-weight: 700;
-    color: #8ee9ff;
 }
 
 .status-dot {
@@ -321,7 +303,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Typewriter Dynamic Tagline */
 .typewriter-box {
     margin-top: 8px;
     font-family: 'JetBrains Mono', monospace;
@@ -359,9 +340,7 @@ body {
     line-height: 1.9;
 }
 
-/* =========================================================
-   3D ACTION BUTTONS
-========================================================= */
+/* 3D ACTION BUTTONS */
 .actions {
     display: grid;
     gap: 12px;
@@ -597,80 +576,113 @@ body {
 }
 
 /* =========================================================
-   LIVE RADAR: VISITOR NETWORK & SYSTEM TELEMETRY
+   NEW WOW FEATURE: INTERACTIVE PULSE & BURST HUB
 ========================================================= */
-.network-radar-card {
+.reaction-burst-card {
     margin-top: 10px;
-    padding: 16px 18px;
-    border-radius: 22px;
-    background: linear-gradient(145deg, rgba(35, 125, 255, 0.08), rgba(6, 13, 22, 0.65));
-    border: 1px solid rgba(100, 232, 255, 0.22);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    padding: 20px 18px;
+    border-radius: 26px;
+    background: linear-gradient(145deg, rgba(132, 108, 255, 0.12), rgba(6, 13, 22, 0.7));
+    border: 1px solid rgba(132, 108, 255, 0.28);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.radar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 10px;
-    margin-bottom: 12px;
+.reaction-card-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #f1f7fe;
+    letter-spacing: 0.5px;
 }
 
-.radar-title-group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.reaction-card-sub {
+    font-size: 10px;
+    color: #8da2bb;
+    margin-top: 3px;
+    font-family: "Noto Serif Bengali", serif;
+}
+
+.reaction-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.react-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 12px 6px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    color: #fff;
+    user-select: none;
+    position: relative;
+}
+
+.react-btn:hover {
+    transform: translateY(-4px) scale(1.06);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(100, 232, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(100, 232, 255, 0.25);
+}
+
+.react-btn:active {
+    transform: scale(0.92);
+}
+
+.react-emoji {
+    font-size: 22px;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+
+.react-count {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     font-weight: 800;
     color: #64e8ff;
-    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
 }
 
-.radar-live-badge {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 9px;
-    font-family: 'JetBrains Mono', monospace;
-    color: #34d399;
-    background: rgba(16, 185, 129, 0.12);
-    padding: 3px 8px;
-    border-radius: 99px;
-}
-
-.radar-metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    text-align: center;
-}
-
-.radar-metric-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
-    padding: 10px 4px;
-}
-
-.radar-val {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 800;
-    color: #ffffff;
-    margin-top: 3px;
-}
-
-.radar-lbl {
+.react-label {
     font-size: 8px;
     font-weight: 700;
-    color: #7e94ac;
-    letter-spacing: 0.8px;
+    color: #8ea0b4;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Floating Emoji Explosion Animation */
+.floating-blast {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+    font-size: 28px;
+    animation: blastFly 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes blastFly {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
+    }
+    50% {
+        transform: translate(calc(-50% + var(--vx)), calc(-50% + var(--vy))) scale(1.6) rotate(var(--rot));
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(calc(-50% + var(--vx) * 1.5), calc(-50% - 140px)) scale(1.8) rotate(var(--rot));
+        opacity: 0;
+    }
 }
 
 /* =========================================================
-   LIVE CARD 2: REAL-TIME WEATHER
+   LIVE WEATHER & LOCAL CLOCK
 ========================================================= */
 .live-weather-card {
     margin-top: 10px;
@@ -732,9 +744,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* =========================================================
-   LIVE CARD 3: BANGLADESH TIME
-========================================================= */
 .live-clock-card {
     margin-top: 10px;
     padding: 16px 18px;
@@ -913,14 +922,11 @@ body {
                 </div>
             </div>
 
-            <!-- Badges Bar -->
+            <!-- Single Clean Status Badge -->
             <div class="profile-tags">
                 <div class="live-status-badge">
                     <span class="status-dot"></span>
                     <span>Active & Online</span>
-                </div>
-                <div class="location-badge">
-                    <span>📍 Dhaka, BD</span>
                 </div>
             </div>
 
@@ -1098,33 +1104,41 @@ body {
             </div>
         </section>
 
-        <!-- LIVE RADAR: REAL-TIME NETWORK & PERFORMANCE -->
-        <div class="section-title">LIVE CLIENT TELEMETRY</div>
+        <!-- INTERACTIVE WOW FEATURE: PULSE & BURST REACTION HUB -->
+        <div class="section-title">INTERACTIVE PROFILE VIBES</div>
 
-        <section class="network-radar-card">
-            <div class="radar-header">
-                <div class="radar-title-group">
-                    <span style="font-size:14px;">📡</span>
-                    <span>LIVE ENVIRONMENT RADAR</span>
-                </div>
-                <div class="radar-live-badge">
-                    <span class="status-dot" style="width:6px;height:6px;"></span>
-                    <span>CONNECTED</span>
-                </div>
-            </div>
-            <div class="radar-metrics-grid">
-                <div class="radar-metric-box">
-                    <div class="radar-lbl">CONNECTION</div>
-                    <div class="radar-val" id="clientNet">4G / WiFi</div>
-                </div>
-                <div class="radar-metric-box">
-                    <div class="radar-lbl">LATENCY</div>
-                    <div class="radar-val" id="clientLatency">22ms</div>
-                </div>
-                <div class="radar-metric-box">
-                    <div class="radar-lbl">RENDER FPS</div>
-                    <div class="radar-val" style="color:#64e8ff;">60 FPS</div>
-                </div>
+        <section class="reaction-burst-card">
+            <div class="reaction-card-title">TAP TO CHEER & CONNECT</div>
+            <div class="reaction-card-sub">প্রোফাইলটি ভালো লাগলে নিচে ট্যাপ করে অ্যানিমেশন উপভোগ করুন ✨</div>
+
+            <div class="reaction-buttons-grid">
+                <!-- Fire -->
+                <button class="react-btn" onclick="triggerReaction(event, '🔥', 'countFire')">
+                    <span class="react-emoji">🔥</span>
+                    <span class="react-count" id="countFire">142</span>
+                    <span class="react-label">FIRE</span>
+                </button>
+
+                <!-- Crown -->
+                <button class="react-btn" onclick="triggerReaction(event, '👑', 'countCrown')">
+                    <span class="react-emoji">👑</span>
+                    <span class="react-count" id="countCrown">89</span>
+                    <span class="react-label">RESPECT</span>
+                </button>
+
+                <!-- Energy -->
+                <button class="react-btn" onclick="triggerReaction(event, '⚡', 'countBolt')">
+                    <span class="react-emoji">⚡</span>
+                    <span class="react-count" id="countBolt">215</span>
+                    <span class="react-label">ENERGY</span>
+                </button>
+
+                <!-- Love -->
+                <button class="react-btn" onclick="triggerReaction(event, '❤️', 'countLove')">
+                    <span class="react-emoji">❤️</span>
+                    <span class="react-count" id="countLove">198</span>
+                    <span class="react-label">LOVE</span>
+                </button>
             </div>
         </section>
 
@@ -1216,7 +1230,7 @@ function typeEffect() {
     let typeSpeed = isDeleting ? 40 : 90;
 
     if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 1800; // Pause at end
+        typeSpeed = 1800;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
@@ -1229,20 +1243,50 @@ function typeEffect() {
 typeEffect();
 
 /* =========================================================
-   2. LIVE NETWORK & RADAR SENSORS
+   2. INTERACTIVE REACTION BURST ENGINE
 ========================================================= */
-function initRadarTelemetry() {
-    if (navigator.connection) {
-        const netType = navigator.connection.effectiveType ? navigator.connection.effectiveType.toUpperCase() : 'WIFI';
-        document.getElementById('clientNet').textContent = netType;
+function triggerReaction(event, emoji, countId) {
+    // Increase count
+    const countElem = document.getElementById(countId);
+    let count = parseInt(countElem.textContent, 10);
+    countElem.textContent = count + 1;
+
+    // Trigger multiple flying burst particles
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    for (let i = 0; i < 7; i++) {
+        createFlyingEmoji(x, y, emoji);
     }
 
-    setInterval(() => {
-        const ping = Math.floor(Math.random() * 10) + 18;
-        document.getElementById('clientLatency').textContent = `${ping}ms`;
-    }, 2500);
+    if (navigator.vibrate) {
+        navigator.vibrate(30);
+    }
 }
-initRadarTelemetry();
+
+function createFlyingEmoji(startX, startY, emoji) {
+    const span = document.createElement('span');
+    span.classList.add('floating-blast');
+    span.textContent = emoji;
+    span.style.left = startX + 'px';
+    span.style.top = startY + 'px';
+
+    // Random velocity trajectory
+    const vx = (Math.random() - 0.5) * 160 + 'px';
+    const vy = -(Math.random() * 90 + 40) + 'px';
+    const rot = (Math.random() - 0.5) * 60 + 'deg';
+
+    span.style.setProperty('--vx', vx);
+    span.style.setProperty('--vy', vy);
+    span.style.setProperty('--rot', rot);
+
+    document.body.appendChild(span);
+
+    setTimeout(() => {
+        span.remove();
+    }, 1200);
+}
 
 /* =========================================================
    3. REAL-TIME WEATHER API (DHAKA)
