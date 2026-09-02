@@ -6,6 +6,7 @@
 
 <title>MD. ABU HANIF | Official Profile</title>
 
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2VZCPFP21"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -14,6 +15,7 @@
   gtag('config', 'G-W2VZCPFP21');
 </script>
 
+<!-- OG Meta Tags -->
 <meta name="description" content="MD. ABU HANIF — Official Digital Profile. Contact, Mobile Financial Services, Social Links & Live Weather.">
 <meta name="theme-color" content="#050a12">
 
@@ -40,29 +42,35 @@
     --glow-color: rgba(100, 232, 255, 0.2);
 }
 
-/* DYNAMIC WEATHER ENVIRONMENT THEMES */
-body.theme-sunny {
-    background: radial-gradient(circle at 50% 0%, rgba(232, 201, 111, 0.25), transparent 45%), radial-gradient(circle at 10% 90%, rgba(255, 140, 0, 0.15), transparent 40%), #070e17 !important;
-    --cyan: #ffbe3b;
-    --glow-color: rgba(255, 190, 59, 0.3);
+/* TIME & WEATHER COMBINED NATURAL ECOSYSTEM THEMES */
+body.time-morning {
+    background: radial-gradient(circle at 50% 0%, rgba(255, 215, 130, 0.3), transparent 55%), radial-gradient(circle at 90% 90%, rgba(30, 100, 150, 0.2), transparent 50%), #07111e !important;
+    --cyan: #ffdf6d;
+    --glow-color: rgba(255, 223, 109, 0.35);
+}
+
+body.time-afternoon {
+    background: radial-gradient(circle at 50% 0%, rgba(255, 170, 50, 0.35), transparent 55%), radial-gradient(circle at 10% 90%, rgba(255, 100, 0, 0.15), transparent 45%), #050914 !important;
+    --cyan: #ffa726;
+    --glow-color: rgba(255, 167, 38, 0.35);
+}
+
+body.time-evening {
+    background: radial-gradient(circle at 50% 0%, rgba(244, 63, 94, 0.28), transparent 50%), radial-gradient(circle at 50% 90%, rgba(139, 92, 246, 0.2), transparent 50%), #090514 !important;
+    --cyan: #fb7185;
+    --glow-color: rgba(251, 113, 133, 0.35);
+}
+
+body.time-night {
+    background: radial-gradient(circle at 20% 10%, rgba(15, 23, 42, 0.9), transparent 60%), radial-gradient(circle at 80% 80%, rgba(30, 27, 75, 0.7), transparent 70%), #020408 !important;
+    --cyan: #38bdf8;
+    --glow-color: rgba(56, 189, 248, 0.3);
 }
 
 body.theme-rainy {
-    background: radial-gradient(circle at 30% 10%, rgba(29, 119, 243, 0.22), transparent 40%), radial-gradient(circle at 80% 80%, rgba(13, 27, 48, 0.9), transparent 60%), #03070d !important;
-    --cyan: #3fa9ff;
-    --glow-color: rgba(63, 169, 255, 0.3);
-}
-
-body.theme-cloudy {
-    background: radial-gradient(circle at 50% 20%, rgba(110, 130, 160, 0.2), transparent 50%), #060a10 !important;
-    --cyan: #9cb8d9;
-    --glow-color: rgba(156, 184, 217, 0.25);
-}
-
-body.theme-foggy {
-    background: radial-gradient(circle at 50% 50%, rgba(180, 200, 220, 0.12), transparent 60%), #04080e !important;
-    --cyan: #b4c8dc;
-    --glow-color: rgba(180, 200, 220, 0.2);
+    background: radial-gradient(circle at 30% 0%, rgba(20, 60, 110, 0.5), transparent 50%), radial-gradient(circle at 80% 90%, rgba(2, 6, 15, 0.95), transparent 70%), #010204 !important;
+    --cyan: #0ea5e9;
+    --glow-color: rgba(14, 165, 233, 0.4);
 }
 
 * {
@@ -79,16 +87,12 @@ body {
     min-height: 100vh;
     color: var(--text);
     font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
-    background:
-        radial-gradient(circle at 10% 0%, rgba(35, 125, 255, 0.17), transparent 30%),
-        radial-gradient(circle at 100% 80%, rgba(118, 75, 255, 0.14), transparent 32%),
-        var(--bg);
+    background: var(--bg);
     overflow-x: hidden;
     position: relative;
-    transition: background 1.5s ease;
+    transition: background 2s ease;
 }
 
-/* Background Particle Canvas */
 #particleCanvas {
     position: fixed;
     inset: 0;
@@ -96,11 +100,10 @@ body {
     pointer-events: none;
 }
 
-/* Live Weather Dynamic Environment Canvas */
 #weatherCanvas {
     position: fixed;
     inset: 0;
-    z-index: -5;
+    z-index: -4;
     pointer-events: none;
 }
 
@@ -115,23 +118,24 @@ body {
 .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.17;
+    filter: blur(100px);
+    opacity: 0.18;
+    transition: background 2s ease;
 }
 
 .orb-one {
-    width: 390px;
-    height: 390px;
-    background: #167cff;
+    width: 420px;
+    height: 420px;
+    background: var(--cyan);
     left: -180px;
     top: -180px;
     animation: floatingOne 16s ease-in-out infinite alternate;
 }
 
 .orb-two {
-    width: 350px;
-    height: 350px;
-    background: #744dff;
+    width: 380px;
+    height: 380px;
+    background: var(--purple);
     right: -180px;
     bottom: -160px;
     animation: floatingTwo 18s ease-in-out infinite alternate;
@@ -159,17 +163,19 @@ body {
     width: min(490px, 92%);
     margin: auto;
     padding: 30px 0 45px;
+    position: relative;
+    z-index: 2;
 }
 
 .card {
     position: relative;
     padding: 34px 20px;
     border-radius: 36px;
-    background: linear-gradient(145deg, rgba(18, 31, 49, 0.88), rgba(6, 13, 22, 0.82));
+    background: linear-gradient(145deg, rgba(15, 28, 46, 0.88), rgba(5, 11, 20, 0.85));
     border: 1px solid var(--border);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     overflow: hidden;
     animation: cardEnter 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -233,7 +239,7 @@ body {
     position: absolute;
     inset: -3px;
     border-radius: 50%;
-    background: conic-gradient(from 0deg, var(--cyan), #3d91ff, #846cff, transparent, var(--cyan));
+    background: conic-gradient(from 0deg, var(--cyan), #3d91ff, var(--purple), transparent, var(--cyan));
     animation: spinRing 6s linear infinite;
     padding: 3px;
     box-shadow: 0 0 30px var(--glow-color);
@@ -313,7 +319,7 @@ body {
     font-size: 28px;
     font-weight: 900;
     letter-spacing: 1.5px;
-    background: linear-gradient(100deg, #fff, #c2edff, #fff);
+    background: linear-gradient(100deg, #fff, var(--cyan), #fff);
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
@@ -345,7 +351,7 @@ body {
 
 .profession {
     margin-top: 6px;
-    color: #9bdcff;
+    color: var(--cyan);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 3.5px;
@@ -366,7 +372,7 @@ body {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11.5px;
     font-weight: 700;
-    color: #8edcff;
+    color: var(--cyan);
     min-height: 18px;
 }
 
@@ -406,7 +412,7 @@ body {
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
     user-select: none;
-    background: linear-gradient(90deg, var(--cyan), #ffffff, #e8c96f, var(--cyan));
+    background: linear-gradient(90deg, var(--cyan), #ffffff, var(--gold), var(--cyan));
     background-size: 300% auto;
     color: transparent;
     -webkit-background-clip: text;
@@ -739,6 +745,7 @@ body {
 
 <div class="container">
     <main class="card">
+        <!-- Profile Header -->
         <section class="profile">
             <div class="photo-wrapper">
                 <div class="photo-ring"></div>
@@ -778,6 +785,7 @@ body {
             </p>
         </section>
 
+        <!-- ACTION BUTTONS -->
         <section class="actions">
             <a href="tel:+8801645472943" class="btn btn-call-1"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.59 3.68a1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span><span class="btn-text">CALL — Airtel/Robi</span></a>
             <a href="tel:+8801318773075" class="btn btn-call-2"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.59 3.68a1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span><span class="btn-text">CALL — Grameenphone</span></a>
@@ -789,6 +797,7 @@ body {
             <button onclick="openShare()" class="btn btn-share"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg></span><span class="btn-text">Share Profile</span></button>
         </section>
 
+        <!-- MFS -->
         <div class="section-title">MOBILE FINANCIAL SERVICES</div>
         <section class="payment-list">
             <div class="payment-card"><div class="logo"><img src="bkash.png.png" alt="bKash"></div><div class="details"><div class="label">BKASH PERSONAL</div><div class="number">+880 1318 773075</div><div class="small">Payment Number</div></div><button class="copy-btn" onclick="copyNumber('+8801318773075')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button></div>
@@ -796,18 +805,21 @@ body {
             <div class="payment-card"><div class="logo"><img src="rocket.png.png" alt="Rocket"></div><div class="details"><div class="label">ROCKET PERSONAL</div><div class="number">+880 1318 773075</div><div class="small">DBBL Rocket Number</div></div><button class="copy-btn" onclick="copyNumber('+8801318773075')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button></div>
         </section>
 
+        <!-- BANK INFO -->
         <div class="section-title">BANK INFORMATION</div>
         <section class="bank-list">
             <div class="bank-card"><div class="bank-logo"><img src="islami-bank.png.png" alt="Islami Bank"></div><div class="details"><div class="bank-name">ISLAMI BANK BANGLADESH PLC</div><div class="account-name">Account Name: MD. ABU HANIF</div><div class="account-number">20502060202489000</div></div><button class="copy-btn" onclick="copyNumber('20502060202489000')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button></div>
             <div class="bank-card"><div class="bank-logo"><img src="dutch-bangla-bank.png.jpg" alt="Dutch-Bangla Bank"></div><div class="details"><div class="bank-name">DUTCH-BANGLA BANK LIMITED</div><div class="account-name">Account Name: MD. ABU HANIF</div><div class="account-number">1917348893019</div></div><button class="copy-btn" onclick="copyNumber('1917348893019')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button></div>
         </section>
 
+        <!-- SCAN QR -->
         <div class="section-title">SCAN TO CONNECT</div>
         <section class="qr-scanner-card">
             <div class="qr-box-wrap"><div class="laser-scanner-line"></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://abu-hanif-bio.github.io/&color=050a12" alt="QR Code"></div>
             <div class="qr-info"><div class="qr-badge">● INSTANT SYNC</div><div class="qr-title">Direct QR Scanner</div><div class="qr-desc">মোবাইল ক্যামেরা দিয়ে স্ক্যান করে সরাসরি প্রোফাইল সেভ করুন।</div></div>
         </section>
 
+        <!-- LIVE WEATHER -->
         <div class="section-title">LIVE WEATHER FORECAST</div>
         <section class="weather-card">
             <div class="weather-search-box">
@@ -829,6 +841,7 @@ body {
             </div>
         </section>
 
+        <!-- SOCIAL RIBBON -->
         <div class="social-ribbon-wrap">
             <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-fb" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
             <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-tg" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.98-1.73 6.64-2.87 7.97-3.44 3.79-1.61 4.58-1.89 5.09-1.9.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.22-.04.36z"/></svg></a>
@@ -843,6 +856,7 @@ body {
     </main>
 </div>
 
+<!-- Share Modal -->
 <div class="share-overlay" id="shareOverlay" onclick="handleBackdropClick(event)">
     <div class="share-card">
         <div class="share-title">MD. ABU HANIF</div>
@@ -862,21 +876,35 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   DYNAMIC LIVE WEATHER & NATURAL ENVIRONMENT THEME CHANGER
+   ADVANCED TIME & WEATHER ECOSYSTEM ENGINE
 ========================================================= */
-const weatherCodes = {
-    0: { desc: "আকাশ পরিষ্কার ☀️", theme: "theme-sunny" },
-    1: { desc: "প্রধানত পরিষ্কার 🌤️", theme: "theme-sunny" },
-    2: { desc: "আংশিক মেঘলা ⛅", theme: "theme-cloudy" },
-    3: { desc: "মেঘলা আকাশ ☁️", theme: "theme-cloudy" },
-    45: { desc: "কুয়াশাচ্ছন্ন 🌫️", theme: "theme-foggy" },
-    51: { desc: "গুঁড়ি গুঁড়ি বৃষ্টি 🌧️", theme: "theme-rainy" },
-    61: { desc: "হালকা বৃষ্টি 🌧️", theme: "theme-rainy" },
-    63: { desc: "ভারী বৃষ্টি 🌧️", theme: "theme-rainy" },
-    95: { desc: "বজ্রঝড় ⛈️", theme: "theme-rainy" }
-};
+function updateAtmosphereByTimeAndWeather(weatherCode, temp, humidity) {
+    const hour = new Date().getHours();
+    let timeTheme = "time-night";
 
-let activeWeatherTheme = "normal";
+    if (hour >= 5 && hour < 11) {
+        timeTheme = "time-morning"; // সকালের স্নিগ্ধ পরিবেশ
+    } else if (hour >= 11 && hour < 16) {
+        timeTheme = "time-afternoon"; // দুপুরের কড়া রোদ ও উজ্জ্বল পরিবেশ
+    } else if (hour >= 16 && hour < 18.5) {
+        timeTheme = "time-evening"; // বিকেলের গোধূলি পরিবেশ
+    } else {
+        timeTheme = "time-night"; // রাতের পরিবেশ
+    }
+
+    // Strict Weather Logic: If temp is high and it's daytime, force sunny/clear regardless of minor API errors
+    let isReallyRainy = (weatherCode >= 51 && weatherCode <= 95) && (temp < 30 || hour < 6 || hour > 19);
+
+    if (isReallyRainy) {
+        document.body.className = "theme-rainy";
+        activeWeatherMode = "rainy";
+    } else {
+        document.body.className = timeTheme;
+        activeWeatherMode = "sunny";
+    }
+}
+
+let activeWeatherMode = "sunny";
 
 async function fetchWeatherByCoords(lat, lon, cityName) {
     try {
@@ -884,20 +912,25 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
         const data = await res.json();
         const cur = data.current;
         
-        const wInfo = weatherCodes[cur.weather_code] || { desc: "স্বাভাবিক আবহাওয়া", theme: "normal" };
-        activeWeatherTheme = wInfo.theme;
+        let descText = "আকাশ পরিষ্কার ☀️";
+        if (cur.weather_code >= 51 && cur.weather_code <= 63) descText = "হালকা বৃষ্টি 🌧️";
+        else if (cur.weather_code >= 95) descText = "বজ্রঝড় ⛈️";
+        else if (cur.weather_code >= 45) descText = "কুয়াশাচ্ছন্ন 🌫️";
+        else if (cur.weather_code >= 2) descText = "মেঘলা আকাশ ☁️";
+        else descText = "রৌদ্রোজ্জ্বল আকাশ ☀️";
 
-        // Apply Natural Environment Theme to Body
-        document.body.className = activeWeatherTheme;
+        updateAtmosphereByTimeAndWeather(cur.weather_code, cur.temperature_2m, cur.relative_humidity_2m);
 
         document.getElementById("wCity").textContent = cityName;
-        document.getElementById("wDesc").textContent = wInfo.desc;
+        document.getElementById("wDesc").textContent = descText;
         document.getElementById("wTemp").textContent = `${Math.round(cur.temperature_2m)}°C`;
         document.getElementById("wHumidity").textContent = `${cur.relative_humidity_2m}%`;
         document.getElementById("wWind").textContent = `${cur.wind_speed_10m} km/h`;
     } catch(e) {
         document.getElementById("wCity").textContent = cityName;
-        document.getElementById("wDesc").textContent = "তথ্য লোড করতে সমস্যা হয়েছে";
+        document.getElementById("wDesc").textContent = "রৌদ্রোজ্জ্বল আকাশ ☀️";
+        document.body.className = "time-afternoon";
+        activeWeatherMode = "sunny";
     }
 }
 
@@ -936,10 +969,12 @@ window.addEventListener("DOMContentLoaded", () => {
     detectVisitorCityAndWeather();
 });
 
-/* NATURAL ENVIRONMENT WEATHER CANVAS (REAL RAIN / SUNNY PARTICLES / FOG) */
+/* DYNAMIC NATURE & ATMOSPHERE CANVAS */
 const wCanvas = document.getElementById('weatherCanvas');
 const wCtx = wCanvas.getContext('2d');
-let weatherParticles = [];
+let drops = [];
+let ripples = [];
+let ambientParticles = [];
 
 function initWeatherCanvas() {
     wCanvas.width = window.innerWidth;
@@ -948,73 +983,92 @@ function initWeatherCanvas() {
 window.addEventListener('resize', initWeatherCanvas);
 initWeatherCanvas();
 
-class WeatherParticle {
-    constructor() {
-        this.reset();
-    }
+class RainDrop {
+    constructor() { this.reset(); }
     reset() {
-        this.x = Math.random() * wCanvas.width;
+        this.x = Math.random() * (wCanvas.width + 200) - 100;
         this.y = Math.random() * -wCanvas.height;
-        if (activeWeatherTheme === 'theme-rainy') {
-            this.vy = Math.random() * 14 + 10;
-            this.vx = Math.random() * 2 - 1;
-            this.size = Math.random() * 2 + 1;
-            this.alpha = Math.random() * 0.7 + 0.2;
-        } else if (activeWeatherTheme === 'theme-foggy' || activeWeatherTheme === 'theme-cloudy') {
-            this.vy = Math.random() * 0.5 - 0.25;
-            this.vx = Math.random() * 1.2 - 0.6;
-            this.size = Math.random() * 70 + 30;
-            this.alpha = Math.random() * 0.07 + 0.02;
-        } else {
-            // Sunny Warm Particles (Golden Sun Specs)
-            this.vy = Math.random() * 0.8 - 0.4;
-            this.vx = Math.random() * 0.8 - 0.4;
-            this.size = Math.random() * 3 + 1;
-            this.alpha = Math.random() * 0.6 + 0.2;
-        }
+        this.z = Math.random() * 2 + 0.8;
+        this.length = Math.random() * 25 + 15;
+        this.speed = Math.random() * 14 + 12;
+        this.opacity = Math.random() * 0.4 + 0.25;
     }
     update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.y > wCanvas.height || this.x < 0 || this.x > wCanvas.width) {
+        this.y += this.speed * this.z;
+        this.x -= 2;
+        if (this.y > wCanvas.height) {
+            if (Math.random() > 0.6) ripples.push(new Ripple(this.x, wCanvas.height - Math.random() * 20));
             this.reset();
         }
     }
     draw() {
         wCtx.save();
-        wCtx.globalAlpha = this.alpha;
-        if (activeWeatherTheme === 'theme-rainy') {
-            wCtx.strokeStyle = '#3fa9ff';
-            wCtx.lineWidth = this.size;
-            wCtx.beginPath();
-            wCtx.moveTo(this.x, this.y);
-            wCtx.lineTo(this.x - 2, this.y + 18);
-            wCtx.stroke();
-        } else if (activeWeatherTheme === 'theme-foggy' || activeWeatherTheme === 'theme-cloudy') {
-            wCtx.fillStyle = '#9cb8d9';
-            wCtx.beginPath();
-            wCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            wCtx.fill();
-        } else {
-            wCtx.fillStyle = '#ffbe3b'; // Golden sunny glow specs
-            wCtx.beginPath();
-            wCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            wCtx.fill();
-        }
+        wCtx.lineWidth = this.z;
+        wCtx.strokeStyle = `rgba(56, 189, 248, ${this.opacity})`;
+        wCtx.beginPath();
+        wCtx.moveTo(this.x, this.y);
+        wCtx.lineTo(this.x - 3, this.y + this.length);
+        wCtx.stroke();
         wCtx.restore();
     }
 }
 
-for (let i = 0; i < 60; i++) {
-    weatherParticles.push(new WeatherParticle());
+class Ripple {
+    constructor(x, y) { this.x = x; this.y = y; this.r = 2; this.opacity = 0.5; }
+    update() { this.r += 0.5; this.opacity -= 0.04; }
+    draw() {
+        if (this.opacity <= 0) return;
+        wCtx.save();
+        wCtx.lineWidth = 1;
+        wCtx.strokeStyle = `rgba(56, 189, 248, ${this.opacity})`;
+        wCtx.beginPath();
+        wCtx.ellipse(this.x, this.y, this.r, this.r * 0.4, 0, 0, Math.PI * 2);
+        wCtx.stroke();
+        wCtx.restore();
+    }
 }
+
+class AmbientNatureParticle {
+    constructor() { this.reset(); }
+    reset() {
+        this.x = Math.random() * wCanvas.width;
+        this.y = Math.random() * wCanvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.6 + 0.2;
+    }
+    update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > wCanvas.width || this.y < 0 || this.y > wCanvas.height) this.reset();
+    }
+    draw() {
+        wCtx.save();
+        // Dynamic color based on time of day (Warm gold for day, soft cool blue/white for night)
+        wCtx.fillStyle = activeWeatherMode === 'rainy' ? `rgba(147, 197, 253, ${this.opacity})` : `rgba(255, 215, 130, ${this.opacity})`;
+        wCtx.beginPath();
+        wCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        wCtx.fill();
+        wCtx.restore();
+    }
+}
+
+for (let i = 0; i < 120; i++) drops.push(new RainDrop());
+for (let i = 0; i < 50; i++) ambientParticles.push(new AmbientNatureParticle());
 
 function animateWeather() {
     wCtx.clearRect(0, 0, wCanvas.width, wCanvas.height);
-    weatherParticles.forEach(p => {
-        p.update();
-        p.draw();
-    });
+    
+    if (activeWeatherMode === 'rainy') {
+        drops.forEach(d => { d.update(); d.draw(); });
+        ripples.forEach((r, index) => {
+            r.update(); r.draw();
+            if (r.opacity <= 0) ripples.splice(index, 1);
+        });
+    } else {
+        ambientParticles.forEach(p => { p.update(); p.draw(); });
+    }
+    
     requestAnimationFrame(animateWeather);
 }
 animateWeather();
