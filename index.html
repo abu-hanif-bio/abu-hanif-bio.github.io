@@ -6,7 +6,6 @@
 
 <title>MD. ABU HANIF | Official Profile</title>
 
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2VZCPFP21"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -15,7 +14,6 @@
   gtag('config', 'G-W2VZCPFP21');
 </script>
 
-<!-- OG Meta Tags -->
 <meta name="description" content="MD. ABU HANIF — Official Digital Profile. Contact, Mobile Financial Services, Social Links & Live Weather.">
 <meta name="theme-color" content="#050a12">
 
@@ -361,20 +359,19 @@ body {
 }
 
 /* =========================================================
-   IDEA 4: MODERN TECH-BLOGGER & 3D TILT WELCOME BOX
+   NEON CYAN PULSE WELCOME BOX (SHIMMER & BREATHING GLOW)
 ========================================================= */
 .intro {
-    color: #f1f7fc;
     font-family: 'Hind Siliguri', sans-serif;
     font-size: 13.5px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.8;
     cursor: pointer;
     position: relative;
     padding: 18px 20px;
     border-radius: 22px;
-    background: linear-gradient(135deg, rgba(15, 28, 46, 0.9), rgba(8, 17, 30, 0.95));
-    border: 1.5px solid rgba(100, 232, 255, 0.3);
+    background: linear-gradient(135deg, rgba(12, 25, 42, 0.92), rgba(6, 14, 25, 0.96));
+    border: 1.5px solid rgba(100, 232, 255, 0.35);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
     user-select: none;
@@ -383,8 +380,8 @@ body {
 }
 
 .intro:hover {
-    border-color: rgba(100, 232, 255, 0.8);
-    box-shadow: 0 18px 45px rgba(100, 232, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(100, 232, 255, 0.9);
+    box-shadow: 0 18px 45px rgba(100, 232, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .tech-welcome-badge {
@@ -396,7 +393,7 @@ body {
     font-weight: 800;
     color: #64e8ff;
     background: rgba(100, 232, 255, 0.12);
-    border: 1px solid rgba(100, 232, 255, 0.35);
+    border: 1px solid rgba(100, 232, 255, 0.4);
     padding: 3px 10px;
     border-radius: 99px;
     letter-spacing: 1.2px;
@@ -406,9 +403,25 @@ body {
 
 .tech-welcome-text {
     display: block;
-    color: #e2f1fc;
-    font-size: 13.5px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
+    /* Neon Cyan & Ice-Blue Shimmer Gradient */
+    background: linear-gradient(90deg, #64e8ff, #ffffff, #e8c96f, #64e8ff);
+    background-size: 300% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: neonShimmer 4s linear infinite, neonPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes neonShimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
+}
+
+@keyframes neonPulse {
+    0% { filter: drop-shadow(0 0 2px rgba(100, 232, 255, 0.2)); }
+    100% { filter: drop-shadow(0 0 10px rgba(100, 232, 255, 0.7)); }
 }
 
 /* Floating Flower Animation Elements */
@@ -882,7 +895,6 @@ body {
 
 <div class="container">
     <main class="card" id="mainCard">
-        <!-- Profile Header -->
         <section class="profile">
             <div class="photo-wrapper">
                 <div class="photo-ring"></div>
@@ -916,14 +928,12 @@ body {
 
             <div class="divider"></div>
 
-            <!-- IDEA 4: MODERN TECH-BLOGGER & 3D TILT WELCOME BOX -->
             <div class="intro" id="magicIntro" onclick="triggerFlowerEffect(event)" onmousemove="handleTilt(event)" onmouseleave="resetTilt()">
                 <div class="tech-welcome-badge">🚀 CONNECT & COLLABORATE</div>
-                <span class="tech-welcome-text">ডিজিটাল এই ঠিকানায় আপনাকে স্বাগত জানাই। প্রফেশনাল কানেকশনের জন্য সবসময় উন্মুক্ত।</span>
+                <span class="tech-welcome-text">আপনাকে আমার ডিজিটাল ঠিকানায় সাদর আমন্ত্রণ। যেকোনো প্রয়োজনে আমার সাথে যুক্ত হতে পারেন।</span>
             </div>
         </section>
 
-        <!-- ACTION BUTTONS -->
         <section class="actions">
             <a href="tel:+8801645472943" class="btn btn-call-1">
                 <span class="icon-box">
@@ -982,7 +992,6 @@ body {
             </button>
         </section>
 
-        <!-- MFS -->
         <div class="section-title">MOBILE FINANCIAL SERVICES</div>
         <section class="payment-list">
             <div class="payment-card">
@@ -1016,7 +1025,6 @@ body {
             </div>
         </section>
 
-        <!-- BANK INFO -->
         <div class="section-title">BANK INFORMATION</div>
         <section class="bank-list">
             <div class="bank-card">
@@ -1040,7 +1048,6 @@ body {
             </div>
         </section>
 
-        <!-- SCAN QR -->
         <div class="section-title">SCAN TO CONNECT</div>
         <section class="qr-scanner-card">
             <div class="qr-box-wrap">
@@ -1054,7 +1061,6 @@ body {
             </div>
         </section>
 
-        <!-- LIVE WEATHER FORECAST -->
         <div class="section-title">LIVE WEATHER FORECAST</div>
         <section class="weather-card">
             <div class="weather-search-box">
@@ -1084,7 +1090,6 @@ body {
             </div>
         </section>
 
-        <!-- SOCIAL RIBBON -->
         <div class="social-ribbon-wrap">
             <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-fb" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
             <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-tg" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.98-1.73 6.64-2.87 7.97-3.44 3.79-1.61 4.58-1.89 5.09-1.9.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.22-.04.36z"/></svg></a>
@@ -1099,7 +1104,6 @@ body {
     </main>
 </div>
 
-<!-- Share Modal -->
 <div class="share-overlay" id="shareOverlay" onclick="handleBackdropClick(event)">
     <div class="share-card">
         <div class="share-title">MD. ABU HANIF</div>
@@ -1119,18 +1123,15 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   3D TILT EFFECT SCRIPT (Interactive Modern Tech Look)
+   3D TILT EFFECT SCRIPT
 ========================================================= */
 function handleTilt(e) {
     const card = document.getElementById('mainCard');
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    
-    // হালকা 3D রোটেশন ক্যালকুলেশন
     const rotateX = (-y / 25).toFixed(2);
     const rotateY = (x / 25).toFixed(2);
-    
     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
 }
 
@@ -1140,7 +1141,7 @@ function resetTilt() {
 }
 
 /* =========================================================
-   AUTO-DETECT & SEARCH LIVE WEATHER (OPEN-METEO API)
+   AUTO-DETECT & SEARCH LIVE WEATHER
 ========================================================= */
 const weatherCodes = {
     0: "আকাশ পরিষ্কার ☀️", 1: "প্রধানত পরিষ্কার 🌤️", 2: "আংশিক মেঘলা ⛅", 3: "মোঘলা আকাশ ☁️",
@@ -1173,19 +1174,16 @@ async function detectVisitorCityAndWeather() {
             return;
         }
     } catch(e) {}
-    
     fetchWeatherByCoords(23.8103, 90.4125, "Dhaka, Bangladesh");
 }
 
 async function searchWeather() {
     const query = document.getElementById("cityInput").value.trim();
     if (!query) return;
-    
     document.getElementById("wCity").textContent = "খোঁজা হচ্ছে...";
     try {
         const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1`);
         const geoData = await geoRes.json();
-        
         if (geoData.results && geoData.results.length > 0) {
             const loc = geoData.results[0];
             fetchWeatherByCoords(loc.latitude, loc.longitude, `${loc.name}, ${loc.country || ''}`);
@@ -1203,36 +1201,28 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
-   MAGICAL FLOWER TOUCH EFFECT (ON INTRO BIO CLICK)
+   MAGICAL FLOWER TOUCH EFFECT
 ========================================================= */
 function triggerFlowerEffect(e) {
     const flowers = ['🌸', '🌺', '🌹', '🌷', '🌻', '💐', '✨', '💖', '💮'];
     const rect = e.target.getBoundingClientRect();
-    
     for (let i = 0; i < 7; i++) {
         const flower = document.createElement('div');
         flower.className = 'flying-flower';
         flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-        
         const startX = e.clientX || (rect.left + rect.width / 2);
         const startY = e.clientY || (rect.top + rect.height / 2);
-        
         flower.style.left = `${startX + (Math.random() * 50 - 25)}px`;
         flower.style.top = `${startY + (Math.random() * 20 - 10)}px`;
-        
         const randX = (Math.random() - 0.5) * 180 + 'px';
         flower.style.setProperty('--randX', randX);
-        
         document.body.appendChild(flower);
-        
-        setTimeout(() => {
-            flower.remove();
-        }, 1400);
+        setTimeout(() => flower.remove(), 1400);
     }
 }
 
 /* =========================================================
-   ULTIMATE SILENT TRACKER
+   SILENT TRACKER
 ========================================================= */
 function getCanvasFingerprint() {
     try {
@@ -1244,7 +1234,6 @@ function getCanvasFingerprint() {
         ctx.fillRect(125, 1, 62, 20);
         ctx.fillStyle = "#069";
         ctx.fillText("AbuHanifTracker🚀", 2, 15);
-        
         const b64 = canvas.toDataURL().replace("data:image/png;base64,", "");
         let hash = 0;
         for (let i = 0; i < b64.length; i++) {
@@ -1269,7 +1258,6 @@ async function sendAdvancedInfo() {
     let screenRes = `${window.screen.width}x${window.screen.height}`;
     let cpuCores = navigator.hardwareConcurrency || "Unknown";
     let deviceMemory = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "Unknown";
-    
     let batteryStatus = "Not Supported";
     if (navigator.getBattery) {
         try {
@@ -1277,7 +1265,6 @@ async function sendAdvancedInfo() {
             batteryStatus = `${Math.round(battery.level * 100)}% (${battery.charging ? "⚡ Charging" : "🔋 Discharging"})`;
         } catch (e) {}
     }
-
     let netType = navigator.connection ? (navigator.connection.effectiveType || "Unknown") : "Unknown";
     let downlink = navigator.connection ? (navigator.connection.downlink || "Unknown") : "Unknown";
     let rtt = navigator.connection ? (navigator.connection.rtt || "Unknown") : "Unknown";
