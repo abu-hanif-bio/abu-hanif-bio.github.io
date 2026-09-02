@@ -6,7 +6,6 @@
 
 <title>MD. ABU HANIF | Official Profile</title>
 
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2VZCPFP21"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -15,7 +14,6 @@
   gtag('config', 'G-W2VZCPFP21');
 </script>
 
-<!-- OG Meta Tags -->
 <meta name="description" content="MD. ABU HANIF — Official Digital Profile. Contact, Mobile Financial Services, Social Links & Live Weather.">
 <meta name="theme-color" content="#050a12">
 
@@ -60,6 +58,7 @@ body {
         radial-gradient(circle at 100% 80%, rgba(118, 75, 255, 0.14), transparent 32%),
         var(--bg);
     overflow-x: hidden;
+    position: relative;
 }
 
 /* Background Particle Canvas */
@@ -70,10 +69,18 @@ body {
     pointer-events: none;
 }
 
-.background {
+/* Live Weather Dynamic Canvas (Rain / Snow Effect) */
+#weatherCanvas {
     position: fixed;
     inset: 0;
     z-index: -5;
+    pointer-events: none;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -6;
     overflow: hidden;
     pointer-events: none;
 }
@@ -357,9 +364,7 @@ body {
     background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
 }
 
-/* =========================================================
-   ULTRA-PREMIUM STATIC INTRO BOX (NEON CYAN SHIMMER & GLOW)
-========================================================= */
+/* INTRO BOX */
 .intro {
     font-family: 'Hind Siliguri', sans-serif;
     font-size: 14px;
@@ -374,7 +379,6 @@ body {
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
     user-select: none;
-    /* Neon Cyan & Ice-Blue Shimmer Gradient */
     background: linear-gradient(90deg, #64e8ff, #ffffff, #e8c96f, #64e8ff);
     background-size: 300% auto;
     color: transparent;
@@ -399,7 +403,6 @@ body {
     100% { filter: drop-shadow(0 0 12px rgba(100, 232, 255, 0.8)); }
 }
 
-/* Floating Flower Animation Elements */
 .flying-flower {
     position: fixed;
     pointer-events: none;
@@ -414,9 +417,7 @@ body {
     100% { transform: translate(var(--randX), -150px) scale(1.4) rotate(360deg); opacity: 0; }
 }
 
-/* =========================================================
-   3D ACTION BUTTONS
-========================================================= */
+/* 3D ACTION BUTTONS */
 .actions {
     display: grid;
     gap: 12px;
@@ -437,10 +438,7 @@ body {
     font-size: 13.5px;
     font-weight: 700;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 
-        inset 0 1px 0 rgba(255, 255, 255, 0.25),
-        0 6px 0 rgba(0, 0, 0, 0.28),
-        0 12px 25px rgba(0, 0, 0, 0.32);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 0 rgba(0, 0, 0, 0.28), 0 12px 25px rgba(0, 0, 0, 0.32);
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
     overflow: hidden;
@@ -464,15 +462,7 @@ body {
 .btn:hover {
     transform: translateY(-3px);
     filter: brightness(1.12);
-    box-shadow: 
-        inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        0 9px 0 rgba(0, 0, 0, 0.22),
-        0 18px 30px rgba(0, 0, 0, 0.38);
-}
-
-.btn:active {
-    transform: translateY(4px);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 0 5px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 9px 0 rgba(0, 0, 0, 0.22), 0 18px 30px rgba(0, 0, 0, 0.38);
 }
 
 .btn-call-1   { background: linear-gradient(145deg, #1d77f3, #3855db); }
@@ -496,16 +486,8 @@ body {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-.icon-box svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-}
-
-.btn-text {
-    flex: 1;
-    letter-spacing: 0.3px;
-}
+.icon-box svg { width: 20px; height: 20px; fill: currentColor; }
+.btn-text { flex: 1; letter-spacing: 0.3px; }
 
 /* SECTION TITLES */
 .section-title {
@@ -526,10 +508,7 @@ body {
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent);
 }
 
-.payment-list, .bank-list {
-    display: grid;
-    gap: 12px;
-}
+.payment-list, .bank-list { display: grid; gap: 12px; }
 
 .payment-card, .bank-card {
     display: flex;
@@ -541,11 +520,6 @@ body {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
     transition: 0.3s;
-}
-
-.payment-card:hover, .bank-card:hover {
-    border-color: rgba(255, 255, 255, 0.16);
-    transform: translateY(-2px);
 }
 
 .logo, .bank-logo {
@@ -562,69 +536,21 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-.logo img, .bank-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain !important;
-    border-radius: 10px;
-    display: block;
-}
+.logo img, .bank-logo img { width: 100%; height: 100%; object-fit: contain !important; border-radius: 10px; display: block; }
 
-.details {
-    flex: 1;
-    min-width: 0;
-}
+.details { flex: 1; min-width: 0; }
+.label { color: #8da2bb; font-size: 9px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 3px; }
+.number { color: #edf5fc; font-size: 14px; font-weight: 700; letter-spacing: 0.3px; }
+.small { margin-top: 3px; color: #8293a6; font-size: 10px; }
 
-.label {
-    color: #8da2bb;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    margin-bottom: 3px;
-}
-
-.number {
-    color: #edf5fc;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-}
-
-.small {
-    margin-top: 3px;
-    color: #8293a6;
-    font-size: 10px;
-}
-
-/* BANK INFO */
 .bank-card {
     border: 1px solid rgba(232, 199, 111, 0.18);
     background: linear-gradient(145deg, rgba(232, 199, 111, 0.07), rgba(255, 255, 255, 0.02));
 }
 
-.bank-name {
-    color: var(--gold);
-    font-size: 10.5px;
-    font-weight: 800;
-    letter-spacing: 0.6px;
-    line-height: 1.4;
-}
-
-.account-name {
-    color: #e9f1f8;
-    font-size: 12px;
-    font-weight: 600;
-    margin-top: 4px;
-}
-
-.account-number {
-    color: #ffffff;
-    font-size: 13.5px;
-    font-weight: 800;
-    letter-spacing: 0.6px;
-    margin-top: 3px;
-    word-break: break-all;
-}
+.bank-name { color: var(--gold); font-size: 10.5px; font-weight: 800; letter-spacing: 0.6px; line-height: 1.4; }
+.account-name { color: #e9f1f8; font-size: 12px; font-weight: 600; margin-top: 4px; }
+.account-number { color: #ffffff; font-size: 13.5px; font-weight: 800; letter-spacing: 0.6px; margin-top: 3px; word-break: break-all; }
 
 .copy-btn {
     width: 40px;
@@ -640,19 +566,9 @@ body {
     flex-shrink: 0;
 }
 
-.copy-btn svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
-}
+.copy-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.copy-btn:hover { background: rgba(98, 229, 255, 0.2); transform: scale(1.08); color: #fff; }
 
-.copy-btn:hover {
-    background: rgba(98, 229, 255, 0.2);
-    transform: scale(1.08);
-    color: #fff;
-}
-
-/* SCAN QR */
 .qr-scanner-card {
     margin-top: 10px;
     padding: 20px 16px;
@@ -677,17 +593,11 @@ body {
     overflow: hidden;
 }
 
-.qr-box-wrap img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 12px;
-}
+.qr-box-wrap img { width: 100%; height: 100%; display: block; border-radius: 12px; }
 
 .laser-scanner-line {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 0; right: 0;
     height: 3px;
     background: linear-gradient(90deg, transparent, #00d2ff, #ffffff, #00d2ff, transparent);
     box-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff;
@@ -701,22 +611,12 @@ body {
 }
 
 .qr-info { flex: 1; }
-
 .qr-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 8.5px;
-    font-weight: 800;
-    font-family: 'JetBrains Mono', monospace;
-    color: #64e8ff;
-    background: rgba(100, 232, 255, 0.12);
-    border: 1px solid rgba(100, 232, 255, 0.3);
-    padding: 3px 8px;
-    border-radius: 99px;
-    letter-spacing: 1px;
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 8.5px; font-weight: 800; font-family: 'JetBrains Mono', monospace;
+    color: #64e8ff; background: rgba(100, 232, 255, 0.12);
+    border: 1px solid rgba(100, 232, 255, 0.3); padding: 3px 8px; border-radius: 99px;
 }
-
 .qr-title { color: #ffffff; font-size: 13.5px; font-weight: 800; margin-top: 6px; }
 .qr-desc { color: #8da2bb; font-size: 11px; font-family: "Hind Siliguri", sans-serif; margin-top: 3px; line-height: 1.5; }
 
@@ -732,106 +632,47 @@ body {
     overflow: hidden;
 }
 
-.weather-search-box {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
+.weather-search-box { display: flex; gap: 8px; margin-bottom: 16px; }
 .weather-input {
-    flex: 1;
-    height: 42px;
-    background: rgba(5, 10, 18, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    padding: 0 14px;
-    color: #fff;
-    font-size: 12.5px;
-    font-family: inherit;
-    outline: none;
-    transition: 0.3s;
+    flex: 1; height: 42px; background: rgba(5, 10, 18, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px;
+    padding: 0 14px; color: #fff; font-size: 12.5px; font-family: inherit; outline: none;
 }
-
-.weather-input:focus {
-    border-color: var(--cyan);
-    box-shadow: 0 0 12px rgba(100, 232, 255, 0.25);
-}
+.weather-input:focus { border-color: var(--cyan); box-shadow: 0 0 12px rgba(100, 232, 255, 0.25); }
 
 .weather-btn {
-    height: 42px;
-    padding: 0 16px;
-    background: linear-gradient(135deg, #1d77f3, #3855db);
-    border: 0;
-    border-radius: 12px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 12.5px;
-    cursor: pointer;
-    transition: 0.25s;
-    box-shadow: 0 4px 15px rgba(29, 119, 243, 0.4);
+    height: 42px; padding: 0 16px; background: linear-gradient(135deg, #1d77f3, #3855db);
+    border: 0; border-radius: 12px; color: #fff; font-weight: 700; font-size: 12.5px; cursor: pointer;
 }
-
-.weather-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+.weather-btn:hover { filter: brightness(1.15); }
 
 .weather-display {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(7, 17, 29, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
-    padding: 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(7, 17, 29, 0.5); border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px; padding: 16px;
 }
-
 .weather-left { display: flex; flex-direction: column; gap: 3px; }
 .weather-city { font-size: 15px; font-weight: 800; color: #ffffff; }
 .weather-desc { font-size: 11.5px; color: #9bdcff; font-weight: 600; text-transform: capitalize; }
-.weather-temp { font-size: 26px; font-weight: 900; font-family: 'JetBrains Mono', monospace; background: linear-gradient(100deg, #fff, #64e8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-.weather-details-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 12px;
+.weather-temp {
+    font-size: 26px; font-weight: 900; font-family: 'JetBrains Mono', monospace;
+    background: linear-gradient(100deg, #fff, #64e8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
+.weather-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
 .w-detail-item {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 8px 12px;
-    border-radius: 10px;
-    font-size: 11px;
-    color: #8da2bb;
-    display: flex;
-    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 8px 12px; border-radius: 10px; font-size: 11px; color: #8da2bb; display: flex; justify-content: space-between;
 }
-
 .w-detail-item span:last-child { color: #fff; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
 
 /* SOCIAL RIBBON */
-.social-ribbon-wrap {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-}
-
+.social-ribbon-wrap { margin-top: 25px; display: flex; justify-content: center; align-items: center; gap: 12px; }
 .ribbon-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-decoration: none;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    color: #ffffff; text-decoration: none; background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); transition: 0.3s;
 }
-
 .ribbon-btn svg { width: 20px; height: 20px; fill: currentColor; }
 .ribbon-btn:hover { transform: translateY(-5px) scale(1.1); border-color: rgba(100, 232, 255, 0.6); color: #64e8ff; }
 .ribbon-fb:hover { background: rgba(24, 119, 242, 0.25); }
@@ -861,6 +702,7 @@ body {
 
 <audio id="welcomeAudio" src="welcome.mp3" preload="auto"></audio>
 <canvas id="particleCanvas"></canvas>
+<canvas id="weatherCanvas"></canvas>
 
 <div class="background">
     <div class="orb orb-one"></div>
@@ -869,8 +711,7 @@ body {
 </div>
 
 <div class="container">
-    <main class="card" id="mainCard">
-        <!-- Profile Header -->
+    <main class="card">
         <section class="profile">
             <div class="photo-wrapper">
                 <div class="photo-ring"></div>
@@ -904,175 +745,63 @@ body {
 
             <div class="divider"></div>
 
-            <!-- CLEAN PREMIUM WELCOME BOX (NO TILT, NO EXTRA TEXT) -->
-            <p class="intro" id="magicIntro" onclick="triggerFlowerEffect(event)">
-                আপনাকে আমার ডিজিটাল ঠিকানায় সাদর আমন্ত্রণ<br>
+            <p class="intro" onclick="triggerFlowerEffect(event)">
+                আপনাকে আমার ডিজিটাল ঠিকানায় সাদর আমন্ত্রণ।<br>
                 যেকোনো প্রয়োজনে আমার সাথে যুক্ত হতে পারেন।
             </p>
         </section>
 
-        <!-- ACTION BUTTONS -->
         <section class="actions">
-            <a href="tel:+8801645472943" class="btn btn-call-1">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.59 3.68a1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
-                </span>
-                <span class="btn-text">CALL — Airtel/Cirkle</span>
-            </a>
-
-            <a href="tel:+8801318773075" class="btn btn-call-2">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.59 3.68a1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
-                </span>
-                <span class="btn-text">CALL — Grameenphone</span>
-            </a>
-
-            <a href="https://wa.me/8801645472943" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 16.67c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.39c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 012.41 5.83c.02 4.54-3.68 8.25-8.21 8.25zm4.51-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.13.17 1.74 2.65 4.21 3.72.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.18-.48-.3z"/></svg>
-                </span>
-                <span class="btn-text">WhatsApp</span>
-            </a>
-
-            <a href="https://imo.im/" target="_blank" rel="noopener noreferrer" class="btn btn-imo">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.94.55 3.75 1.5 5.28L2 22l4.85-1.45C8.34 21.48 10.11 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 5h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg>
-                </span>
-                <span class="btn-text">Imo</span>
-            </a>
-
-            <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="btn btn-facebook">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </span>
-                <span class="btn-text">Facebook</span>
-            </a>
-
-            <a href="mailto:millat.ahhanif@gmail.com" class="btn btn-email">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </span>
-                <span class="btn-text">Email</span>
-            </a>
-
-            <button onclick="saveContact()" class="btn btn-save">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-                </span>
-                <span class="btn-text">Save Contact</span>
-            </button>
-
-            <button onclick="openShare()" class="btn btn-share">
-                <span class="icon-box">
-                    <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
-                </span>
-                <span class="btn-text">Share Profile</span>
-            </button>
+            <a href="tel:+8801645472943" class="btn btn-call-1"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.59 3.68a1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span><span class="btn-text">CALL — Airtel/Robi</span></a>
+            <a href="tel:+8801318773075" class="btn btn-call-2"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.59 3.68a1 1 0 01-.24 1.02l-2.23 2.09z"/></svg></span><span class="btn-text">CALL — Grameenphone</span></a>
+            <a href="https://wa.me/8801645472943" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 16.67c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.39c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 012.41 5.83c.02 4.54-3.68 8.25-8.21 8.25zm4.51-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.13.17 1.74 2.65 4.21 3.72.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.18-.48-.3z"/></svg></span><span class="btn-text">WhatsApp</span></a>
+            <a href="https://imo.im/" target="_blank" rel="noopener noreferrer" class="btn btn-imo"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.94.55 3.75 1.5 5.28L2 22l4.85-1.45C8.34 21.48 10.11 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 5h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg></span><span class="btn-text">Imo</span></a>
+            <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="btn btn-facebook"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span><span class="btn-text">Facebook</span></a>
+            <a href="mailto:millat.ahhanif@gmail.com" class="btn btn-email"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span><span class="btn-text">Email</span></a>
+            <button onclick="saveContact()" class="btn btn-save"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span><span class="btn-text">Save Contact</span></button>
+            <button onclick="openShare()" class="btn btn-share"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg></span><span class="btn-text">Share Profile</span></button>
         </section>
 
-        <!-- MFS -->
         <div class="section-title">MOBILE FINANCIAL SERVICES</div>
         <section class="payment-list">
-            <div class="payment-card">
-                <div class="logo"><img src="bkash.png.png" alt="bKash"></div>
-                <div class="details">
-                    <div class="label">BKASH PERSONAL</div>
-                    <div class="number">+880 1318 773075</div>
-                    <div class="small">Payment Number</div>
-                </div>
-                <button class="copy-btn" onclick="copyNumber('+8801318773075')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
-            </div>
-
-            <div class="payment-card">
-                <div class="logo"><img src="nagad.png.png" alt="Nagad"></div>
-                <div class="details">
-                    <div class="label">NAGAD PERSONAL</div>
-                    <div class="number">+880 1645 472943</div>
-                    <div class="small">Payment Number</div>
-                </div>
-                <button class="copy-btn" onclick="copyNumber('+8801645472943')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
-            </div>
-
-            <div class="payment-card">
-                <div class="logo"><img src="rocket.png.png" alt="Rocket"></div>
-                <div class="details">
-                    <div class="label">ROCKET PERSONAL</div>
-                    <div class="number">+880 1318 773075</div>
-                    <div class="small">DBBL Rocket Number</div>
-                </div>
-                <button class="copy-btn" onclick="copyNumber('+8801318773075')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
-            </div>
+            <div class="payment-card"><div class="logo"><img src="bkash.png.png" alt="bKash"></div><div class="details"><div class="label">BKASH PERSONAL</div><div class="number">+880 1318 773075</div><div class="small">Payment Number</div></div><button class="copy-btn" onclick="copyNumber('+8801318773075')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button></div>
+            <div class="payment-card"><div class="logo"><img src="nagad.png.png" alt="Nagad"></div><div class="details"><div class="label">NAGAD PERSONAL</div><div class="number">+880 1645 472943</div><div class="small">Payment Number</div></div><button class="copy-btn" onclick="copyNumber('+8801645472943')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button></div>
+            <div class="payment-card"><div class="logo"><img src="rocket.png.png" alt="Rocket"></div><div class="details"><div class="label">ROCKET PERSONAL</div><div class="number">+880 1318 773075</div><div class="small">DBBL Rocket Number</div></div><button class="copy-btn" onclick="copyNumber('+8801318773075')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button></div>
         </section>
 
-        <!-- BANK INFO -->
         <div class="section-title">BANK INFORMATION</div>
         <section class="bank-list">
-            <div class="bank-card">
-                <div class="bank-logo"><img src="islami-bank.png.png" alt="Islami Bank"></div>
-                <div class="details">
-                    <div class="bank-name">ISLAMI BANK BANGLADESH PLC</div>
-                    <div class="account-name">Account Name: MD. ABU HANIF</div>
-                    <div class="account-number">20502060202489000</div>
-                </div>
-                <button class="copy-btn" onclick="copyNumber('20502060202489000')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
-            </div>
-
-            <div class="bank-card">
-                <div class="bank-logo"><img src="dutch-bangla-bank.png.jpg" alt="Dutch-Bangla Bank"></div>
-                <div class="details">
-                    <div class="bank-name">DUTCH-BANGLA BANK LIMITED</div>
-                    <div class="account-name">Account Name: MD. ABU HANIF</div>
-                    <div class="account-number">1917348893019</div>
-                </div>
-                <button class="copy-btn" onclick="copyNumber('1917348893019')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
-            </div>
+            <div class="bank-card"><div class="bank-logo"><img src="islami-bank.png.png" alt="Islami Bank"></div><div class="details"><div class="bank-name">ISLAMI BANK BANGLADESH PLC</div><div class="account-name">Account Name: MD. ABU HANIF</div><div class="account-number">20502060202489000</div></div><button class="copy-btn" onclick="copyNumber('20502060202489000')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button></div>
+            <div class="bank-card"><div class="bank-logo"><img src="dutch-bangla-bank.png.jpg" alt="Dutch-Bangla Bank"></div><div class="details"><div class="bank-name">DUTCH-BANGLA BANK LIMITED</div><div class="account-name">Account Name: MD. ABU HANIF</div><div class="account-number">1917348893019</div></div><button class="copy-btn" onclick="copyNumber('1917348893019')" title="Copy"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button></div>
         </section>
 
-        <!-- SCAN QR -->
         <div class="section-title">SCAN TO CONNECT</div>
         <section class="qr-scanner-card">
-            <div class="qr-box-wrap">
-                <div class="laser-scanner-line"></div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://abu-hanif-bio.github.io/&color=050a12" alt="QR Code">
-            </div>
-            <div class="qr-info">
-                <div class="qr-badge">● INSTANT SYNC</div>
-                <div class="qr-title">Direct QR Scanner</div>
-                <div class="qr-desc">মোবাইল ক্যামেরা দিয়ে স্ক্যান করে সরাসরি প্রোফাইল সেভ করুন।</div>
-            </div>
+            <div class="qr-box-wrap"><div class="laser-scanner-line"></div><img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://abu-hanif-bio.github.io/&color=050a12" alt="QR Code"></div>
+            <div class="qr-info"><div class="qr-badge">● INSTANT SYNC</div><div class="qr-title">Direct QR Scanner</div><div class="qr-desc">মোবাইল ক্যামেরা দিয়ে স্ক্যান করে সরাসরি প্রোফাইল সেভ করুন।</div></div>
         </section>
 
-        <!-- LIVE WEATHER FORECAST -->
         <div class="section-title">LIVE WEATHER FORECAST</div>
         <section class="weather-card">
             <div class="weather-search-box">
-                <input type="text" id="cityInput" class="weather-input" placeholder="শহর বা জেলার নাম লিখুন (যেমন: Dhaka)..." onkeypress="if(event.key === 'Enter') searchWeather()">
+                <input type="text" id="cityInput" class="weather-input" placeholder="শহর বা জেলার নাম লিখুন..." onkeypress="if(event.key === 'Enter') searchWeather()">
                 <button class="weather-btn" onclick="searchWeather()">সার্চ</button>
             </div>
-            
             <div class="weather-display">
                 <div class="weather-left">
                     <div class="weather-city" id="wCity">অটো-ডিটেক্ট হচ্ছে...</div>
-                    <div class="weather-desc" id="wDesc">লোকাল আবহাওয়া লোড হচ্ছে</div>
+                    <div class="weather-desc" id="wDesc">লাইভ আবহাওয়া লোড হচ্ছে</div>
                 </div>
                 <div class="weather-temp-box">
                     <div class="weather-temp" id="wTemp">--°C</div>
                 </div>
             </div>
-
             <div class="weather-details-grid">
-                <div class="w-detail-item">
-                    <span>বাতাসের আর্দ্রতা:</span>
-                    <span id="wHumidity">--%</span>
-                </div>
-                <div class="w-detail-item">
-                    <span>বাতাসের গতি:</span>
-                    <span id="wWind">-- km/h</span>
-                </div>
+                <div class="w-detail-item"><span>বাতাসের আর্দ্রতা:</span><span id="wHumidity">--%</span></div>
+                <div class="w-detail-item"><span>বাতাসের গতি:</span><span id="wWind">-- km/h</span></div>
             </div>
         </section>
 
-        <!-- SOCIAL RIBBON -->
         <div class="social-ribbon-wrap">
             <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-fb" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
             <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-tg" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.98-1.73 6.64-2.87 7.97-3.44 3.79-1.61 4.58-1.89 5.09-1.9.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.22-.04.36z"/></svg></a>
@@ -1087,7 +816,6 @@ body {
     </main>
 </div>
 
-<!-- Share Modal -->
 <div class="share-overlay" id="shareOverlay" onclick="handleBackdropClick(event)">
     <div class="share-card">
         <div class="share-title">MD. ABU HANIF</div>
@@ -1107,12 +835,21 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   AUTO-DETECT & SEARCH LIVE WEATHER
+   DYNAMIC LIVE WEATHER & DYNAMIC THEME ANIMATOR
 ========================================================= */
 const weatherCodes = {
-    0: "আকাশ পরিষ্কার ☀️", 1: "প্রধানত পরিষ্কার 🌤️", 2: "আংশিক মেঘলা ⛅", 3: "মোঘলা আকাশ ☁️",
-    45: "কুয়াশাচ্ছন্ন 🌫️", 51: "গুঁড়ি গুঁড়ি বৃষ্টি 🌧️", 61: "হালকা বৃষ্টি 🌧️", 63: "মঝারি বৃষ্টি 🌧️", 95: "বজ্রঝড় ⛈️"
+    0: { desc: "আকাশ পরিষ্কার ☀️", theme: "sunny" },
+    1: { desc: "প্রধানত পরিষ্কার 🌤️", theme: "sunny" },
+    2: { desc: "আংশিক মেঘলা ⛅", theme: "cloudy" },
+    3: { desc: "মেঘলা আকাশ ☁️", theme: "cloudy" },
+    45: { desc: "কুয়াশাচ্ছন্ন 🌫️", theme: "foggy" },
+    51: { desc: "গুঁড়ি গুঁড়ি বৃষ্টি 🌧️", theme: "rainy" },
+    61: { desc: "হালকা বৃষ্টি 🌧️", theme: "rainy" },
+    63: { desc: "ভারী বৃষ্টি 🌧️", theme: "rainy" },
+    95: { desc: "বজ্রঝড় ⛈️", theme: "rainy" }
 };
+
+let weatherTheme = "normal";
 
 async function fetchWeatherByCoords(lat, lon, cityName) {
     try {
@@ -1120,8 +857,11 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
         const data = await res.json();
         const cur = data.current;
         
+        const wInfo = weatherCodes[cur.weather_code] || { desc: "স্বাভাবিক আবহাওয়া", theme: "normal" };
+        weatherTheme = wInfo.theme;
+
         document.getElementById("wCity").textContent = cityName;
-        document.getElementById("wDesc").textContent = weatherCodes[cur.weather_code] || "স্বাভাবিক আবহাওয়া";
+        document.getElementById("wDesc").textContent = wInfo.desc;
         document.getElementById("wTemp").textContent = `${Math.round(cur.temperature_2m)}°C`;
         document.getElementById("wHumidity").textContent = `${cur.relative_humidity_2m}%`;
         document.getElementById("wWind").textContent = `${cur.wind_speed_10m} km/h`;
@@ -1165,6 +905,89 @@ async function searchWeather() {
 window.addEventListener("DOMContentLoaded", () => {
     detectVisitorCityAndWeather();
 });
+
+/* DYNAMIC WEATHER ANIMATION CANVAS (RAIN / SUNNY / FOG) */
+const wCanvas = document.getElementById('weatherCanvas');
+const wCtx = wCanvas.getContext('2d');
+let weatherParticles = [];
+
+function initWeatherCanvas() {
+    wCanvas.width = window.innerWidth;
+    wCanvas.height = window.innerHeight;
+}
+window.addEventListener('resize', initWeatherCanvas);
+initWeatherCanvas();
+
+class WeatherParticle {
+    constructor() {
+        this.reset();
+    }
+    reset() {
+        this.x = Math.random() * wCanvas.width;
+        this.y = Math.random() * -wCanvas.height;
+        if (weatherTheme === 'rainy') {
+            this.vy = Math.random() * 12 + 8;
+            this.vx = Math.random() * 2 - 1;
+            this.size = Math.random() * 2 + 1;
+            this.alpha = Math.random() * 0.6 + 0.2;
+        } else if (weatherTheme === 'foggy' || weatherTheme === 'cloudy') {
+            this.vy = Math.random() * 0.5 - 0.25;
+            this.vx = Math.random() * 1 - 0.5;
+            this.size = Math.random() * 60 + 20;
+            this.alpha = Math.random() * 0.08 + 0.02;
+        } else {
+            // Sunny / Normal particles (golden specs)
+            this.vy = Math.random() * 0.8 - 0.4;
+            this.vx = Math.random() * 0.8 - 0.4;
+            this.size = Math.random() * 2.5 + 1;
+            this.alpha = Math.random() * 0.5 + 0.1;
+        }
+    }
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.y > wCanvas.height || this.x < 0 || this.x > wCanvas.width) {
+            this.reset();
+        }
+    }
+    draw() {
+        wCtx.save();
+        wCtx.globalAlpha = this.alpha;
+        if (weatherTheme === 'rainy') {
+            wCtx.strokeStyle = '#64e8ff';
+            wCtx.lineWidth = this.size;
+            wCtx.beginPath();
+            wCtx.moveTo(this.x, this.y);
+            wCtx.lineTo(this.x - 2, this.y + 15);
+            wCtx.stroke();
+        } else if (weatherTheme === 'foggy' || weatherTheme === 'cloudy') {
+            wCtx.fillStyle = '#8ea0b4';
+            wCtx.beginPath();
+            wCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            wCtx.fill();
+        } else {
+            wCtx.fillStyle = '#e8c96f'; // Sunny golden specs
+            wCtx.beginPath();
+            wCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            wCtx.fill();
+        }
+        wCtx.restore();
+    }
+}
+
+for (let i = 0; i < 50; i++) {
+    weatherParticles.push(new WeatherParticle());
+}
+
+function animateWeather() {
+    wCtx.clearRect(0, 0, wCanvas.width, wCanvas.height);
+    weatherParticles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animateWeather);
+}
+animateWeather();
 
 /* =========================================================
    MAGICAL FLOWER TOUCH EFFECT
@@ -1297,7 +1120,7 @@ function typeEffect() {
 }
 typeEffect();
 
-/* PARTICLES */
+/* BACKGROUND PARTICLES */
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
