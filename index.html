@@ -38,39 +38,43 @@
     --cyan: #64e8ff;
     --purple: #846cff;
     --gold: #e8c96f;
-    --border: rgba(255, 255, 255, 0.10);
-    --glow-color: rgba(100, 232, 255, 0.2);
+    --border: rgba(255, 255, 255, 0.12);
+    --glow-color: rgba(100, 232, 255, 0.25);
 }
 
-/* TIME & WEATHER COMBINED NATURAL ECOSYSTEM THEMES */
-body.time-morning {
-    background: radial-gradient(circle at 50% 0%, rgba(255, 215, 130, 0.3), transparent 55%), radial-gradient(circle at 90% 90%, rgba(30, 100, 150, 0.2), transparent 50%), #07111e !important;
-    --cyan: #ffdf6d;
-    --glow-color: rgba(255, 223, 109, 0.35);
+/* 1. MORNING ATMOSPHERE (ভোর ও সকাল) */
+body.atmosphere-morning {
+    background: linear-gradient(135deg, #122238 0%, #071220 100%), radial-gradient(circle at 50% 0%, rgba(255, 215, 130, 0.35), transparent 60%) !important;
+    --cyan: #ffe082;
+    --glow-color: rgba(255, 224, 130, 0.4);
 }
 
-body.time-afternoon {
-    background: radial-gradient(circle at 50% 0%, rgba(255, 170, 50, 0.35), transparent 55%), radial-gradient(circle at 10% 90%, rgba(255, 100, 0, 0.15), transparent 45%), #050914 !important;
-    --cyan: #ffa726;
-    --glow-color: rgba(255, 167, 38, 0.35);
+/* 2. MIDDAY SUNNY ATMOSPHERE (দুপুর - কড়া রোদ) */
+body.atmosphere-afternoon {
+    background: linear-gradient(135deg, #1a2636 0%, #080d16 100%), radial-gradient(circle at 50% 0%, rgba(255, 180, 50, 0.4), transparent 60%) !important;
+    --cyan: #ffb732;
+    --glow-color: rgba(255, 183, 50, 0.45);
 }
 
-body.time-evening {
-    background: radial-gradient(circle at 50% 0%, rgba(244, 63, 94, 0.28), transparent 50%), radial-gradient(circle at 50% 90%, rgba(139, 92, 246, 0.2), transparent 50%), #090514 !important;
+/* 3. SUNSET / EVENING ATMOSPHERE (বিকেল ও গোধূলি) */
+body.atmosphere-evening {
+    background: linear-gradient(135deg, #2a1b2e 0%, #0d0914 100%), radial-gradient(circle at 50% 0%, rgba(244, 63, 94, 0.35), transparent 60%) !important;
     --cyan: #fb7185;
-    --glow-color: rgba(251, 113, 133, 0.35);
+    --glow-color: rgba(251, 113, 133, 0.4);
 }
 
-body.time-night {
-    background: radial-gradient(circle at 20% 10%, rgba(15, 23, 42, 0.9), transparent 60%), radial-gradient(circle at 80% 80%, rgba(30, 27, 75, 0.7), transparent 70%), #020408 !important;
+/* 4. NIGHT ATMOSPHERE (রাত - মিটিমিটি তারা) */
+body.atmosphere-night {
+    background: linear-gradient(135deg, #090e17 0%, #020408 100%), radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.3), transparent 70%) !important;
     --cyan: #38bdf8;
-    --glow-color: rgba(56, 189, 248, 0.3);
+    --glow-color: rgba(56, 189, 248, 0.35);
 }
 
-body.theme-rainy {
-    background: radial-gradient(circle at 30% 0%, rgba(20, 60, 110, 0.5), transparent 50%), radial-gradient(circle at 80% 90%, rgba(2, 6, 15, 0.95), transparent 70%), #010204 !important;
+/* 5. RAINY ATMOSPHERE (বৃষ্টির পরিবেশ) */
+body.atmosphere-rainy {
+    background: linear-gradient(135deg, #0d1b2a 0%, #02060c 100%), radial-gradient(circle at 30% 0%, rgba(29, 78, 216, 0.3), transparent 60%) !important;
     --cyan: #0ea5e9;
-    --glow-color: rgba(14, 165, 233, 0.4);
+    --glow-color: rgba(14, 165, 233, 0.45);
 }
 
 * {
@@ -93,14 +97,7 @@ body {
     transition: background 2s ease;
 }
 
-#particleCanvas {
-    position: fixed;
-    inset: 0;
-    z-index: -6;
-    pointer-events: none;
-}
-
-#weatherCanvas {
+#natureCanvas {
     position: fixed;
     inset: 0;
     z-index: -4;
@@ -118,14 +115,14 @@ body {
 .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.18;
+    filter: blur(110px);
+    opacity: 0.22;
     transition: background 2s ease;
 }
 
 .orb-one {
-    width: 420px;
-    height: 420px;
+    width: 440px;
+    height: 440px;
     background: var(--cyan);
     left: -180px;
     top: -180px;
@@ -133,8 +130,8 @@ body {
 }
 
 .orb-two {
-    width: 380px;
-    height: 380px;
+    width: 400px;
+    height: 400px;
     background: var(--purple);
     right: -180px;
     bottom: -160px;
@@ -152,7 +149,7 @@ body {
 .grid {
     position: absolute;
     inset: 0;
-    opacity: 0.025;
+    opacity: 0.03;
     background-image:
         linear-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
@@ -171,11 +168,11 @@ body {
     position: relative;
     padding: 34px 20px;
     border-radius: 36px;
-    background: linear-gradient(145deg, rgba(15, 28, 46, 0.88), rgba(5, 11, 20, 0.85));
+    background: linear-gradient(145deg, rgba(16, 29, 48, 0.88), rgba(6, 13, 22, 0.85));
     border: 1px solid var(--border);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     overflow: hidden;
     animation: cardEnter 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -734,8 +731,7 @@ body {
 <body onclick="handleFirstInteraction()">
 
 <audio id="welcomeAudio" src="welcome.mp3" preload="auto"></audio>
-<canvas id="particleCanvas"></canvas>
-<canvas id="weatherCanvas"></canvas>
+<canvas id="natureCanvas"></canvas>
 
 <div class="background">
     <div class="orb orb-one"></div>
@@ -876,35 +872,36 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   ADVANCED TIME & WEATHER ECOSYSTEM ENGINE
+   ABSOLUTE TIME & WEATHER ECOSYSTEM ENGINE
 ========================================================= */
-function updateAtmosphereByTimeAndWeather(weatherCode, temp, humidity) {
+let currentAtmosphere = "atmosphere-night";
+let renderMode = "nature"; // 'nature' or 'rainy'
+
+function evaluateRealTimeEcosystem(weatherCode, temp) {
     const hour = new Date().getHours();
-    let timeTheme = "time-night";
+    
+    // Strict Daylight & Weather Logic
+    let isActuallyRainy = (weatherCode >= 51 && weatherCode <= 95) && (hour < 6 || hour > 19);
 
-    if (hour >= 5 && hour < 11) {
-        timeTheme = "time-morning"; // সকালের স্নিগ্ধ পরিবেশ
-    } else if (hour >= 11 && hour < 16) {
-        timeTheme = "time-afternoon"; // দুপুরের কড়া রোদ ও উজ্জ্বল পরিবেশ
-    } else if (hour >= 16 && hour < 18.5) {
-        timeTheme = "time-evening"; // বিকেলের গোধূলি পরিবেশ
+    if (isActuallyRainy) {
+        currentAtmosphere = "atmosphere-rainy";
+        renderMode = "rainy";
     } else {
-        timeTheme = "time-night"; // রাতের পরিবেশ
+        // Time based natural atmosphere
+        if (hour >= 5 && hour < 11) {
+            currentAtmosphere = "atmosphere-morning"; // ভোর ও সকাল (সোনালী ও কুয়াশাচ্ছন্ন ভাব)
+        } else if (hour >= 11 && hour < 16) {
+            currentAtmosphere = "atmosphere-afternoon"; // দুপুর (উজ্জ্বল সোনালী রোদ)
+        } else if (hour >= 16 && hour < 18.5) {
+            currentAtmosphere = "atmosphere-evening"; // বিকেল ও গোধূলি (কমলা-রক্তিম আভা)
+        } else {
+            currentAtmosphere = "atmosphere-night"; // রাত (গভীর নীল ও তারা)
+        }
+        renderMode = "nature";
     }
 
-    // Strict Weather Logic: If temp is high and it's daytime, force sunny/clear regardless of minor API errors
-    let isReallyRainy = (weatherCode >= 51 && weatherCode <= 95) && (temp < 30 || hour < 6 || hour > 19);
-
-    if (isReallyRainy) {
-        document.body.className = "theme-rainy";
-        activeWeatherMode = "rainy";
-    } else {
-        document.body.className = timeTheme;
-        activeWeatherMode = "sunny";
-    }
+    document.body.className = currentAtmosphere;
 }
-
-let activeWeatherMode = "sunny";
 
 async function fetchWeatherByCoords(lat, lon, cityName) {
     try {
@@ -912,14 +909,22 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
         const data = await res.json();
         const cur = data.current;
         
-        let descText = "আকাশ পরিষ্কার ☀️";
-        if (cur.weather_code >= 51 && cur.weather_code <= 63) descText = "হালকা বৃষ্টি 🌧️";
-        else if (cur.weather_code >= 95) descText = "বজ্রঝড় ⛈️";
-        else if (cur.weather_code >= 45) descText = "কুয়াশাচ্ছন্ন 🌫️";
-        else if (cur.weather_code >= 2) descText = "মেঘলা আকাশ ☁️";
-        else descText = "রৌদ্রোজ্জ্বল আকাশ ☀️";
+        const hour = new Date().getHours();
+        let descText = "রৌদ্রোজ্জ্বল আকাশ ☀️";
 
-        updateAtmosphereByTimeAndWeather(cur.weather_code, cur.temperature_2m, cur.relative_humidity_2m);
+        if (cur.weather_code >= 51 && cur.weather_code <= 63 && (hour < 6 || hour > 19)) {
+            descText = "হালকা বৃষ্টি 🌧️";
+        } else if (hour >= 5 && hour < 11) {
+            descText = "সকালের স্নিগ্ধ আকাশ 🌅";
+        } else if (hour >= 11 && hour < 16) {
+            descText = "উজ্জ্বল রৌদ্রোজ্জ্বল দিন ☀️";
+        } else if (hour >= 16 && hour < 18.5) {
+            descText = "বিকেলের গোধূলি 🌇";
+        } else {
+            descText = "চাঁদ ও তারার রাত 🌙";
+        }
+
+        evaluateRealTimeEcosystem(cur.weather_code, cur.temperature_2m);
 
         document.getElementById("wCity").textContent = cityName;
         document.getElementById("wDesc").textContent = descText;
@@ -929,8 +934,9 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
     } catch(e) {
         document.getElementById("wCity").textContent = cityName;
         document.getElementById("wDesc").textContent = "রৌদ্রোজ্জ্বল আকাশ ☀️";
-        document.body.className = "time-afternoon";
-        activeWeatherMode = "sunny";
+        document.body.className = "atmosphere-afternoon";
+        currentAtmosphere = "atmosphere-afternoon";
+        renderMode = "nature";
     }
 }
 
@@ -969,25 +975,25 @@ window.addEventListener("DOMContentLoaded", () => {
     detectVisitorCityAndWeather();
 });
 
-/* DYNAMIC NATURE & ATMOSPHERE CANVAS */
-const wCanvas = document.getElementById('weatherCanvas');
-const wCtx = wCanvas.getContext('2d');
-let drops = [];
+/* IMMERSIVE NATURE & UNIVERSE CANVAS ENGINE */
+const nCanvas = document.getElementById('natureCanvas');
+const nCtx = nCanvas.getContext('2d');
+let raindrops = [];
 let ripples = [];
-let ambientParticles = [];
+let natureElements = [];
 
-function initWeatherCanvas() {
-    wCanvas.width = window.innerWidth;
-    wCanvas.height = window.innerHeight;
+function initNatureCanvas() {
+    nCanvas.width = window.innerWidth;
+    nCanvas.height = window.innerHeight;
 }
-window.addEventListener('resize', initWeatherCanvas);
-initWeatherCanvas();
+window.addEventListener('resize', initNatureCanvas);
+initNatureCanvas();
 
 class RainDrop {
     constructor() { this.reset(); }
     reset() {
-        this.x = Math.random() * (wCanvas.width + 200) - 100;
-        this.y = Math.random() * -wCanvas.height;
+        this.x = Math.random() * (nCanvas.width + 200) - 100;
+        this.y = Math.random() * -nCanvas.height;
         this.z = Math.random() * 2 + 0.8;
         this.length = Math.random() * 25 + 15;
         this.speed = Math.random() * 14 + 12;
@@ -996,20 +1002,20 @@ class RainDrop {
     update() {
         this.y += this.speed * this.z;
         this.x -= 2;
-        if (this.y > wCanvas.height) {
-            if (Math.random() > 0.6) ripples.push(new Ripple(this.x, wCanvas.height - Math.random() * 20));
+        if (this.y > nCanvas.height) {
+            if (Math.random() > 0.6) ripples.push(new Ripple(this.x, nCanvas.height - Math.random() * 20));
             this.reset();
         }
     }
     draw() {
-        wCtx.save();
-        wCtx.lineWidth = this.z;
-        wCtx.strokeStyle = `rgba(56, 189, 248, ${this.opacity})`;
-        wCtx.beginPath();
-        wCtx.moveTo(this.x, this.y);
-        wCtx.lineTo(this.x - 3, this.y + this.length);
-        wCtx.stroke();
-        wCtx.restore();
+        nCtx.save();
+        nCtx.lineWidth = this.z;
+        nCtx.strokeStyle = `rgba(56, 189, 248, ${this.opacity})`;
+        nCtx.beginPath();
+        nCtx.moveTo(this.x, this.y);
+        nCtx.lineTo(this.x - 3, this.y + this.length);
+        nCtx.stroke();
+        nCtx.restore();
     }
 }
 
@@ -1018,60 +1024,88 @@ class Ripple {
     update() { this.r += 0.5; this.opacity -= 0.04; }
     draw() {
         if (this.opacity <= 0) return;
-        wCtx.save();
-        wCtx.lineWidth = 1;
-        wCtx.strokeStyle = `rgba(56, 189, 248, ${this.opacity})`;
-        wCtx.beginPath();
-        wCtx.ellipse(this.x, this.y, this.r, this.r * 0.4, 0, 0, Math.PI * 2);
-        wCtx.stroke();
-        wCtx.restore();
+        nCtx.save();
+        nCtx.lineWidth = 1;
+        nCtx.strokeStyle = `rgba(56, 189, 248, ${this.opacity})`;
+        nCtx.beginPath();
+        nCtx.ellipse(this.x, this.y, this.r, this.r * 0.4, 0, 0, Math.PI * 2);
+        nCtx.stroke();
+        nCtx.restore();
     }
 }
 
-class AmbientNatureParticle {
+class NatureParticle {
     constructor() { this.reset(); }
     reset() {
-        this.x = Math.random() * wCanvas.width;
-        this.y = Math.random() * wCanvas.height;
+        this.x = Math.random() * nCanvas.width;
+        this.y = Math.random() * nCanvas.height;
         this.size = Math.random() * 3 + 1;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.opacity = Math.random() * 0.6 + 0.2;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.8 + 0.2;
+        this.twinkleSpeed = Math.random() * 0.02 + 0.005;
     }
     update() {
-        this.x += this.vx; this.y += this.vy;
-        if (this.x < 0 || this.x > wCanvas.width || this.y < 0 || this.y > wCanvas.height) this.reset();
+        this.x += this.vx; 
+        this.y += this.vy;
+        this.opacity += (Math.random() - 0.5) * 0.05;
+        if (this.opacity < 0.1) this.opacity = 0.1;
+        if (this.opacity > 1) this.opacity = 1;
+
+        if (this.x < 0 || this.x > nCanvas.width || this.y < 0 || this.y > nCanvas.height) this.reset();
     }
     draw() {
-        wCtx.save();
-        // Dynamic color based on time of day (Warm gold for day, soft cool blue/white for night)
-        wCtx.fillStyle = activeWeatherMode === 'rainy' ? `rgba(147, 197, 253, ${this.opacity})` : `rgba(255, 215, 130, ${this.opacity})`;
-        wCtx.beginPath();
-        wCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        wCtx.fill();
-        wCtx.restore();
+        nCtx.save();
+        const hour = new Date().getHours();
+        
+        if (hour >= 20 || hour < 5) {
+            // Night: Twinkling Stars (মিটিমিটি তারা)
+            nCtx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            nCtx.beginPath();
+            nCtx.arc(this.x, this.y, this.size * 0.8, 0, Math.PI * 2);
+            nCtx.fill();
+        } else if (hour >= 5 && hour < 11) {
+            // Morning: Soft Golden Mist/Specs (ভোর ও সকাল)
+            nCtx.fillStyle = `rgba(255, 224, 130, ${this.opacity * 0.7})`;
+            nCtx.beginPath();
+            nCtx.arc(this.x, this.y, this.size * 1.2, 0, Math.PI * 2);
+            nCtx.fill();
+        } else if (hour >= 11 && hour < 16) {
+            // Afternoon: Bright Sunbeams (দুপুরের কড়া সোনালী রোদ)
+            nCtx.fillStyle = `rgba(255, 183, 50, ${this.opacity})`;
+            nCtx.beginPath();
+            nCtx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
+            nCtx.fill();
+        } else {
+            // Evening: Sunset Warm Glow (বিকেল ও গোধূলি)
+            nCtx.fillStyle = `rgba(251, 113, 133, ${this.opacity})`;
+            nCtx.beginPath();
+            nCtx.arc(this.x, this.y, this.size * 1.2, 0, Math.PI * 2);
+            nCtx.fill();
+        }
+        nCtx.restore();
     }
 }
 
-for (let i = 0; i < 120; i++) drops.push(new RainDrop());
-for (let i = 0; i < 50; i++) ambientParticles.push(new AmbientNatureParticle());
+for (let i = 0; i < 120; i++) raindrops.push(new RainDrop());
+for (let i = 0; i < 65; i++) natureElements.push(new NatureParticle());
 
-function animateWeather() {
-    wCtx.clearRect(0, 0, wCanvas.width, wCanvas.height);
+function animateNature() {
+    nCtx.clearRect(0, 0, nCanvas.width, nCanvas.height);
     
-    if (activeWeatherMode === 'rainy') {
-        drops.forEach(d => { d.update(); d.draw(); });
+    if (renderMode === 'rainy') {
+        raindrops.forEach(d => { d.update(); d.draw(); });
         ripples.forEach((r, index) => {
             r.update(); r.draw();
             if (r.opacity <= 0) ripples.splice(index, 1);
         });
     } else {
-        ambientParticles.forEach(p => { p.update(); p.draw(); });
+        natureElements.forEach(p => { p.update(); p.draw(); });
     }
     
-    requestAnimationFrame(animateWeather);
+    requestAnimationFrame(animateNature);
 }
-animateWeather();
+animateNature();
 
 /* =========================================================
    MAGICAL FLOWER TOUCH EFFECT
