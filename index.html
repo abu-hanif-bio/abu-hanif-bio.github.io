@@ -6,6 +6,7 @@
 
 <title>MD. ABU HANIF | Official Profile</title>
 
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2VZCPFP21"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -14,6 +15,7 @@
   gtag('config', 'G-W2VZCPFP21');
 </script>
 
+<!-- OG Meta Tags -->
 <meta name="description" content="MD. ABU HANIF — Official Digital Profile. Contact, Mobile Financial Services, Social Links & Live Weather.">
 <meta name="theme-color" content="#050a12">
 
@@ -58,7 +60,6 @@ body {
         radial-gradient(circle at 100% 80%, rgba(118, 75, 255, 0.14), transparent 32%),
         var(--bg);
     overflow-x: hidden;
-    perspective: 1000px;
 }
 
 /* Background Particle Canvas */
@@ -137,8 +138,6 @@ body {
     box-shadow: 0 35px 100px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     overflow: hidden;
     animation: cardEnter 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
 }
 
 @keyframes cardEnter {
@@ -359,52 +358,22 @@ body {
 }
 
 /* =========================================================
-   NEON CYAN PULSE WELCOME BOX (SHIMMER & BREATHING GLOW)
+   ULTRA-PREMIUM STATIC INTRO BOX (NEON CYAN SHIMMER & GLOW)
 ========================================================= */
 .intro {
     font-family: 'Hind Siliguri', sans-serif;
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 700;
-    line-height: 1.8;
+    line-height: 1.85;
     cursor: pointer;
     position: relative;
-    padding: 18px 20px;
+    padding: 18px 22px;
     border-radius: 22px;
     background: linear-gradient(135deg, rgba(12, 25, 42, 0.92), rgba(6, 14, 25, 0.96));
     border: 1.5px solid rgba(100, 232, 255, 0.35);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
     user-select: none;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-}
-
-.intro:hover {
-    border-color: rgba(100, 232, 255, 0.9);
-    box-shadow: 0 18px 45px rgba(100, 232, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-
-.tech-welcome-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 800;
-    color: #64e8ff;
-    background: rgba(100, 232, 255, 0.12);
-    border: 1px solid rgba(100, 232, 255, 0.4);
-    padding: 3px 10px;
-    border-radius: 99px;
-    letter-spacing: 1.2px;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-}
-
-.tech-welcome-text {
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
     /* Neon Cyan & Ice-Blue Shimmer Gradient */
     background: linear-gradient(90deg, #64e8ff, #ffffff, #e8c96f, #64e8ff);
     background-size: 300% auto;
@@ -414,6 +383,12 @@ body {
     animation: neonShimmer 4s linear infinite, neonPulse 3s ease-in-out infinite alternate;
 }
 
+.intro:hover {
+    border-color: rgba(100, 232, 255, 0.9);
+    filter: brightness(1.15);
+    box-shadow: 0 18px 45px rgba(100, 232, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
 @keyframes neonShimmer {
     0% { background-position: 0% center; }
     100% { background-position: 300% center; }
@@ -421,7 +396,7 @@ body {
 
 @keyframes neonPulse {
     0% { filter: drop-shadow(0 0 2px rgba(100, 232, 255, 0.2)); }
-    100% { filter: drop-shadow(0 0 10px rgba(100, 232, 255, 0.7)); }
+    100% { filter: drop-shadow(0 0 12px rgba(100, 232, 255, 0.8)); }
 }
 
 /* Floating Flower Animation Elements */
@@ -895,6 +870,7 @@ body {
 
 <div class="container">
     <main class="card" id="mainCard">
+        <!-- Profile Header -->
         <section class="profile">
             <div class="photo-wrapper">
                 <div class="photo-ring"></div>
@@ -928,12 +904,14 @@ body {
 
             <div class="divider"></div>
 
-            <div class="intro" id="magicIntro" onclick="triggerFlowerEffect(event)" onmousemove="handleTilt(event)" onmouseleave="resetTilt()">
-                <div class="tech-welcome-badge">🚀 CONNECT & COLLABORATE</div>
-                <span class="tech-welcome-text">আপনাকে আমার ডিজিটাল ঠিকানায় সাদর আমন্ত্রণ। যেকোনো প্রয়োজনে আমার সাথে যুক্ত হতে পারেন।</span>
-            </div>
+            <!-- CLEAN PREMIUM WELCOME BOX (NO TILT, NO EXTRA TEXT) -->
+            <p class="intro" id="magicIntro" onclick="triggerFlowerEffect(event)">
+                আপনাকে আমার ডিজিটাল ঠিকানায় সাদর আমন্ত্রণ।<br>
+                যেকোনো প্রয়োজনে আমার সাথে যুক্ত হতে পারেন।
+            </p>
         </section>
 
+        <!-- ACTION BUTTONS -->
         <section class="actions">
             <a href="tel:+8801645472943" class="btn btn-call-1">
                 <span class="icon-box">
@@ -992,6 +970,7 @@ body {
             </button>
         </section>
 
+        <!-- MFS -->
         <div class="section-title">MOBILE FINANCIAL SERVICES</div>
         <section class="payment-list">
             <div class="payment-card">
@@ -1025,6 +1004,7 @@ body {
             </div>
         </section>
 
+        <!-- BANK INFO -->
         <div class="section-title">BANK INFORMATION</div>
         <section class="bank-list">
             <div class="bank-card">
@@ -1048,6 +1028,7 @@ body {
             </div>
         </section>
 
+        <!-- SCAN QR -->
         <div class="section-title">SCAN TO CONNECT</div>
         <section class="qr-scanner-card">
             <div class="qr-box-wrap">
@@ -1061,6 +1042,7 @@ body {
             </div>
         </section>
 
+        <!-- LIVE WEATHER FORECAST -->
         <div class="section-title">LIVE WEATHER FORECAST</div>
         <section class="weather-card">
             <div class="weather-search-box">
@@ -1090,6 +1072,7 @@ body {
             </div>
         </section>
 
+        <!-- SOCIAL RIBBON -->
         <div class="social-ribbon-wrap">
             <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-fb" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
             <a href="https://t.me/" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-tg" title="Telegram"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.98-1.73 6.64-2.87 7.97-3.44 3.79-1.61 4.58-1.89 5.09-1.9.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.22-.04.36z"/></svg></a>
@@ -1104,6 +1087,7 @@ body {
     </main>
 </div>
 
+<!-- Share Modal -->
 <div class="share-overlay" id="shareOverlay" onclick="handleBackdropClick(event)">
     <div class="share-card">
         <div class="share-title">MD. ABU HANIF</div>
@@ -1121,24 +1105,6 @@ body {
 
 <script>
 const profileURL = "https://abu-hanif-bio.github.io/";
-
-/* =========================================================
-   3D TILT EFFECT SCRIPT
-========================================================= */
-function handleTilt(e) {
-    const card = document.getElementById('mainCard');
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    const rotateX = (-y / 25).toFixed(2);
-    const rotateY = (x / 25).toFixed(2);
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-}
-
-function resetTilt() {
-    const card = document.getElementById('mainCard');
-    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-}
 
 /* =========================================================
    AUTO-DETECT & SEARCH LIVE WEATHER
