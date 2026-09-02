@@ -891,27 +891,30 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   STRICT NATURAL TIME & WEATHER OVERRIDE ENGINE
+   TRUE LOCAL TIMEZONE & REAL-TIME WEATHER ENGINE
 ========================================================= */
 let currentAtmosphere = "mode-afternoon";
-let renderMode = "nature"; // 'nature' or 'rainy'
+let renderMode = "nature"; 
 let lastCoords = { lat: 23.8103, lon: 90.4125, name: "Dhaka, Bangladesh" };
 
-function determineEnvironment(weatherCode, temp) {
-    const hour = new Date().getHours();
-    
-    // Strict Sunlight Lock: If it's daytime (6 AM to 6 PM) and warm, NEVER allow fake rain
-    let isActuallyRainy = (weatherCode >= 51 && weatherCode <= 95) && (hour < 6 || hour > 18) && (temp < 28);
+function determineEnvironmentByLocalTime(utcOffsetSeconds, weatherCode, temp) {
+    // Calculate exact local hour of the searched location using UTC offset from Open-Meteo API
+    const d = new Date();
+    const utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+    const localTime = new Date(utc + (1000 * utcOffsetSeconds));
+    const localHour = localTime.getHours();
+
+    let isActuallyRainy = (weatherCode >= 51 && weatherCode <= 95) && (localHour < 6 || localHour > 19) && (temp < 28);
 
     if (isActuallyRainy) {
         currentAtmosphere = "mode-rainy";
         renderMode = "rainy";
     } else {
-        if (hour >= 5 && hour < 11) {
+        if (localHour >= 5 && localHour < 11) {
             currentAtmosphere = "mode-morning";
-        } else if (hour >= 11 && hour < 16) {
+        } else if (localHour >= 11 && localHour < 16) {
             currentAtmosphere = "mode-afternoon";
-        } else if (hour >= 16 && hour < 18.5) {
+        } else if (localHour >= 16 && localHour < 18.5) {
             currentAtmosphere = "mode-evening";
         } else {
             currentAtmosphere = "mode-night";
@@ -925,28 +928,33 @@ function determineEnvironment(weatherCode, temp) {
 async function fetchWeatherByCoords(lat, lon, cityName) {
     lastCoords = { lat, lon, name: cityName };
     try {
-        const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m`);
+        const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto`);
         const data = await res.json();
         const cur = data.current;
+        const utcOffsetSeconds = data.utc_offset_seconds || 0;
         
-        const hour = new Date().getHours();
-        let descText = "রৌদ্রোজ্জ্বল আকাশ ☀️";
+        // Calculate exact local hour
+        const d = new Date();
+        const utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        const localTime = new Date(utc + (1000 * utcOffsetSeconds));
+        const localHour = localTime.getHours();
 
-        let isActuallyRainy = (cur.weather_code >= 51 && cur.weather_code <= 63) && (hour < 6 || hour > 18);
+        let descText = "রৌদ্রোজ্জ্বল আকাশ ☀️";
+        let isActuallyRainy = (cur.weather_code >= 51 && cur.weather_code <= 63) && (localHour < 6 || localHour > 19);
 
         if (isActuallyRainy) {
             descText = "হালকা বৃষ্টি 🌧️";
-        } else if (hour >= 5 && hour < 11) {
+        } else if (localHour >= 5 && localHour < 11) {
             descText = "সকালের স্নিগ্ধ আকাশ 🌅";
-        } else if (hour >= 11 && hour < 16) {
+        } else if (localHour >= 11 && localHour < 16) {
             descText = "উজ্জ্বল রৌদ্রোজ্জ্বল দিন ☀️";
-        } else if (hour >= 16 && hour < 18.5) {
+        } else if (localHour >= 16 && localHour < 18.5) {
             descText = "বিকেলের গোধূলি 🌇";
         } else {
             descText = "চাঁদ ও তারার রাত 🌙";
         }
 
-        determineEnvironment(cur.weather_code, cur.temperature_2m);
+        determineEnvironmentByLocalTime(utcOffsetSeconds, cur.weather_code, cur.temperature_2m);
 
         document.getElementById("wCity").textContent = cityName;
         document.getElementById("wDesc").textContent = descText;
@@ -964,8 +972,8 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
 
 function refreshWeather() {
     document.getElementById("wCity").textContent = "আপডেট হচ্ছে...";
-    detectVisitorCityAndWeather();
-    showToast("আবহাওয়া আপডেট করা হয়েছে ✓");
+    fetchWeatherByCoords(lastCoords.lat, lastCoords.lon, lastCoords.name);
+    showToast("লাইভ আবহাওয়া সিঙ্ক হয়েছে ✓");
 }
 
 async function detectVisitorCityAndWeather() {
@@ -1003,7 +1011,7 @@ window.addEventListener("DOMContentLoaded", () => {
     detectVisitorCityAndWeather();
 });
 
-/* NATURAL REALISTIC CANVAS ENGINE */
+/* NATURAL CANVAS ENGINE */
 const nCanvas = document.getElementById('natureCanvas');
 const nCtx = nCanvas.getContext('2d');
 let raindrops = [];
@@ -1022,8 +1030,8 @@ class RealisticRain {
     reset() {
         this.x = Math.random() * (nCanvas.width + 100);
         this.y = Math.random() * -nCanvas.height;
-        this.length = Math.random() * 15 + 10; // Natural light rain length
-        this.speed = Math.random() * 4 + 5;     // Gentle speed, not fast/robotic
+        this.length = Math.random() * 15 + 10;
+        this.speed = Math.random() * 4 + 5;
         this.opacity = Math.random() * 0.3 + 0.15;
     }
     update() {
@@ -1078,10 +1086,9 @@ class NatureDust {
     }
     draw() {
         nCtx.save();
-        const hour = new Date().getHours();
-        if (hour >= 20 || hour < 5) {
+        if (currentAtmosphere === 'mode-night') {
             nCtx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.8})`; // Stars
-        } else if (hour >= 5 && hour < 11) {
+        } else if (currentAtmosphere === 'mode-morning') {
             nCtx.fillStyle = `rgba(255, 224, 130, ${this.opacity * 0.6})`; // Morning gold
         } else {
             nCtx.fillStyle = `rgba(255, 183, 50, ${this.opacity * 0.7})`; // Afternoon sun specs
