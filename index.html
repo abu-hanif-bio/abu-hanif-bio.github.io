@@ -37,6 +37,32 @@
     --purple: #846cff;
     --gold: #e8c96f;
     --border: rgba(255, 255, 255, 0.10);
+    --glow-color: rgba(100, 232, 255, 0.2);
+}
+
+/* DYNAMIC WEATHER ENVIRONMENT THEMES */
+body.theme-sunny {
+    background: radial-gradient(circle at 50% 0%, rgba(232, 201, 111, 0.25), transparent 45%), radial-gradient(circle at 10% 90%, rgba(255, 140, 0, 0.15), transparent 40%), #070e17 !important;
+    --cyan: #ffbe3b;
+    --glow-color: rgba(255, 190, 59, 0.3);
+}
+
+body.theme-rainy {
+    background: radial-gradient(circle at 30% 10%, rgba(29, 119, 243, 0.22), transparent 40%), radial-gradient(circle at 80% 80%, rgba(13, 27, 48, 0.9), transparent 60%), #03070d !important;
+    --cyan: #3fa9ff;
+    --glow-color: rgba(63, 169, 255, 0.3);
+}
+
+body.theme-cloudy {
+    background: radial-gradient(circle at 50% 20%, rgba(110, 130, 160, 0.2), transparent 50%), #060a10 !important;
+    --cyan: #9cb8d9;
+    --glow-color: rgba(156, 184, 217, 0.25);
+}
+
+body.theme-foggy {
+    background: radial-gradient(circle at 50% 50%, rgba(180, 200, 220, 0.12), transparent 60%), #04080e !important;
+    --cyan: #b4c8dc;
+    --glow-color: rgba(180, 200, 220, 0.2);
 }
 
 * {
@@ -59,6 +85,7 @@ body {
         var(--bg);
     overflow-x: hidden;
     position: relative;
+    transition: background 1.5s ease;
 }
 
 /* Background Particle Canvas */
@@ -69,7 +96,7 @@ body {
     pointer-events: none;
 }
 
-/* Live Weather Dynamic Canvas (Rain / Snow Effect) */
+/* Live Weather Dynamic Environment Canvas */
 #weatherCanvas {
     position: fixed;
     inset: 0;
@@ -80,7 +107,7 @@ body {
 .background {
     position: fixed;
     inset: 0;
-    z-index: -6;
+    z-index: -7;
     overflow: hidden;
     pointer-events: none;
 }
@@ -192,7 +219,7 @@ body {
     position: absolute;
     inset: -16px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(100, 232, 255, 0.28), rgba(116, 77, 255, 0.15) 60%, transparent 75%);
+    background: radial-gradient(circle, var(--glow-color), rgba(116, 77, 255, 0.15) 60%, transparent 75%);
     filter: blur(12px);
     animation: photoGlow 4s ease-in-out infinite;
 }
@@ -206,10 +233,10 @@ body {
     position: absolute;
     inset: -3px;
     border-radius: 50%;
-    background: conic-gradient(from 0deg, #64e8ff, #3d91ff, #846cff, transparent, #64e8ff);
+    background: conic-gradient(from 0deg, var(--cyan), #3d91ff, #846cff, transparent, var(--cyan));
     animation: spinRing 6s linear infinite;
     padding: 3px;
-    box-shadow: 0 0 30px rgba(100, 232, 255, 0.3);
+    box-shadow: 0 0 30px var(--glow-color);
 }
 
 @keyframes spinRing {
@@ -346,7 +373,7 @@ body {
 .cursor {
     display: inline-block;
     width: 2px;
-    background-color: #64e8ff;
+    background-color: var(--cyan);
     margin-left: 2px;
     animation: blink 0.8s infinite;
 }
@@ -375,11 +402,11 @@ body {
     padding: 18px 22px;
     border-radius: 22px;
     background: linear-gradient(135deg, rgba(12, 25, 42, 0.92), rgba(6, 14, 25, 0.96));
-    border: 1.5px solid rgba(100, 232, 255, 0.35);
+    border: 1.5px solid var(--glow-color);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
     user-select: none;
-    background: linear-gradient(90deg, #64e8ff, #ffffff, #e8c96f, #64e8ff);
+    background: linear-gradient(90deg, var(--cyan), #ffffff, #e8c96f, var(--cyan));
     background-size: 300% auto;
     color: transparent;
     -webkit-background-clip: text;
@@ -388,9 +415,9 @@ body {
 }
 
 .intro:hover {
-    border-color: rgba(100, 232, 255, 0.9);
+    border-color: var(--cyan);
     filter: brightness(1.15);
-    box-shadow: 0 18px 45px rgba(100, 232, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    box-shadow: 0 18px 45px var(--glow-color), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 @keyframes neonShimmer {
@@ -399,8 +426,8 @@ body {
 }
 
 @keyframes neonPulse {
-    0% { filter: drop-shadow(0 0 2px rgba(100, 232, 255, 0.2)); }
-    100% { filter: drop-shadow(0 0 12px rgba(100, 232, 255, 0.8)); }
+    0% { filter: drop-shadow(0 0 2px var(--glow-color)); }
+    100% { filter: drop-shadow(0 0 12px var(--glow-color)); }
 }
 
 .flying-flower {
@@ -567,7 +594,7 @@ body {
 }
 
 .copy-btn svg { width: 18px; height: 18px; fill: currentColor; }
-.copy-btn:hover { background: rgba(98, 229, 255, 0.2); transform: scale(1.08); color: #fff; }
+.copy-btn:hover { background: var(--glow-color); transform: scale(1.08); color: #fff; }
 
 .qr-scanner-card {
     margin-top: 10px;
@@ -614,7 +641,7 @@ body {
 .qr-badge {
     display: inline-flex; align-items: center; gap: 5px;
     font-size: 8.5px; font-weight: 800; font-family: 'JetBrains Mono', monospace;
-    color: #64e8ff; background: rgba(100, 232, 255, 0.12);
+    color: var(--cyan); background: var(--glow-color);
     border: 1px solid rgba(100, 232, 255, 0.3); padding: 3px 8px; border-radius: 99px;
 }
 .qr-title { color: #ffffff; font-size: 13.5px; font-weight: 800; margin-top: 6px; }
@@ -638,7 +665,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px;
     padding: 0 14px; color: #fff; font-size: 12.5px; font-family: inherit; outline: none;
 }
-.weather-input:focus { border-color: var(--cyan); box-shadow: 0 0 12px rgba(100, 232, 255, 0.25); }
+.weather-input:focus { border-color: var(--cyan); box-shadow: 0 0 12px var(--glow-color); }
 
 .weather-btn {
     height: 42px; padding: 0 16px; background: linear-gradient(135deg, #1d77f3, #3855db);
@@ -656,7 +683,7 @@ body {
 .weather-desc { font-size: 11.5px; color: #9bdcff; font-weight: 600; text-transform: capitalize; }
 .weather-temp {
     font-size: 26px; font-weight: 900; font-family: 'JetBrains Mono', monospace;
-    background: linear-gradient(100deg, #fff, #64e8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background: linear-gradient(100deg, #fff, var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
 .weather-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
@@ -674,7 +701,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); transition: 0.3s;
 }
 .ribbon-btn svg { width: 20px; height: 20px; fill: currentColor; }
-.ribbon-btn:hover { transform: translateY(-5px) scale(1.1); border-color: rgba(100, 232, 255, 0.6); color: #64e8ff; }
+.ribbon-btn:hover { transform: translateY(-5px) scale(1.1); border-color: var(--cyan); color: var(--cyan); }
 .ribbon-fb:hover { background: rgba(24, 119, 242, 0.25); }
 .ribbon-tg:hover { background: rgba(42, 171, 238, 0.25); }
 .ribbon-wa:hover { background: rgba(37, 211, 102, 0.25); }
@@ -835,21 +862,21 @@ body {
 const profileURL = "https://abu-hanif-bio.github.io/";
 
 /* =========================================================
-   DYNAMIC LIVE WEATHER & DYNAMIC THEME ANIMATOR
+   DYNAMIC LIVE WEATHER & NATURAL ENVIRONMENT THEME CHANGER
 ========================================================= */
 const weatherCodes = {
-    0: { desc: "আকাশ পরিষ্কার ☀️", theme: "sunny" },
-    1: { desc: "প্রধানত পরিষ্কার 🌤️", theme: "sunny" },
-    2: { desc: "আংশিক মেঘলা ⛅", theme: "cloudy" },
-    3: { desc: "মেঘলা আকাশ ☁️", theme: "cloudy" },
-    45: { desc: "কুয়াশাচ্ছন্ন 🌫️", theme: "foggy" },
-    51: { desc: "গুঁড়ি গুঁড়ি বৃষ্টি 🌧️", theme: "rainy" },
-    61: { desc: "হালকা বৃষ্টি 🌧️", theme: "rainy" },
-    63: { desc: "ভারী বৃষ্টি 🌧️", theme: "rainy" },
-    95: { desc: "বজ্রঝড় ⛈️", theme: "rainy" }
+    0: { desc: "আকাশ পরিষ্কার ☀️", theme: "theme-sunny" },
+    1: { desc: "প্রধানত পরিষ্কার 🌤️", theme: "theme-sunny" },
+    2: { desc: "আংশিক মেঘলা ⛅", theme: "theme-cloudy" },
+    3: { desc: "মেঘলা আকাশ ☁️", theme: "theme-cloudy" },
+    45: { desc: "কুয়াশাচ্ছন্ন 🌫️", theme: "theme-foggy" },
+    51: { desc: "গুঁড়ি গুঁড়ি বৃষ্টি 🌧️", theme: "theme-rainy" },
+    61: { desc: "হালকা বৃষ্টি 🌧️", theme: "theme-rainy" },
+    63: { desc: "ভারী বৃষ্টি 🌧️", theme: "theme-rainy" },
+    95: { desc: "বজ্রঝড় ⛈️", theme: "theme-rainy" }
 };
 
-let weatherTheme = "normal";
+let activeWeatherTheme = "normal";
 
 async function fetchWeatherByCoords(lat, lon, cityName) {
     try {
@@ -858,7 +885,10 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
         const cur = data.current;
         
         const wInfo = weatherCodes[cur.weather_code] || { desc: "স্বাভাবিক আবহাওয়া", theme: "normal" };
-        weatherTheme = wInfo.theme;
+        activeWeatherTheme = wInfo.theme;
+
+        // Apply Natural Environment Theme to Body
+        document.body.className = activeWeatherTheme;
 
         document.getElementById("wCity").textContent = cityName;
         document.getElementById("wDesc").textContent = wInfo.desc;
@@ -906,7 +936,7 @@ window.addEventListener("DOMContentLoaded", () => {
     detectVisitorCityAndWeather();
 });
 
-/* DYNAMIC WEATHER ANIMATION CANVAS (RAIN / SUNNY / FOG) */
+/* NATURAL ENVIRONMENT WEATHER CANVAS (REAL RAIN / SUNNY PARTICLES / FOG) */
 const wCanvas = document.getElementById('weatherCanvas');
 const wCtx = wCanvas.getContext('2d');
 let weatherParticles = [];
@@ -925,22 +955,22 @@ class WeatherParticle {
     reset() {
         this.x = Math.random() * wCanvas.width;
         this.y = Math.random() * -wCanvas.height;
-        if (weatherTheme === 'rainy') {
-            this.vy = Math.random() * 12 + 8;
+        if (activeWeatherTheme === 'theme-rainy') {
+            this.vy = Math.random() * 14 + 10;
             this.vx = Math.random() * 2 - 1;
             this.size = Math.random() * 2 + 1;
-            this.alpha = Math.random() * 0.6 + 0.2;
-        } else if (weatherTheme === 'foggy' || weatherTheme === 'cloudy') {
+            this.alpha = Math.random() * 0.7 + 0.2;
+        } else if (activeWeatherTheme === 'theme-foggy' || activeWeatherTheme === 'theme-cloudy') {
             this.vy = Math.random() * 0.5 - 0.25;
-            this.vx = Math.random() * 1 - 0.5;
-            this.size = Math.random() * 60 + 20;
-            this.alpha = Math.random() * 0.08 + 0.02;
+            this.vx = Math.random() * 1.2 - 0.6;
+            this.size = Math.random() * 70 + 30;
+            this.alpha = Math.random() * 0.07 + 0.02;
         } else {
-            // Sunny / Normal particles (golden specs)
+            // Sunny Warm Particles (Golden Sun Specs)
             this.vy = Math.random() * 0.8 - 0.4;
             this.vx = Math.random() * 0.8 - 0.4;
-            this.size = Math.random() * 2.5 + 1;
-            this.alpha = Math.random() * 0.5 + 0.1;
+            this.size = Math.random() * 3 + 1;
+            this.alpha = Math.random() * 0.6 + 0.2;
         }
     }
     update() {
@@ -953,20 +983,20 @@ class WeatherParticle {
     draw() {
         wCtx.save();
         wCtx.globalAlpha = this.alpha;
-        if (weatherTheme === 'rainy') {
-            wCtx.strokeStyle = '#64e8ff';
+        if (activeWeatherTheme === 'theme-rainy') {
+            wCtx.strokeStyle = '#3fa9ff';
             wCtx.lineWidth = this.size;
             wCtx.beginPath();
             wCtx.moveTo(this.x, this.y);
-            wCtx.lineTo(this.x - 2, this.y + 15);
+            wCtx.lineTo(this.x - 2, this.y + 18);
             wCtx.stroke();
-        } else if (weatherTheme === 'foggy' || weatherTheme === 'cloudy') {
-            wCtx.fillStyle = '#8ea0b4';
+        } else if (activeWeatherTheme === 'theme-foggy' || activeWeatherTheme === 'theme-cloudy') {
+            wCtx.fillStyle = '#9cb8d9';
             wCtx.beginPath();
             wCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             wCtx.fill();
         } else {
-            wCtx.fillStyle = '#e8c96f'; // Sunny golden specs
+            wCtx.fillStyle = '#ffbe3b'; // Golden sunny glow specs
             wCtx.beginPath();
             wCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             wCtx.fill();
@@ -975,7 +1005,7 @@ class WeatherParticle {
     }
 }
 
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 60; i++) {
     weatherParticles.push(new WeatherParticle());
 }
 
@@ -1120,7 +1150,7 @@ function typeEffect() {
 }
 typeEffect();
 
-/* BACKGROUND PARTICLES */
+/* PARTICLES */
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
