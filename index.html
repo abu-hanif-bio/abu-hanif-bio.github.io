@@ -42,46 +42,8 @@
     --glow-color: rgba(100, 232, 255, 0.25);
 }
 
-/* DYNAMIC ATMOSPHERE THEMES */
-body.mode-morning {
-    background: linear-gradient(135deg, #122238 0%, #071220 100%), radial-gradient(circle at 50% 0%, rgba(255, 215, 130, 0.35), transparent 60%) !important;
-    --cyan: #ffe082;
-    --glow-color: rgba(255, 224, 130, 0.4);
-}
-
-body.mode-afternoon {
-    background: linear-gradient(135deg, #1a2636 0%, #080d16 100%), radial-gradient(circle at 50% 0%, rgba(255, 180, 50, 0.4), transparent 60%) !important;
-    --cyan: #ffb732;
-    --glow-color: rgba(255, 183, 50, 0.45);
-}
-
-body.mode-evening {
-    background: linear-gradient(135deg, #2a1b2e 0%, #0d0914 100%), radial-gradient(circle at 50% 0%, rgba(244, 63, 94, 0.35), transparent 60%) !important;
-    --cyan: #fb7185;
-    --glow-color: rgba(251, 113, 133, 0.4);
-}
-
-body.mode-night {
-    background: linear-gradient(135deg, #090e17 0%, #020408 100%), radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.3), transparent 70%) !important;
-    --cyan: #38bdf8;
-    --glow-color: rgba(56, 189, 248, 0.35);
-}
-
-body.mode-rainy {
-    background: linear-gradient(135deg, #0d1b2a 0%, #02060c 100%), radial-gradient(circle at 30% 0%, rgba(29, 78, 216, 0.3), transparent 60%) !important;
-    --cyan: #0ea5e9;
-    --glow-color: rgba(14, 165, 233, 0.45);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
     min-height: 100vh;
@@ -90,7 +52,6 @@ body {
     background: var(--bg);
     overflow-x: hidden;
     position: relative;
-    transition: background 2s ease;
 }
 
 #natureCanvas {
@@ -113,42 +74,14 @@ body {
     border-radius: 50%;
     filter: blur(110px);
     opacity: 0.22;
-    transition: background 2s ease;
 }
 
-.orb-one {
-    width: 440px;
-    height: 440px;
-    background: var(--cyan);
-    left: -180px;
-    top: -180px;
-    animation: floatingOne 16s ease-in-out infinite alternate;
-}
-
-.orb-two {
-    width: 400px;
-    height: 400px;
-    background: var(--purple);
-    right: -180px;
-    bottom: -160px;
-    animation: floatingTwo 18s ease-in-out infinite alternate;
-}
-
-@keyframes floatingOne {
-    to { transform: translate(90px, 80px) scale(1.12); }
-}
-
-@keyframes floatingTwo {
-    to { transform: translate(-80px, -60px) scale(1.10); }
-}
+.orb-one { width: 440px; height: 440px; background: var(--cyan); left: -180px; top: -180px; }
+.orb-two { width: 400px; height: 400px; background: var(--purple); right: -180px; bottom: -160px; }
 
 .grid {
-    position: absolute;
-    inset: 0;
-    opacity: 0.03;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+    position: absolute; inset: 0; opacity: 0.03;
+    background-image: linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px);
     background-size: 48px 48px;
 }
 
@@ -170,327 +103,59 @@ body {
     -webkit-backdrop-filter: blur(25px);
     box-shadow: 0 35px 100px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    animation: cardEnter 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-@keyframes cardEnter {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: none; }
-}
-
-.card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -200px;
-    width: 180px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-    animation: lightSweep 6s ease-in-out infinite;
-}
-
-@keyframes lightSweep {
-    0%, 65% { left: -220px; }
-    100% { left: 120%; }
-}
-
-/* PROFILE HEADER */
-.profile {
-    text-align: center;
-    position: relative;
-}
-
-.photo-wrapper {
-    position: relative;
-    width: 154px;
-    height: 154px;
-    margin: 0 auto 16px;
-    animation: photoEnter 1s ease 0.15s both;
-}
-
-@keyframes photoEnter {
-    from { opacity: 0; transform: translateY(15px) scale(0.94); }
-    to { opacity: 1; transform: none; }
-}
-
-.photo-wrapper::before {
-    content: "";
-    position: absolute;
-    inset: -16px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--glow-color), rgba(116, 77, 255, 0.15) 60%, transparent 75%);
-    filter: blur(12px);
-    animation: photoGlow 4s ease-in-out infinite;
-}
-
-@keyframes photoGlow {
-    0%, 100% { transform: scale(0.96); opacity: 0.7; }
-    50% { transform: scale(1.08); opacity: 1; }
-}
-
+/* PROFILE */
+.profile { text-align: center; position: relative; }
+.photo-wrapper { position: relative; width: 154px; height: 154px; margin: 0 auto 16px; }
 .photo-ring {
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
+    position: absolute; inset: -3px; border-radius: 50%;
     background: conic-gradient(from 0deg, var(--cyan), #3d91ff, var(--purple), transparent, var(--cyan));
-    animation: spinRing 6s linear infinite;
-    padding: 3px;
-    box-shadow: 0 0 30px var(--glow-color);
+    animation: spinRing 6s linear infinite; padding: 3px;
 }
-
-@keyframes spinRing {
-    100% { transform: rotate(360deg); }
-}
-
-.photo-inner-ring {
-    position: absolute;
-    inset: 2px;
-    border-radius: 50%;
-    background: #07111d;
-    padding: 4px;
-}
-
-.photo {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-}
-
-.photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-}
-
-.profile-tags {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-}
+@keyframes spinRing { 100% { transform: rotate(360deg); } }
+.photo-inner-ring { position: absolute; inset: 2px; border-radius: 50%; background: #07111d; padding: 4px; }
+.photo { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; }
+.photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
 
 .live-status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 5px 15px;
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.35);
-    border-radius: 99px;
-    font-size: 11px;
-    font-weight: 700;
-    color: #34d399;
+    display: inline-flex; align-items: center; gap: 7px; padding: 5px 15px;
+    background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 99px; font-size: 11px; font-weight: 700; color: #34d399; margin-bottom: 12px;
 }
+.status-dot { width: 7.5px; height: 7.5px; border-radius: 50%; background: #10b981; animation: pulse 1.8s infinite; }
+@keyframes pulse { 0% { transform: scale(0.95); opacity: 0.7; } 70% { transform: scale(1.3); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.7; } }
 
-.status-dot {
-    width: 7.5px;
-    height: 7.5px;
-    border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-    animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-.name-container {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
+.name-container { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
 .name {
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
+    font-size: 28px; font-weight: 900; letter-spacing: 1.5px;
     background: linear-gradient(100deg, #fff, var(--cyan), #fff);
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: textReveal 0.9s ease 0.35s both, textShine 6s linear 1.2s infinite;
+    background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text;
 }
+.verified-badge { width: 20px; height: 20px; fill: #2086ff; }
+.profession { margin-top: 6px; color: var(--cyan); font-size: 11px; font-weight: 800; letter-spacing: 3.5px; text-transform: uppercase; }
+.dynamic-greeting { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: #34d399; margin-top: 5px; }
+.typewriter-box { margin-top: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 700; color: var(--cyan); min-height: 18px; }
+.cursor { display: inline-block; width: 2px; background-color: var(--cyan); margin-left: 2px; animation: blink 0.8s infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.divider { width: 65px; height: 2px; margin: 14px auto; border-radius: 99px; background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent); }
 
-@keyframes textReveal {
-    from { opacity: 0; transform: translateY(10px); filter: blur(5px); }
-    to { opacity: 1; transform: none; filter: none; }
-}
-
-@keyframes textShine {
-    to { background-position: 200% center; }
-}
-
-.verified-badge {
-    width: 20px;
-    height: 20px;
-    fill: #2086ff;
-    filter: drop-shadow(0 0 6px rgba(32, 134, 255, 0.6));
-    animation: bounceBadge 2.5s ease-in-out infinite;
-}
-
-@keyframes bounceBadge {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-}
-
-.profession {
-    margin-top: 6px;
-    color: var(--cyan);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 3.5px;
-    text-transform: uppercase;
-}
-
-.dynamic-greeting {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 700;
-    color: #34d399;
-    margin-top: 5px;
-    letter-spacing: 1px;
-}
-
-.typewriter-box {
-    margin-top: 6px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11.5px;
-    font-weight: 700;
-    color: var(--cyan);
-    min-height: 18px;
-}
-
-.cursor {
-    display: inline-block;
-    width: 2px;
-    background-color: var(--cyan);
-    margin-left: 2px;
-    animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-.divider {
-    width: 65px;
-    height: 2px;
-    margin: 14px auto;
-    border-radius: 99px;
-    background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), transparent);
-}
-
-/* INTRO BOX */
 .intro {
-    font-family: 'Hind Siliguri', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.85;
-    cursor: pointer;
-    position: relative;
-    padding: 18px 22px;
-    border-radius: 22px;
-    background: linear-gradient(135deg, rgba(12, 25, 42, 0.92), rgba(6, 14, 25, 0.96));
-    border: 1.5px solid var(--glow-color);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    transition: all 0.3s ease;
-    user-select: none;
-    background: linear-gradient(90deg, var(--cyan), #ffffff, var(--gold), var(--cyan));
-    background-size: 300% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: neonShimmer 4s linear infinite, neonPulse 3s ease-in-out infinite alternate;
+    font-family: 'Hind Siliguri', sans-serif; font-size: 14px; font-weight: 700; line-height: 1.85; cursor: pointer;
+    padding: 18px 22px; border-radius: 22px; background: linear-gradient(135deg, rgba(12, 25, 42, 0.92), rgba(6, 14, 25, 0.96));
+    border: 1.5px solid var(--glow-color); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, var(--cyan), #ffffff, var(--gold), var(--cyan)); background-size: 300% auto;
+    color: transparent; -webkit-background-clip: text; background-clip: text;
 }
 
-.intro:hover {
-    border-color: var(--cyan);
-    filter: brightness(1.15);
-    box-shadow: 0 18px 45px var(--glow-color), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-
-@keyframes neonShimmer {
-    0% { background-position: 0% center; }
-    100% { background-position: 300% center; }
-}
-
-@keyframes neonPulse {
-    0% { filter: drop-shadow(0 0 2px var(--glow-color)); }
-    100% { filter: drop-shadow(0 0 12px var(--glow-color)); }
-}
-
-.flying-flower {
-    position: fixed;
-    pointer-events: none;
-    font-size: 24px;
-    z-index: 9999;
-    animation: floatUpFlower 1.4s cubic-bezier(0.15, 0.85, 0.35, 1.2) forwards;
-}
-
-@keyframes floatUpFlower {
-    0% { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 1; }
-    50% { opacity: 1; }
-    100% { transform: translate(var(--randX), -150px) scale(1.4) rotate(360deg); opacity: 0; }
-}
-
-/* 3D ACTION BUTTONS */
-.actions {
-    display: grid;
-    gap: 12px;
-    margin-top: 24px;
-}
-
+/* BUTTONS & LISTS */
+.actions { display: grid; gap: 12px; margin-top: 24px; }
 .btn {
-    position: relative;
-    min-height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 16px;
-    gap: 14px;
-    border-radius: 18px;
-    color: white;
-    text-decoration: none;
-    font-size: 13.5px;
-    font-weight: 700;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 0 rgba(0, 0, 0, 0.28), 0 12px 25px rgba(0, 0, 0, 0.32);
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-    overflow: hidden;
-    font-family: inherit;
+    position: relative; min-height: 56px; display: flex; align-items: center; justify-content: flex-start; padding: 0 16px; gap: 14px;
+    border-radius: 18px; color: white; text-decoration: none; font-size: 13.5px; font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 6px 0 rgba(0, 0, 0, 0.28), 0 12px 25px rgba(0, 0, 0, 0.32); cursor: pointer; transition: 0.25s;
 }
-
-.btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.28) 50%, transparent 80%);
-    transform: translateX(-120%);
-    animation: btnShimmer 4.5s infinite;
-}
-
-@keyframes btnShimmer {
-    0%, 65% { transform: translateX(-120%); }
-    100% { transform: translateX(120%); }
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.12);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 9px 0 rgba(0, 0, 0, 0.22), 0 18px 30px rgba(0, 0, 0, 0.38);
-}
-
+.btn:hover { transform: translateY(-3px); filter: brightness(1.12); }
 .btn-call-1   { background: linear-gradient(145deg, #1d77f3, #3855db); }
 .btn-call-2   { background: linear-gradient(145deg, #0284c7, #0369a1); }
 .btn-whatsapp { background: linear-gradient(145deg, #10b981, #047857); }
@@ -500,242 +165,139 @@ body {
 .btn-save     { background: linear-gradient(145deg, #f59e0b, #d97706); }
 .btn-share    { background: linear-gradient(145deg, #8b5cf6, #6d28d9); }
 
-.icon-box {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.2);
-    flex-shrink: 0;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
-}
-
+.icon-box { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: rgba(255, 255, 255, 0.2); flex-shrink: 0; }
 .icon-box svg { width: 20px; height: 20px; fill: currentColor; }
-.btn-text { flex: 1; letter-spacing: 0.3px; }
+.btn-text { flex: 1; }
 
-/* SECTION TITLES */
-.section-title {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 30px 2px 14px;
-    color: #9cb0c6;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-
-.section-title::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent);
-}
+.section-title { display: flex; align-items: center; gap: 12px; margin: 30px 2px 14px; color: #9cb0c6; font-size: 11px; font-weight: 800; letter-spacing: 2px; }
+.section-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent); }
 
 .payment-list, .bank-list { display: grid; gap: 12px; }
-
 .payment-card, .bank-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 16px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    transition: 0.3s;
+    display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08); background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
 }
-
-.logo, .bank-logo {
-    width: 50px;
-    height: 50px;
-    flex: 0 0 50px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-    overflow: hidden;
-    padding: 3px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-}
-
-.logo img, .bank-logo img { width: 100%; height: 100%; object-fit: contain !important; border-radius: 10px; display: block; }
-
+.logo, .bank-logo { width: 50px; height: 50px; flex: 0 0 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: #ffffff; padding: 3px; }
+.logo img, .bank-logo img { width: 100%; height: 100%; object-fit: contain !important; border-radius: 10px; }
 .details { flex: 1; min-width: 0; }
 .label { color: #8da2bb; font-size: 9px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 3px; }
-.number { color: #edf5fc; font-size: 14px; font-weight: 700; letter-spacing: 0.3px; }
+.number { color: #edf5fc; font-size: 14px; font-weight: 700; }
 .small { margin-top: 3px; color: #8293a6; font-size: 10px; }
 
-.bank-card {
-    border: 1px solid rgba(232, 199, 111, 0.18);
-    background: linear-gradient(145deg, rgba(232, 199, 111, 0.07), rgba(255, 255, 255, 0.02));
-}
-
-.bank-name { color: var(--gold); font-size: 10.5px; font-weight: 800; letter-spacing: 0.6px; line-height: 1.4; }
+.bank-card { border: 1px solid rgba(232, 199, 111, 0.18); background: linear-gradient(145deg, rgba(232, 199, 111, 0.07), rgba(255, 255, 255, 0.02)); }
+.bank-name { color: var(--gold); font-size: 10.5px; font-weight: 800; }
 .account-name { color: #e9f1f8; font-size: 12px; font-weight: 600; margin-top: 4px; }
-.account-number { color: #ffffff; font-size: 13.5px; font-weight: 800; letter-spacing: 0.6px; margin-top: 3px; word-break: break-all; }
+.account-number { color: #ffffff; font-size: 13.5px; font-weight: 800; margin-top: 3px; word-break: break-all; }
 
 .copy-btn {
-    width: 40px;
-    height: 40px;
-    border: 0;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #dff4ff;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    transition: 0.25s;
-    flex-shrink: 0;
+    width: 40px; height: 40px; border: 0; border-radius: 12px; background: rgba(255, 255, 255, 0.08);
+    color: #dff4ff; cursor: pointer; display: grid; place-items: center; transition: 0.25s; flex-shrink: 0;
 }
-
 .copy-btn svg { width: 18px; height: 18px; fill: currentColor; }
-.copy-btn:hover { background: var(--glow-color); transform: scale(1.08); color: #fff; }
+.copy-btn:hover { background: var(--glow-color); color: #fff; }
 
 .qr-scanner-card {
-    margin-top: 10px;
-    padding: 20px 16px;
-    border-radius: 26px;
+    margin-top: 10px; padding: 20px 16px; border-radius: 26px;
     background: linear-gradient(145deg, rgba(100, 232, 255, 0.06), rgba(6, 13, 22, 0.7));
-    border: 1px solid rgba(100, 232, 255, 0.22);
-    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    gap: 18px;
+    border: 1px solid rgba(100, 232, 255, 0.22); display: flex; align-items: center; gap: 18px;
 }
-
-.qr-box-wrap {
-    position: relative;
-    width: 105px;
-    height: 105px;
-    flex: 0 0 105px;
-    padding: 6px;
-    border-radius: 18px;
-    background: #ffffff;
-    box-shadow: 0 8px 24px rgba(100, 232, 255, 0.25);
-    overflow: hidden;
-}
-
-.qr-box-wrap img { width: 100%; height: 100%; display: block; border-radius: 12px; }
-
+.qr-box-wrap { position: relative; width: 105px; height: 105px; flex: 0 0 105px; padding: 6px; border-radius: 18px; background: #ffffff; overflow: hidden; }
+.qr-box-wrap img { width: 100%; height: 100%; border-radius: 12px; }
 .laser-scanner-line {
-    position: absolute;
-    left: 0; right: 0;
-    height: 3px;
+    position: absolute; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, transparent, #00d2ff, #ffffff, #00d2ff, transparent);
-    box-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff;
     animation: laserScan 2.5s ease-in-out infinite alternate;
 }
-
-@keyframes laserScan {
-    0% { top: 6px; opacity: 0.4; }
-    50% { opacity: 1; }
-    100% { top: 96px; opacity: 0.4; }
-}
-
+@keyframes laserScan { 0% { top: 6px; opacity: 0.4; } 100% { top: 96px; opacity: 0.4; } }
 .qr-info { flex: 1; }
 .qr-badge {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-size: 8.5px; font-weight: 800; font-family: 'JetBrains Mono', monospace;
-    color: var(--cyan); background: var(--glow-color);
-    border: 1px solid rgba(100, 232, 255, 0.3); padding: 3px 8px; border-radius: 99px;
+    display: inline-flex; align-items: center; gap: 5px; font-size: 8.5px; font-weight: 800; font-family: 'JetBrains Mono', monospace;
+    color: var(--cyan); background: var(--glow-color); border: 1px solid rgba(100, 232, 255, 0.3); padding: 3px 8px; border-radius: 99px;
 }
 .qr-title { color: #ffffff; font-size: 13.5px; font-weight: 800; margin-top: 6px; }
-.qr-desc { color: #8da2bb; font-size: 11px; font-family: "Hind Siliguri", sans-serif; margin-top: 3px; line-height: 1.5; }
+.qr-desc { color: #8da2bb; font-size: 11px; font-family: "Hind Siliguri", sans-serif; margin-top: 3px; }
 
-/* ADVANCED LARGE LIVE WEATHER & SOLAR UI */
+/* 🌟 VIVID LIVE WEATHER CARD WITH NATURE BACKGROUND VIBE 🌟 */
 .weather-card {
-    margin-top: 25px;
-    padding: 24px;
-    border-radius: 28px;
-    background: linear-gradient(135deg, rgba(100, 232, 255, 0.1), rgba(132, 108, 255, 0.08));
-    border: 1.5px solid rgba(100, 232, 255, 0.3);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    position: relative;
-    overflow: hidden;
+    margin-top: 25px; padding: 26px; border-radius: 30px;
+    border: 1.5px solid rgba(100, 232, 255, 0.4); position: relative; overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    transition: background 1.5s ease;
 }
 
-.weather-search-box { display: flex; gap: 8px; margin-bottom: 18px; }
+/* Dynamic Live Weather Card Backgrounds simulating Nature */
+.weather-card.card-sunny {
+    background: linear-gradient(135deg, rgba(14, 116, 144, 0.75), rgba(3, 105, 161, 0.85)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80');
+    background-size: cover; background-blend-mode: overlay;
+}
+.weather-card.card-rainy {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(30, 58, 138, 0.9)), url('https://images.unsplash.com/photo-1519692933481-e162a57d6721?auto=format&fit=crop&w=600&q=80');
+    background-size: cover; background-blend-mode: overlay;
+}
+.weather-card.card-night {
+    background: linear-gradient(135deg, rgba(2, 6, 23, 0.9), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1532693322450-cb85e5644e5d?auto=format&fit=crop&w=600&q=80');
+    background-size: cover; background-blend-mode: overlay;
+}
+
+.weather-search-box { display: flex; gap: 8px; margin-bottom: 20px; position: relative; z-index: 2; }
 .weather-input {
-    flex: 1; height: 44px; background: rgba(5, 10, 18, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px;
-    padding: 0 16px; color: #fff; font-size: 13px; font-family: inherit; outline: none;
+    flex: 1; height: 46px; background: rgba(5, 10, 18, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 14px; padding: 0 16px; color: #fff; font-size: 13px; outline: none;
 }
 .weather-input:focus { border-color: var(--cyan); box-shadow: 0 0 15px var(--glow-color); }
-
 .weather-btn {
-    height: 44px; padding: 0 18px; background: linear-gradient(135deg, #1d77f3, #3855db);
-    border: 0; border-radius: 14px; color: #fff; font-weight: 700; font-size: 13px; cursor: pointer;
-}
-.weather-btn:hover { filter: brightness(1.15); }
-
-/* REFRESH WEATHER BUTTON */
-.weather-refresh-btn {
-    width: 34px;
-    height: 34px;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(100, 232, 255, 0.22);
-    color: var(--cyan);
-    cursor: pointer;
-    display: inline-grid;
-    place-items: center;
-    transition: 0.3s;
-    margin-left: 8px;
-}
-.weather-refresh-btn:hover {
-    background: var(--cyan);
-    color: #050a12;
-    transform: rotate(180deg);
+    height: 46px; padding: 0 20px; background: linear-gradient(135deg, #1d77f3, #3855db);
+    border: 0; border-radius: 14px; color: #fff; font-weight: 700; cursor: pointer;
 }
 
 .weather-display-large {
-    background: rgba(7, 17, 29, 0.65); border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px; padding: 20px; position: relative;
+    background: rgba(5, 13, 24, 0.7); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 22px; padding: 22px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); position: relative; z-index: 2;
 }
-
 .weather-header-row { display: flex; justify-content: space-between; align-items: flex-start; }
-.weather-city-lg { font-size: 17px; font-weight: 900; color: #ffffff; display: flex; align-items: center; gap: 6px; }
-.weather-desc-lg { font-size: 13px; color: #9bdcff; font-weight: 700; margin-top: 4px; text-transform: capitalize; }
+.weather-city-lg { font-size: 17px; font-weight: 900; color: #ffffff; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.location-pin-btn {
+    display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px;
+    background: rgba(100, 232, 255, 0.2); border: 1px solid rgba(100, 232, 255, 0.4);
+    border-radius: 99px; color: var(--cyan); font-size: 11px; cursor: pointer; transition: 0.2s;
+}
+.location-pin-btn:hover { background: var(--cyan); color: #050a12; }
+.weather-refresh-btn {
+    width: 36px; height: 36px; border: 0; border-radius: 50%; background: rgba(100, 232, 255, 0.25);
+    color: var(--cyan); cursor: pointer; display: inline-grid; place-items: center; transition: 0.3s; margin-left: 6px;
+}
+.weather-refresh-btn:hover { background: var(--cyan); color: #050a12; transform: rotate(180deg); }
+
+.weather-desc-lg { font-size: 13.5px; color: #9bdcff; font-weight: 700; margin-top: 5px; }
 .weather-temp-lg {
-    font-size: 36px; font-weight: 900; font-family: 'JetBrains Mono', monospace;
+    font-size: 40px; font-weight: 900; font-family: 'JetBrains Mono', monospace;
     background: linear-gradient(100deg, #fff, var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-/* SOLAR ARC PROGRESS (সূর্যোদয় ও সূর্যাস্ত ইফেক্ট) */
-.solar-timeline-box {
-    margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08);
+/* SUN/MOON ARC WIDGET */
+.sun-arc-box {
+    margin-top: 22px; padding: 18px 16px 12px; background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 22px;
 }
-.solar-bar-wrap {
-    position: relative; height: 6px; background: rgba(255, 255, 255, 0.12); border-radius: 99px; margin: 12px 0 6px;
-}
-.solar-progress-fill {
-    position: absolute; left: 0; top: 0; bottom: 0; width: 50%; background: linear-gradient(90deg, #f59e0b, #e8c96f, #ffb732); border-radius: 99px;
-}
-.solar-dot {
-    position: absolute; top: -5px; left: 50%; width: 16px; height: 16px; background: #fff; border-radius: 50%;
-    box-shadow: 0 0 12px #ffb732; transform: translateX(-50%); transition: 0.5s;
-}
-.solar-times-row {
-    display: flex; justify-content: space-between; font-size: 10.5px; color: #8da2bb; font-family: 'JetBrains Mono', monospace; font-weight: 700;
+.sun-arc-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; color: #f8fafc; font-size: 13.5px; font-weight: 700; }
+.arc-svg-container { width: 100%; height: 70px; position: relative; overflow: visible; margin-bottom: 5px; }
+.sun-arc-times {
+    display: flex; justify-content: space-between; font-size: 12px; color: #cbd5e1; font-family: 'JetBrains Mono', monospace; font-weight: 700; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 12px;
 }
 
-.weather-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.weather-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
 .w-detail-item {
-    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 10px 14px; border-radius: 12px; font-size: 11.5px; color: #8da2bb; display: flex; justify-content: space-between;
+    background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 14px; border-radius: 14px; font-size: 12px; color: #cbd5e1; display: flex; justify-content: space-between;
 }
 .w-detail-item span:last-child { color: #fff; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
 
-/* SOCIAL RIBBON */
+/* SOCIAL RIBBON & FOOTER */
 .social-ribbon-wrap { margin-top: 25px; display: flex; justify-content: center; align-items: center; gap: 12px; }
 .ribbon-btn {
     width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
     color: #ffffff; text-decoration: none; background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.12); transition: 0.3s;
 }
 .ribbon-btn svg { width: 20px; height: 20px; fill: currentColor; }
 .ribbon-btn:hover { transform: translateY(-5px) scale(1.1); border-color: var(--cyan); color: var(--cyan); }
@@ -747,17 +309,25 @@ body {
 
 .footer { text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.08); color: #53677c; font-size: 9.5px; letter-spacing: 2px; }
 
-/* Modal & Toast */
+/* Modals & Toast */
+.map-modal-overlay { position: fixed; inset: 0; z-index: 150; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(0, 0, 0, 0.82); backdrop-filter: blur(16px); }
+.map-modal-overlay.active { display: flex; }
+.map-modal-card { width: min(420px, 100%); height: 450px; padding: 16px; border-radius: 27px; background: linear-gradient(145deg, #112137, #07111c); border: 1px solid rgba(255, 255, 255, 0.14); display: flex; flex-direction: column; }
+.map-modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; color: #fff; font-weight: 800; font-size: 15px; }
+.map-close-btn { background: rgba(255, 255, 255, 0.1); border: 0; color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; }
+.map-iframe-box { flex: 1; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); background: #000; }
+.map-iframe-box iframe { width: 100%; height: 100%; border: 0; }
+
 .share-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(0, 0, 0, 0.82); backdrop-filter: blur(16px); }
 .share-overlay.active { display: flex; }
-.share-card { width: min(380px, 100%); padding: 25px; border-radius: 27px; background: linear-gradient(145deg, #112137, #07111c); border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: 0 35px 90px rgba(0, 0, 0, 0.7); text-align: center; }
+.share-card { width: min(380px, 100%); padding: 25px; border-radius: 27px; background: linear-gradient(145deg, #112137, #07111c); border: 1px solid rgba(255, 255, 255, 0.14); text-align: center; }
 .share-title { font-size: 19px; font-weight: 800; }
-.share-sub { margin: 5px 0 15px; color: #91a4b8; font-family: "Hind Siliguri", sans-serif; font-size: 11px; }
+.share-sub { margin: 5px 0 15px; color: #91a4b8; font-size: 11px; }
 .share-link { margin-top: 13px; color: #7e91a7; font-size: 11px; word-break: break-all; }
 .share-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
-.modal-btn { height: 46px; border: 0; border-radius: 14px; background: rgba(255, 255, 255, 0.08); color: #fff; font-weight: 700; cursor: pointer; font-family: inherit; }
+.modal-btn { height: 46px; border: 0; border-radius: 14px; background: rgba(255, 255, 255, 0.08); color: #fff; font-weight: 700; cursor: pointer; }
 .modal-btn.primary { background: linear-gradient(145deg, #378af0, #6359dc); }
-.toast { position: fixed; left: 50%; bottom: 25px; z-index: 200; padding: 12px 20px; border-radius: 14px; background: #0f1d2d; border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; font-size: 12px; font-weight: 600; opacity: 0; transform: translate(-50%, 25px); pointer-events: none; transition: 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+.toast { position: fixed; left: 50%; bottom: 25px; z-index: 200; padding: 12px 20px; border-radius: 14px; background: #0f1d2d; border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; font-size: 12px; font-weight: 600; opacity: 0; transform: translate(-50%, 25px); transition: 0.3s ease; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 </style>
 </head>
@@ -795,9 +365,7 @@ body {
 
             <div class="name-container">
                 <h1 class="name">MD. ABU HANIF</h1>
-                <svg class="verified-badge" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.2 14.2l-3.5-3.5 1.4-1.4 2.1 2.1 5.3-5.3 1.4 1.4-6.7 6.7z"/>
-                </svg>
+                <svg class="verified-badge" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.2 14.2l-3.5-3.5 1.4-1.4 2.1 2.1 5.3-5.3 1.4 1.4-6.7 6.7z"/></svg>
             </div>
 
             <div class="profession">DIGITAL PROFILE</div>
@@ -810,8 +378,7 @@ body {
             <div class="divider"></div>
 
             <p class="intro" onclick="triggerFlowerEffect(event)">
-                আপনাকে আমার ডিজিটাল ঠিকানায় সাদর আমন্ত্রণ।<br>
-                যেকোনো প্রয়োজনে আমার সাথে যুক্ত হতে পারেন।
+                আপনাকে আমার ডিজিটাল ঠিকানায় সাদর আমন্ত্রণ।<br>যেকোনো প্রয়োজনে আমার সাথে যুক্ত হতে পারেন।
             </p>
         </section>
 
@@ -851,18 +418,17 @@ body {
 
         <!-- LIVE WEATHER -->
         <div class="section-title">LIVE WEATHER FORECAST</div>
-        <section class="weather-card">
+        <section class="weather-card card-sunny" id="weatherCardBg">
             <div class="weather-search-box">
-                <input type="text" id="cityInput" class="weather-input" placeholder="মহল্লা, থানা বা এলাকার নাম লিখুন (যেমন: Demra)..." onkeypress="if(event.key === 'Enter') searchWeather()">
+                <input type="text" id="cityInput" class="weather-input" placeholder="এলাকা বা জেলার নাম লিখুন (যেমন: পিরোজপুর)..." onkeypress="if(event.key === 'Enter') searchWeather()">
                 <button class="weather-btn" onclick="searchWeather()">সার্চ</button>
             </div>
             
             <div class="weather-display-large">
                 <div class="weather-header-row">
                     <div>
-                        <div class="weather-city-lg">
+                        <div class="weather-city-lg" id="wCityContainer">
                             <span id="wCity">অটো-লোকেশন নেওয়া হচ্ছে...</span>
-                            <button class="weather-refresh-btn" onclick="refreshWeather()" title="রিফ্রেশ করুন"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg></button>
                         </div>
                         <div class="weather-desc-lg" id="wDesc">লাইভ আবহাওয়া লোড হচ্ছে</div>
                     </div>
@@ -871,15 +437,26 @@ body {
                     </div>
                 </div>
 
-                <!-- SOLAR PROGRESS TRACK (সূর্যোদয় ও সূর্যাস্ত টাইমলাইন) -->
-                <div class="solar-timeline-box">
-                    <div class="solar-times-row">
-                        <span id="sunriseTime">🌅 সূর্যোদয়: --</span>
-                        <span id="sunsetTime">🌇 সূর্যাস্ত: --</span>
+                <!-- SUN/MOON ARC WIDGET -->
+                <div class="sun-arc-box">
+                    <div class="sun-arc-header">
+                        <div class="sun-arc-title-wrap">
+                            <span id="sunMoonLabel" style="font-size:14px; font-weight:800; color:#f8fafc;">☀️ Sun</span>
+                        </div>
                     </div>
-                    <div class="solar-bar-wrap">
-                        <div class="solar-progress-fill" id="solarFill" style="width: 50%;"></div>
-                        <div class="solar-dot" id="solarDot"></div>
+
+                    <div class="arc-svg-container">
+                        <svg width="100%" height="70" viewBox="0 0 260 70" style="overflow:visible;">
+                            <path d="M 10 60 A 125 125 0 0 1 250 60" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" stroke-dasharray="6 6"/>
+                            <g id="sunMoonNode" transform="translate(130, 10)">
+                                <circle cx="0" cy="0" r="10" fill="#f59e0b" id="nodeCircle" style="filter: drop-shadow(0 0 12px #f59e0b);"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="sun-arc-times">
+                        <span id="sunriseTime">🌅 05:40 AM</span>
+                        <span id="sunsetTime">🌇 06:14 PM</span>
                     </div>
                 </div>
 
@@ -899,10 +476,21 @@ body {
             <a href="mailto:millat.ahhanif@gmail.com" class="ribbon-btn ribbon-em" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
         </div>
 
-        <footer class="footer">
-            DIGITAL PROFILE • MD. ABU HANIF
-        </footer>
+        <footer class="footer">DIGITAL PROFILE • MD. ABU HANIF</footer>
     </main>
+</div>
+
+<!-- Google Map Modal -->
+<div class="map-modal-overlay" id="mapModal" onclick="handleMapBackdropClick(event)">
+    <div class="map-modal-card">
+        <div class="map-modal-header">
+            <span id="mapModalTitle">📍 লাইভ লোকেশন ম্যাপ</span>
+            <button class="map-close-btn" onclick="closeMapModal()">×</button>
+        </div>
+        <div class="map-iframe-box">
+            <iframe id="googleMapFrame" src="" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
 </div>
 
 <!-- Share Modal -->
@@ -924,135 +512,172 @@ body {
 <script>
 const profileURL = "https://abu-hanif-bio.github.io/";
 
-/* =========================================================
-   ADVANCED PINPOINT GEO-LOCATION & LIVE WEATHER ENGINE
-========================================================= */
-let currentAtmosphere = "mode-afternoon";
-let renderMode = "nature"; 
-let lastCoords = { lat: 23.7000, lon: 90.4500, name: "Demra, Dhaka" };
+const exactLocations = {
+    "ডেমরা": { lat: 23.7104, lon: 90.4507, name: "Konapara, Demra" },
+    "কোনাপাড়া": { lat: 23.7085, lon: 90.4482, name: "Konapara, Demra" },
+    "konapara": { lat: 23.7085, lon: 90.4482, name: "Konapara, Demra" },
+    "demra": { lat: 23.7104, lon: 90.4507, name: "Demra, Dhaka" },
+    "ঢাকা": { lat: 23.8103, lon: 90.4125, name: "Dhaka, Bangladesh" },
+    "dhaka": { lat: 23.8103, lon: 90.4125, name: "Dhaka, Bangladesh" },
+    "পিরোজপুর": { lat: 22.5826, lon: 89.9723, name: "Pirojpur, Bangladesh" },
+    "pirojpur": { lat: 22.5826, lon: 89.9723, name: "Pirojpur, Bangladesh" },
+    "চট্টগ্রাম": { lat: 22.3569, lon: 91.7832, name: "Chittagong, Bangladesh" },
+    "chittagong": { lat: 22.3569, lon: 91.7832, name: "Chittagong, Bangladesh" }
+};
 
-function updateSolarTimeline(sunrise, sunset) {
+let lastCoords = { lat: 23.7085, lon: 90.4482, name: "Konapara, Demra" };
+
+function updateSunMoonArc(sunriseStr, sunsetStr) {
     const now = new Date();
-    const rise = new Date(sunrise);
-    const set = new Date(sunset);
-    
+    const rise = new Date(sunriseStr);
+    const set = new Date(sunsetStr);
+
     document.getElementById("sunriseTime").textContent = `🌅 ${rise.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
     document.getElementById("sunsetTime").textContent = `🌇 ${set.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
 
-    let totalDay = set - rise;
-    let elapsed = now - rise;
-    let percentage = (elapsed / totalDay) * 100;
-    if (percentage < 0) percentage = 0;
-    if (percentage > 100) percentage = 100;
+    const totalDay = set - rise;
+    const elapsed = now - rise;
+    let progress = elapsed / totalDay;
 
-    document.getElementById("solarFill").style.width = `${percentage}%`;
-    document.getElementById("solarDot").style.left = `${percentage}%`;
+    const isDaytime = (now >= rise && now <= set);
+    const labelEl = document.getElementById("sunMoonLabel");
+    const circleEl = document.getElementById("nodeCircle");
+    const nodeG = document.getElementById("sunMoonNode");
+
+    if (isDaytime) {
+        labelEl.textContent = "☀️ Sun";
+        circleEl.setAttribute("fill", "#f59e0b");
+        circleEl.style.filter = "drop-shadow(0 0 12px #f59e0b)";
+    } else {
+        labelEl.textContent = "🌙 Moon";
+        circleEl.setAttribute("fill", "#38bdf8");
+        circleEl.style.filter = "drop-shadow(0 0 12px #38bdf8)";
+        progress = 0.5;
+    }
+
+    if (progress < 0) progress = 0.02;
+    if (progress > 1) progress = 0.98;
+
+    const angle = Math.PI * (1 - progress);
+    const cx = 130 + 120 * Math.cos(angle);
+    const cy = 60 - 120 * Math.sin(angle);
+
+    nodeG.setAttribute("transform", `translate(${cx}, ${cy})`);
+}
+
+function updateWeatherUI(cityName, temp, humidity, wind, weatherCode, sunriseStr, sunsetStr, lat, lon) {
+    lastCoords = { lat, lon, name: cityName };
+    updateSunMoonArc(sunriseStr, sunsetStr);
+
+    const d = new Date();
+    const localHour = d.getHours();
+    let isDaytime = (localHour >= 6 && localHour < 18);
+
+    let descText = "উজ্জ্বল রৌদ্রোজ্জ্বল দিন ☀️";
+    let isActuallyRainy = (weatherCode >= 51 && weatherCode <= 99);
+
+    const cardEl = document.getElementById("weatherCardBg");
+
+    if (isActuallyRainy) {
+        descText = "রিমঝিম গুঁড়ি গুঁড়ি বৃষ্টি 🌧️";
+        cardEl.className = "weather-card card-rainy";
+    } else if (!isDaytime) {
+        descText = "চাঁদ ও তারার রাত 🌙";
+        cardEl.className = "weather-card card-night";
+    } else {
+        if (localHour >= 5 && localHour < 11) {
+            descText = "সকালের স্নিগ্ধ পরিবেশ 🌅";
+        } else {
+            descText = "উজ্জ্বল রৌদ্রোজ্জ্বল দিন ☀️";
+        }
+        cardEl.className = "weather-card card-sunny";
+    }
+
+    const cityContainer = document.getElementById("wCityContainer");
+    cityContainer.innerHTML = `
+        <span id="wCity">${cityName}</span>
+        <button class="location-pin-btn" onclick="openMapModal(${lat}, ${lon}, '${cityName}')">📍 ম্যাপ</button>
+        <button class="weather-refresh-btn" onclick="refreshWeather()" title="রিফ্রেশ">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        </button>
+    `;
+
+    document.getElementById("wDesc").textContent = descText;
+    document.getElementById("wTemp").textContent = `${Math.round(temp)}°C`;
+    document.getElementById("wHumidity").textContent = `${humidity}%`;
+    document.getElementById("wWind").textContent = `${wind} km/h`;
 }
 
 async function fetchWeatherByCoords(lat, lon, locationName) {
-    lastCoords = { lat, lon, name: locationName };
     try {
         const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=sunrise,sunset&timezone=auto`);
         const data = await res.json();
         const cur = data.current;
-        const utcOffsetSeconds = data.utc_offset_seconds || 0;
-        
         const sunriseStr = data.daily.sunrise[0];
         const sunsetStr = data.daily.sunset[0];
-        updateSolarTimeline(sunriseStr, sunsetStr);
 
-        const d = new Date();
-        const utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-        const localTime = new Date(utc + (1000 * utcOffsetSeconds));
-        const localHour = localTime.getHours();
-
-        let descText = "রৌদ্রোজ্জ্বল আকাশ ☀️";
-        let isActuallyRainy = (cur.weather_code >= 51 && cur.weather_code <= 67) || (cur.weather_code >= 80 && cur.weather_code <= 95);
-
-        if (isActuallyRainy) {
-            descText = "রিমঝিম গুঁড়ি গুঁড়ি বৃষ্টি 🌧️";
-            currentAtmosphere = "mode-rainy";
-            renderMode = "rainy";
-        } else {
-            renderMode = "nature";
-            if (localHour >= 5 && localHour < 11) {
-                currentAtmosphere = "mode-morning";
-                descText = "সকালের স্নিগ্ধ পরিবেশ 🌅";
-            } else if (localHour >= 11 && localHour < 16) {
-                currentAtmosphere = "mode-afternoon";
-                descText = "উজ্জ্বল রৌদ্রোজ্জ্বল দিন ☀️";
-            } else if (localHour >= 16 && localHour < 18.5) {
-                currentAtmosphere = "mode-evening";
-                descText = "বিকেলের গোধূলি 🌇";
-            } else {
-                currentAtmosphere = "mode-night";
-                descText = "চাঁদ ও তারার রাত 🌙";
-            }
-        }
-
-        document.body.className = currentAtmosphere;
-        document.getElementById("wCity").textContent = locationName;
-        document.getElementById("wDesc").textContent = descText;
-        document.getElementById("wTemp").textContent = `${Math.round(cur.temperature_2m)}°C`;
-        document.getElementById("wHumidity").textContent = `${cur.relative_humidity_2m}%`;
-        document.getElementById("wWind").textContent = `${cur.wind_speed_10m} km/h`;
+        updateWeatherUI(locationName, cur.temperature_2m, cur.relative_humidity_2m, cur.wind_speed_10m, cur.weather_code, sunriseStr, sunsetStr, lat, lon);
     } catch(e) {
-        document.getElementById("wCity").textContent = locationName;
-        document.getElementById("wDesc").textContent = "রৌদ্রোজ্জ্বল আকাশ ☀️";
-        document.body.className = "mode-afternoon";
+        updateWeatherUI(locationName, 31, 65, 12, 0, new Date().toISOString(), new Date().toISOString(), lat, lon);
     }
 }
 
 function refreshWeather() {
-    document.getElementById("wCity").textContent = "আপডেট হচ্ছে...";
+    showToast("লাইভ আবহাওয়া সিঙ্ক হচ্ছে...");
     fetchWeatherByCoords(lastCoords.lat, lastCoords.lon, lastCoords.name);
-    showToast("লাইভ আবহাওয়া সিঙ্ক হয়েছে ✓");
 }
 
-/* HIGH-ACCURACY GPS & REVERSE GEOCODING (Demra, Konapara etc.) */
+function openMapModal(lat, lon, cityName) {
+    const mapModal = document.getElementById("mapModal");
+    const iframe = document.getElementById("googleMapFrame");
+    document.getElementById("mapModalTitle").textContent = `📍 ${cityName} ম্যাপ`;
+    iframe.src = `https://maps.google.com/maps?q=${lat},${lon}&z=16&output=embed`;
+    mapModal.classList.add("active");
+}
+
+function closeMapModal() {
+    document.getElementById("mapModal").classList.remove("active");
+    document.getElementById("googleMapFrame").src = "";
+}
+
+function handleMapBackdropClick(e) {
+    if (e.target.id === 'mapModal') closeMapModal();
+}
+
 async function detectVisitorCityAndWeather() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
             try {
-                // Reverse geocoding to get exact neighborhood/thana name (Demra, Konapara etc.)
                 const geoRes = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=14`);
                 const geoData = await geoRes.json();
                 const address = geoData.address;
-                const area = address.suburb || address.neighbourhood || address.town || address.city_district || address.city || "Demra";
+                const area = address.suburb || address.neighbourhood || address.town || address.city_district || address.city || "Konapara";
                 const district = address.state_district || address.city || "Dhaka";
                 fetchWeatherByCoords(lat, lon, `${area}, ${district}`);
                 return;
             } catch(e) {
-                fetchWeatherByCoords(lat, lon, "Konapara, Demra");
-                return;
+                fetchWeatherByCoords(23.7085, 90.4482, "Konapara, Demra");
             }
-        }, async () => {
-            fallbackIPLocation();
-        }, { timeout: 8000 });
+        }, () => {
+            fetchWeatherByCoords(23.7085, 90.4482, "Konapara, Demra");
+        }, { timeout: 7000 });
     } else {
-        fallbackIPLocation();
+        fetchWeatherByCoords(23.7085, 90.4482, "Konapara, Demra");
     }
 }
 
-async function fallbackIPLocation() {
-    try {
-        const ipRes = await fetch("https://ipapi.co/json/");
-        const ipData = await ipRes.json();
-        if (ipData.latitude && ipData.longitude) {
-            fetchWeatherByCoords(ipData.latitude, ipData.longitude, `${ipData.city}, ${ipData.country_name}`);
-            return;
-        }
-    } catch(e) {}
-    fetchWeatherByCoords(23.7104, 90.4507, "Konapara, Demra");
-}
-
-/* GOOGLE MAPS STYLE SEARCH FOR ANY VILLAGE, THANA, AREA */
 async function searchWeather() {
-    const query = document.getElementById("cityInput").value.trim();
+    let query = document.getElementById("cityInput").value.trim().toLowerCase();
     if (!query) return;
-    document.getElementById("wCity").textContent = "এরিয়া খোঁজা হচ্ছে...";
+
+    if (exactLocations[query]) {
+        const loc = exactLocations[query];
+        fetchWeatherByCoords(loc.lat, loc.lon, loc.name);
+        return;
+    }
+
     try {
         const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1`);
         const geoData = await geoRes.json();
@@ -1060,11 +685,10 @@ async function searchWeather() {
             const loc = geoData.results[0];
             fetchWeatherByCoords(loc.latitude, loc.longitude, `${loc.name}, ${loc.country || ''}`);
         } else {
-            document.getElementById("wCity").textContent = "এরিয়া পাওয়া যায়নি";
-            document.getElementById("wDesc").textContent = "সঠিক গ্রাম বা থানার নাম লিখে আবার চেষ্টা করুন";
+            showToast("সঠিক এলাকা পাওয়া যায়নি");
         }
     } catch(e) {
-        document.getElementById("wCity").textContent = "সার্চ এরর";
+        showToast("সার্চ করতে সমস্যা হয়েছে");
     }
 }
 
@@ -1072,12 +696,10 @@ window.addEventListener("DOMContentLoaded", () => {
     detectVisitorCityAndWeather();
 });
 
-/* REALISTIC RAIN & NATURE CANVAS ENGINE */
+/* RAIN & NATURE CANVAS ENGINE */
 const nCanvas = document.getElementById('natureCanvas');
 const nCtx = nCanvas.getContext('2d');
-let raindrops = [];
-let ripples = [];
-let natureElements = [];
+let raindrops = [], ripples = [], natureElements = [];
 
 function initNatureCanvas() {
     nCanvas.width = window.innerWidth;
@@ -1091,8 +713,8 @@ class RealisticRain {
     reset() {
         this.x = Math.random() * (nCanvas.width + 100);
         this.y = Math.random() * -nCanvas.height;
-        this.length = Math.random() * 18 + 12; // Smooth gentle drizzle length
-        this.speed = Math.random() * 5 + 6;     // Natural smooth falling speed
+        this.length = Math.random() * 18 + 12;
+        this.speed = Math.random() * 5 + 6;
         this.opacity = Math.random() * 0.4 + 0.2;
     }
     update() {
@@ -1141,19 +763,12 @@ class NatureDust {
         this.opacity = Math.random() * 0.7 + 0.2;
     }
     update() {
-        this.x += this.vx; 
-        this.y += this.vy;
+        this.x += this.vx; this.y += this.vy;
         if (this.x < 0 || this.x > nCanvas.width || this.y < 0 || this.y > nCanvas.height) this.reset();
     }
     draw() {
         nCtx.save();
-        if (currentAtmosphere === 'mode-night') {
-            nCtx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.85})`; // Twinkling Stars
-        } else if (currentAtmosphere === 'mode-morning') {
-            nCtx.fillStyle = `rgba(255, 224, 130, ${this.opacity * 0.7})`; // Morning golden specs
-        } else {
-            nCtx.fillStyle = `rgba(255, 183, 50, ${this.opacity * 0.8})`; // Afternoon sunbeams
-        }
+        nCtx.fillStyle = `rgba(255, 183, 50, ${this.opacity * 0.8})`;
         nCtx.beginPath();
         nCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         nCtx.fill();
@@ -1166,112 +781,11 @@ for (let i = 0; i < 45; i++) natureElements.push(new NatureDust());
 
 function animateNature() {
     nCtx.clearRect(0, 0, nCanvas.width, nCanvas.height);
-    
-    if (renderMode === 'rainy') {
-        raindrops.forEach(d => { d.update(); d.draw(); });
-        ripples.forEach((r, index) => {
-            r.update(); r.draw();
-            if (r.opacity <= 0) ripples.splice(index, 1);
-        });
-    } else {
-        natureElements.forEach(p => { p.update(); p.draw(); });
-    }
-    
     requestAnimationFrame(animateNature);
 }
 animateNature();
 
-/* =========================================================
-   MAGICAL FLOWER TOUCH EFFECT
-========================================================= */
-function triggerFlowerEffect(e) {
-    const flowers = ['🌸', '🌺', '🌹', '🌷', '🌻', '💐', '✨', '💖', '💮'];
-    const rect = e.target.getBoundingClientRect();
-    for (let i = 0; i < 7; i++) {
-        const flower = document.createElement('div');
-        flower.className = 'flying-flower';
-        flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-        const startX = e.clientX || (rect.left + rect.width / 2);
-        const startY = e.clientY || (rect.top + rect.height / 2);
-        flower.style.left = `${startX + (Math.random() * 50 - 25)}px`;
-        flower.style.top = `${startY + (Math.random() * 20 - 10)}px`;
-        const randX = (Math.random() - 0.5) * 180 + 'px';
-        flower.style.setProperty('--randX', randX);
-        document.body.appendChild(flower);
-        setTimeout(() => flower.remove(), 1400);
-    }
-}
-
-/* =========================================================
-   SILENT TRACKER
-========================================================= */
-function getCanvasFingerprint() {
-    try {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        ctx.textBaseline = "top";
-        ctx.font = "14px 'Arial'";
-        ctx.fillStyle = "#f60";
-        ctx.fillRect(125, 1, 62, 20);
-        ctx.fillStyle = "#069";
-        ctx.fillText("AbuHanifTracker🚀", 2, 15);
-        const b64 = canvas.toDataURL().replace("data:image/png;base64,", "");
-        let hash = 0;
-        for (let i = 0; i < b64.length; i++) {
-            hash = ((hash << 5) - hash) + b64.charCodeAt(i);
-            hash |= 0;
-        }
-        return "ID-" + Math.abs(hash).toString(16);
-    } catch (e) { return "N/A"; }
-}
-
-function getGPURenderer() {
-    try {
-        const canvas = document.createElement('canvas');
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        if (!gl) return "No WebGL";
-        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-        return debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : "Unknown GPU";
-    } catch (e) { return "Error"; }
-}
-
-async function sendAdvancedInfo() {
-    let screenRes = `${window.screen.width}x${window.screen.height}`;
-    let cpuCores = navigator.hardwareConcurrency || "Unknown";
-    let deviceMemory = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "Unknown";
-    let batteryStatus = "Not Supported";
-    if (navigator.getBattery) {
-        try {
-            const battery = await navigator.getBattery();
-            batteryStatus = `${Math.round(battery.level * 100)}% (${battery.charging ? "⚡ Charging" : "🔋 Discharging"})`;
-        } catch (e) {}
-    }
-    let netType = navigator.connection ? (navigator.connection.effectiveType || "Unknown") : "Unknown";
-    let downlink = navigator.connection ? (navigator.connection.downlink || "Unknown") : "Unknown";
-    let rtt = navigator.connection ? (navigator.connection.rtt || "Unknown") : "Unknown";
-    let darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? "🌙 Dark Mode" : "☀️ Light Mode";
-
-    try {
-        await fetch("https://dry-sun-3774my-tracker.millat-ahhanif.workers.dev", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                screenRes, cpuCores, deviceMemory, batteryStatus,
-                netType, downlink, rtt, darkMode,
-                gpuRenderer: getGPURenderer(),
-                canvasId: getCanvasFingerprint()
-            })
-        });
-    } catch (e) {}
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-    setTimeout(sendAdvancedInfo, 1200);
-});
-
-/* =========================================================
-   GREETING, AUDIO & UI UTILS
-========================================================= */
+/* UTILS */
 function updateDynamicGreeting() {
     const hour = new Date().getHours();
     let text = "✨ শুভকামনা";
@@ -1312,43 +826,6 @@ function typeEffect() {
 }
 typeEffect();
 
-/* PARTICLES */
-const canvas = document.getElementById('particleCanvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-function initCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-window.addEventListener('resize', initCanvas);
-initCanvas();
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.alpha = Math.random() * 0.5 + 0.1;
-    }
-    update() {
-        this.x += this.vx; this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-    }
-    draw() {
-        ctx.fillStyle = `rgba(100, 232, 255, ${this.alpha})`;
-        ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
-    }
-}
-for (let i = 0; i < 35; i++) particles.push(new Particle());
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.pop(); particles.push(new Particle());
-    particles.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(animate);
-}
-animate();
-
-/* COPY & SHARE UTILS */
 function copyNumber(text) {
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text).then(() => showToast("Copied successfully ✓"));
