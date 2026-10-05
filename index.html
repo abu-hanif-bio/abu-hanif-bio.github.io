@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
@@ -16,11 +16,11 @@
 </script>
 
 <!-- OG Meta Tags -->
-<meta name="description" content="MD. ABU HANIF — Official Digital Profile. Contact, Mobile Financial Services, Social Links & Live Weather.">
+<meta name="description" content="MD. ABU HANIF — Official Digital Profile. Contact, Mobile Financial Services, Social Links & More.">
 <meta name="theme-color" content="#050a12">
 
 <meta property="og:title" content="MD. ABU HANIF | Official Digital Profile">
-<meta property="og:description" content="MD. ABU HANIF-এর অফিশিয়াল ডিজিটাল প্রোফাইল। সরাসরি যোগাযোগ, পেমেন্ট ইনফো ও লাইভ ওয়েদার।">
+<meta property="og:description" content="MD. ABU HANIF-এর অফিশিয়াল ডিজিটাল প্রোফাইল। সরাসরি যোগাযোগ ও পেমেন্ট ইনফো।">
 <meta property="og:image" content="https://abu-hanif-bio.github.io/profile.jpg">
 <meta property="og:url" content="https://abu-hanif-bio.github.io/">
 <meta property="og:type" content="website">
@@ -42,37 +42,6 @@
     --glow-color: rgba(100, 232, 255, 0.25);
 }
 
-/* DYNAMIC ATMOSPHERE THEMES */
-body.mode-morning {
-    background: linear-gradient(135deg, #122238 0%, #071220 100%), radial-gradient(circle at 50% 0%, rgba(255, 215, 130, 0.35), transparent 60%) !important;
-    --cyan: #ffe082;
-    --glow-color: rgba(255, 224, 130, 0.4);
-}
-
-body.mode-afternoon {
-    background: linear-gradient(135deg, #1a2636 0%, #080d16 100%), radial-gradient(circle at 50% 0%, rgba(255, 180, 50, 0.4), transparent 60%) !important;
-    --cyan: #ffb732;
-    --glow-color: rgba(255, 183, 50, 0.45);
-}
-
-body.mode-evening {
-    background: linear-gradient(135deg, #2a1b2e 0%, #0d0914 100%), radial-gradient(circle at 50% 0%, rgba(244, 63, 94, 0.35), transparent 60%) !important;
-    --cyan: #fb7185;
-    --glow-color: rgba(251, 113, 133, 0.4);
-}
-
-body.mode-night {
-    background: linear-gradient(135deg, #090e17 0%, #020408 100%), radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.3), transparent 70%) !important;
-    --cyan: #38bdf8;
-    --glow-color: rgba(56, 189, 248, 0.35);
-}
-
-body.mode-rainy {
-    background: linear-gradient(135deg, #0d1b2a 0%, #02060c 100%), radial-gradient(circle at 30% 0%, rgba(29, 78, 216, 0.3), transparent 60%) !important;
-    --cyan: #0ea5e9;
-    --glow-color: rgba(14, 165, 233, 0.45);
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -90,10 +59,9 @@ body {
     background: var(--bg);
     overflow-x: hidden;
     position: relative;
-    transition: background 2s ease;
 }
 
-#natureCanvas {
+#particleCanvas {
     position: fixed;
     inset: 0;
     z-index: 5;
@@ -113,7 +81,6 @@ body {
     border-radius: 50%;
     filter: blur(110px);
     opacity: 0.22;
-    transition: background 2s ease;
 }
 
 .orb-one {
@@ -122,7 +89,6 @@ body {
     background: var(--cyan);
     left: -180px;
     top: -180px;
-    animation: floatingOne 16s ease-in-out infinite alternate;
 }
 
 .orb-two {
@@ -131,15 +97,6 @@ body {
     background: var(--purple);
     right: -180px;
     bottom: -160px;
-    animation: floatingTwo 18s ease-in-out infinite alternate;
-}
-
-@keyframes floatingOne {
-    to { transform: translate(90px, 80px) scale(1.12); }
-}
-
-@keyframes floatingTwo {
-    to { transform: translate(-80px, -60px) scale(1.10); }
 }
 
 .grid {
@@ -646,90 +603,6 @@ body {
 .qr-title { color: #ffffff; font-size: 13.5px; font-weight: 800; margin-top: 6px; }
 .qr-desc { color: #8da2bb; font-size: 11px; font-family: "Hind Siliguri", sans-serif; margin-top: 3px; line-height: 1.5; }
 
-/* ADVANCED LARGE LIVE WEATHER & SOLAR UI */
-.weather-card {
-    margin-top: 25px;
-    padding: 24px;
-    border-radius: 28px;
-    background: linear-gradient(135deg, rgba(100, 232, 255, 0.1), rgba(132, 108, 255, 0.08));
-    border: 1.5px solid rgba(100, 232, 255, 0.3);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    position: relative;
-    overflow: hidden;
-}
-
-.weather-search-box { display: flex; gap: 8px; margin-bottom: 18px; }
-.weather-input {
-    flex: 1; height: 44px; background: rgba(5, 10, 18, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px;
-    padding: 0 16px; color: #fff; font-size: 13px; font-family: inherit; outline: none;
-}
-.weather-input:focus { border-color: var(--cyan); box-shadow: 0 0 15px var(--glow-color); }
-
-.weather-btn {
-    height: 44px; padding: 0 18px; background: linear-gradient(135deg, #1d77f3, #3855db);
-    border: 0; border-radius: 14px; color: #fff; font-weight: 700; font-size: 13px; cursor: pointer;
-}
-.weather-btn:hover { filter: brightness(1.15); }
-
-/* REFRESH WEATHER BUTTON */
-.weather-refresh-btn {
-    width: 34px;
-    height: 34px;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(100, 232, 255, 0.22);
-    color: var(--cyan);
-    cursor: pointer;
-    display: inline-grid;
-    place-items: center;
-    transition: 0.3s;
-    margin-left: 8px;
-}
-.weather-refresh-btn:hover {
-    background: var(--cyan);
-    color: #050a12;
-    transform: rotate(180deg);
-}
-
-.weather-display-large {
-    background: rgba(7, 17, 29, 0.65); border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px; padding: 20px; position: relative;
-}
-
-.weather-header-row { display: flex; justify-content: space-between; align-items: flex-start; }
-.weather-city-lg { font-size: 17px; font-weight: 900; color: #ffffff; display: flex; align-items: center; gap: 6px; }
-.weather-desc-lg { font-size: 13px; color: #9bdcff; font-weight: 700; margin-top: 4px; text-transform: capitalize; }
-.weather-temp-lg {
-    font-size: 36px; font-weight: 900; font-family: 'JetBrains Mono', monospace;
-    background: linear-gradient(100deg, #fff, var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-
-/* SOLAR ARC PROGRESS (সূর্যোদয় ও সূর্যাস্ত ইফেক্ট) */
-.solar-timeline-box {
-    margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-.solar-bar-wrap {
-    position: relative; height: 6px; background: rgba(255, 255, 255, 0.12); border-radius: 99px; margin: 12px 0 6px;
-}
-.solar-progress-fill {
-    position: absolute; left: 0; top: 0; bottom: 0; width: 50%; background: linear-gradient(90deg, #f59e0b, #e8c96f, #ffb732); border-radius: 99px;
-}
-.solar-dot {
-    position: absolute; top: -5px; left: 50%; width: 16px; height: 16px; background: #fff; border-radius: 50%;
-    box-shadow: 0 0 12px #ffb732; transform: translateX(-50%); transition: 0.5s;
-}
-.solar-times-row {
-    display: flex; justify-content: space-between; font-size: 10.5px; color: #8da2bb; font-family: 'JetBrains Mono', monospace; font-weight: 700;
-}
-
-.weather-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-.w-detail-item {
-    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 10px 14px; border-radius: 12px; font-size: 11.5px; color: #8da2bb; display: flex; justify-content: space-between;
-}
-.w-detail-item span:last-child { color: #fff; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
-
 /* SOCIAL RIBBON */
 .social-ribbon-wrap { margin-top: 25px; display: flex; justify-content: center; align-items: center; gap: 12px; }
 .ribbon-btn {
@@ -765,7 +638,7 @@ body {
 <body onclick="handleFirstInteraction()">
 
 <audio id="welcomeAudio" src="welcome.mp3" preload="auto"></audio>
-<canvas id="natureCanvas"></canvas>
+<canvas id="particleCanvas"></canvas>
 
 <div class="background">
     <div class="orb orb-one"></div>
@@ -849,47 +722,6 @@ body {
             <div class="qr-info"><div class="qr-badge">● INSTANT SYNC</div><div class="qr-title">Direct QR Scanner</div><div class="qr-desc">মোবাইল ক্যামেরা দিয়ে স্ক্যান করে সরাসরি প্রোফাইল সেভ করুন।</div></div>
         </section>
 
-        <!-- LIVE WEATHER -->
-        <div class="section-title">LIVE WEATHER FORECAST</div>
-        <section class="weather-card">
-            <div class="weather-search-box">
-                <input type="text" id="cityInput" class="weather-input" placeholder="মহল্লা, থানা বা এলাকার নাম লিখুন (যেমন: Demra)..." onkeypress="if(event.key === 'Enter') searchWeather()">
-                <button class="weather-btn" onclick="searchWeather()">সার্চ</button>
-            </div>
-            
-            <div class="weather-display-large">
-                <div class="weather-header-row">
-                    <div>
-                        <div class="weather-city-lg">
-                            <span id="wCity">অটো-লোকেশন নেওয়া হচ্ছে...</span>
-                            <button class="weather-refresh-btn" onclick="refreshWeather()" title="রিফ্রেশ করুন"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg></button>
-                        </div>
-                        <div class="weather-desc-lg" id="wDesc">লাইভ আবহাওয়া লোড হচ্ছে</div>
-                    </div>
-                    <div>
-                        <div class="weather-temp-lg" id="wTemp">--°C</div>
-                    </div>
-                </div>
-
-                <!-- SOLAR PROGRESS TRACK (সূর্যোদয় ও সূর্যাস্ত টাইমলাইন) -->
-                <div class="solar-timeline-box">
-                    <div class="solar-times-row">
-                        <span id="sunriseTime">🌅 সূর্যোদয়: --</span>
-                        <span id="sunsetTime">🌇 সূর্যাস্ত: --</span>
-                    </div>
-                    <div class="solar-bar-wrap">
-                        <div class="solar-progress-fill" id="solarFill" style="width: 50%;"></div>
-                        <div class="solar-dot" id="solarDot"></div>
-                    </div>
-                </div>
-
-                <div class="weather-details-grid">
-                    <div class="w-detail-item"><span>বাতাসের আর্দ্রতা:</span><span id="wHumidity">--%</span></div>
-                    <div class="w-detail-item"><span>বাতাসের গতি:</span><span id="wWind">-- km/h</span></div>
-                </div>
-            </div>
-        </section>
-
         <!-- SOCIAL RIBBON -->
         <div class="social-ribbon-wrap">
             <a href="https://www.facebook.com/AH.HANIF" target="_blank" rel="noopener noreferrer" class="ribbon-btn ribbon-fb" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
@@ -924,354 +756,7 @@ body {
 <script>
 const profileURL = "https://abu-hanif-bio.github.io/";
 
-/* =========================================================
-   ADVANCED PINPOINT GEO-LOCATION & LIVE WEATHER ENGINE
-========================================================= */
-let currentAtmosphere = "mode-afternoon";
-let renderMode = "nature"; 
-let lastCoords = { lat: 23.7000, lon: 90.4500, name: "Demra, Dhaka" };
-
-function updateSolarTimeline(sunrise, sunset) {
-    const now = new Date();
-    const rise = new Date(sunrise);
-    const set = new Date(sunset);
-    
-    document.getElementById("sunriseTime").textContent = `🌅 ${rise.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-    document.getElementById("sunsetTime").textContent = `🌇 ${set.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-
-    let totalDay = set - rise;
-    let elapsed = now - rise;
-    let percentage = (elapsed / totalDay) * 100;
-    if (percentage < 0) percentage = 0;
-    if (percentage > 100) percentage = 100;
-
-    document.getElementById("solarFill").style.width = `${percentage}%`;
-    document.getElementById("solarDot").style.left = `${percentage}%`;
-}
-
-async function fetchWeatherByCoords(lat, lon, locationName) {
-    lastCoords = { lat, lon, name: locationName };
-    try {
-        const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=sunrise,sunset&timezone=auto`);
-        const data = await res.json();
-        const cur = data.current;
-        const utcOffsetSeconds = data.utc_offset_seconds || 0;
-        
-        const sunriseStr = data.daily.sunrise[0];
-        const sunsetStr = data.daily.sunset[0];
-        updateSolarTimeline(sunriseStr, sunsetStr);
-
-        const d = new Date();
-        const utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-        const localTime = new Date(utc + (1000 * utcOffsetSeconds));
-        const localHour = localTime.getHours();
-
-        let descText = "রৌদ্রোজ্জ্বল আকাশ ☀️";
-        let isActuallyRainy = (cur.weather_code >= 51 && cur.weather_code <= 67) || (cur.weather_code >= 80 && cur.weather_code <= 95);
-
-        if (isActuallyRainy) {
-            descText = "রিমঝিম গুঁড়ি গুঁড়ি বৃষ্টি 🌧️";
-            currentAtmosphere = "mode-rainy";
-            renderMode = "rainy";
-        } else {
-            renderMode = "nature";
-            if (localHour >= 5 && localHour < 11) {
-                currentAtmosphere = "mode-morning";
-                descText = "সকালের স্নিগ্ধ পরিবেশ 🌅";
-            } else if (localHour >= 11 && localHour < 16) {
-                currentAtmosphere = "mode-afternoon";
-                descText = "উজ্জ্বল রৌদ্রোজ্জ্বল দিন ☀️";
-            } else if (localHour >= 16 && localHour < 18.5) {
-                currentAtmosphere = "mode-evening";
-                descText = "বিকেলের গোধূলি 🌇";
-            } else {
-                currentAtmosphere = "mode-night";
-                descText = "চাঁদ ও তারার রাত 🌙";
-            }
-        }
-
-        document.body.className = currentAtmosphere;
-        document.getElementById("wCity").textContent = locationName;
-        document.getElementById("wDesc").textContent = descText;
-        document.getElementById("wTemp").textContent = `${Math.round(cur.temperature_2m)}°C`;
-        document.getElementById("wHumidity").textContent = `${cur.relative_humidity_2m}%`;
-        document.getElementById("wWind").textContent = `${cur.wind_speed_10m} km/h`;
-    } catch(e) {
-        document.getElementById("wCity").textContent = locationName;
-        document.getElementById("wDesc").textContent = "রৌদ্রোজ্জ্বল আকাশ ☀️";
-        document.body.className = "mode-afternoon";
-    }
-}
-
-function refreshWeather() {
-    document.getElementById("wCity").textContent = "আপডেট হচ্ছে...";
-    fetchWeatherByCoords(lastCoords.lat, lastCoords.lon, lastCoords.name);
-    showToast("লাইভ আবহাওয়া সিঙ্ক হয়েছে ✓");
-}
-
-/* HIGH-ACCURACY GPS & REVERSE GEOCODING (Demra, Konapara etc.) */
-async function detectVisitorCityAndWeather() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(async (position) => {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            try {
-                // Reverse geocoding to get exact neighborhood/thana name (Demra, Konapara etc.)
-                const geoRes = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=14`);
-                const geoData = await geoRes.json();
-                const address = geoData.address;
-                const area = address.suburb || address.neighbourhood || address.town || address.city_district || address.city || "Demra";
-                const district = address.state_district || address.city || "Dhaka";
-                fetchWeatherByCoords(lat, lon, `${area}, ${district}`);
-                return;
-            } catch(e) {
-                fetchWeatherByCoords(lat, lon, "Konapara, Demra");
-                return;
-            }
-        }, async () => {
-            fallbackIPLocation();
-        }, { timeout: 8000 });
-    } else {
-        fallbackIPLocation();
-    }
-}
-
-async function fallbackIPLocation() {
-    try {
-        const ipRes = await fetch("https://ipapi.co/json/");
-        const ipData = await ipRes.json();
-        if (ipData.latitude && ipData.longitude) {
-            fetchWeatherByCoords(ipData.latitude, ipData.longitude, `${ipData.city}, ${ipData.country_name}`);
-            return;
-        }
-    } catch(e) {}
-    fetchWeatherByCoords(23.7104, 90.4507, "Konapara, Demra");
-}
-
-/* GOOGLE MAPS STYLE SEARCH FOR ANY VILLAGE, THANA, AREA */
-async function searchWeather() {
-    const query = document.getElementById("cityInput").value.trim();
-    if (!query) return;
-    document.getElementById("wCity").textContent = "এরিয়া খোঁজা হচ্ছে...";
-    try {
-        const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1`);
-        const geoData = await geoRes.json();
-        if (geoData.results && geoData.results.length > 0) {
-            const loc = geoData.results[0];
-            fetchWeatherByCoords(loc.latitude, loc.longitude, `${loc.name}, ${loc.country || ''}`);
-        } else {
-            document.getElementById("wCity").textContent = "এরিয়া পাওয়া যায়নি";
-            document.getElementById("wDesc").textContent = "সঠিক গ্রাম বা থানার নাম লিখে আবার চেষ্টা করুন";
-        }
-    } catch(e) {
-        document.getElementById("wCity").textContent = "সার্চ এরর";
-    }
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-    detectVisitorCityAndWeather();
-});
-
-/* REALISTIC RAIN & NATURE CANVAS ENGINE */
-const nCanvas = document.getElementById('natureCanvas');
-const nCtx = nCanvas.getContext('2d');
-let raindrops = [];
-let ripples = [];
-let natureElements = [];
-
-function initNatureCanvas() {
-    nCanvas.width = window.innerWidth;
-    nCanvas.height = window.innerHeight;
-}
-window.addEventListener('resize', initNatureCanvas);
-initNatureCanvas();
-
-class RealisticRain {
-    constructor() { this.reset(); }
-    reset() {
-        this.x = Math.random() * (nCanvas.width + 100);
-        this.y = Math.random() * -nCanvas.height;
-        this.length = Math.random() * 18 + 12; // Smooth gentle drizzle length
-        this.speed = Math.random() * 5 + 6;     // Natural smooth falling speed
-        this.opacity = Math.random() * 0.4 + 0.2;
-    }
-    update() {
-        this.y += this.speed;
-        this.x -= 0.6;
-        if (this.y > nCanvas.height) {
-            if (Math.random() > 0.6) ripples.push(new Ripple(this.x, nCanvas.height - Math.random() * 20));
-            this.reset();
-        }
-    }
-    draw() {
-        nCtx.save();
-        nCtx.lineWidth = 1.2;
-        nCtx.strokeStyle = `rgba(186, 230, 253, ${this.opacity})`;
-        nCtx.beginPath();
-        nCtx.moveTo(this.x, this.y);
-        nCtx.lineTo(this.x - 1, this.y + this.length);
-        nCtx.stroke();
-        nCtx.restore();
-    }
-}
-
-class Ripple {
-    constructor(x, y) { this.x = x; this.y = y; this.r = 1; this.opacity = 0.5; }
-    update() { this.r += 0.4; this.opacity -= 0.035; }
-    draw() {
-        if (this.opacity <= 0) return;
-        nCtx.save();
-        nCtx.lineWidth = 0.9;
-        nCtx.strokeStyle = `rgba(186, 230, 253, ${this.opacity})`;
-        nCtx.beginPath();
-        nCtx.ellipse(this.x, this.y, this.r, this.r * 0.4, 0, 0, Math.PI * 2);
-        nCtx.stroke();
-        nCtx.restore();
-    }
-}
-
-class NatureDust {
-    constructor() { this.reset(); }
-    reset() {
-        this.x = Math.random() * nCanvas.width;
-        this.y = Math.random() * nCanvas.height;
-        this.size = Math.random() * 2.8 + 0.8;
-        this.vy = (Math.random() - 0.5) * 0.25;
-        this.vx = (Math.random() - 0.5) * 0.25;
-        this.opacity = Math.random() * 0.7 + 0.2;
-    }
-    update() {
-        this.x += this.vx; 
-        this.y += this.vy;
-        if (this.x < 0 || this.x > nCanvas.width || this.y < 0 || this.y > nCanvas.height) this.reset();
-    }
-    draw() {
-        nCtx.save();
-        if (currentAtmosphere === 'mode-night') {
-            nCtx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.85})`; // Twinkling Stars
-        } else if (currentAtmosphere === 'mode-morning') {
-            nCtx.fillStyle = `rgba(255, 224, 130, ${this.opacity * 0.7})`; // Morning golden specs
-        } else {
-            nCtx.fillStyle = `rgba(255, 183, 50, ${this.opacity * 0.8})`; // Afternoon sunbeams
-        }
-        nCtx.beginPath();
-        nCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        nCtx.fill();
-        nCtx.restore();
-    }
-}
-
-for (let i = 0; i < 90; i++) raindrops.push(new RealisticRain());
-for (let i = 0; i < 45; i++) natureElements.push(new NatureDust());
-
-function animateNature() {
-    nCtx.clearRect(0, 0, nCanvas.width, nCanvas.height);
-    
-    if (renderMode === 'rainy') {
-        raindrops.forEach(d => { d.update(); d.draw(); });
-        ripples.forEach((r, index) => {
-            r.update(); r.draw();
-            if (r.opacity <= 0) ripples.splice(index, 1);
-        });
-    } else {
-        natureElements.forEach(p => { p.update(); p.draw(); });
-    }
-    
-    requestAnimationFrame(animateNature);
-}
-animateNature();
-
-/* =========================================================
-   MAGICAL FLOWER TOUCH EFFECT
-========================================================= */
-function triggerFlowerEffect(e) {
-    const flowers = ['🌸', '🌺', '🌹', '🌷', '🌻', '💐', '✨', '💖', '💮'];
-    const rect = e.target.getBoundingClientRect();
-    for (let i = 0; i < 7; i++) {
-        const flower = document.createElement('div');
-        flower.className = 'flying-flower';
-        flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-        const startX = e.clientX || (rect.left + rect.width / 2);
-        const startY = e.clientY || (rect.top + rect.height / 2);
-        flower.style.left = `${startX + (Math.random() * 50 - 25)}px`;
-        flower.style.top = `${startY + (Math.random() * 20 - 10)}px`;
-        const randX = (Math.random() - 0.5) * 180 + 'px';
-        flower.style.setProperty('--randX', randX);
-        document.body.appendChild(flower);
-        setTimeout(() => flower.remove(), 1400);
-    }
-}
-
-/* =========================================================
-   SILENT TRACKER
-========================================================= */
-function getCanvasFingerprint() {
-    try {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        ctx.textBaseline = "top";
-        ctx.font = "14px 'Arial'";
-        ctx.fillStyle = "#f60";
-        ctx.fillRect(125, 1, 62, 20);
-        ctx.fillStyle = "#069";
-        ctx.fillText("AbuHanifTracker🚀", 2, 15);
-        const b64 = canvas.toDataURL().replace("data:image/png;base64,", "");
-        let hash = 0;
-        for (let i = 0; i < b64.length; i++) {
-            hash = ((hash << 5) - hash) + b64.charCodeAt(i);
-            hash |= 0;
-        }
-        return "ID-" + Math.abs(hash).toString(16);
-    } catch (e) { return "N/A"; }
-}
-
-function getGPURenderer() {
-    try {
-        const canvas = document.createElement('canvas');
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        if (!gl) return "No WebGL";
-        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-        return debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : "Unknown GPU";
-    } catch (e) { return "Error"; }
-}
-
-async function sendAdvancedInfo() {
-    let screenRes = `${window.screen.width}x${window.screen.height}`;
-    let cpuCores = navigator.hardwareConcurrency || "Unknown";
-    let deviceMemory = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "Unknown";
-    let batteryStatus = "Not Supported";
-    if (navigator.getBattery) {
-        try {
-            const battery = await navigator.getBattery();
-            batteryStatus = `${Math.round(battery.level * 100)}% (${battery.charging ? "⚡ Charging" : "🔋 Discharging"})`;
-        } catch (e) {}
-    }
-    let netType = navigator.connection ? (navigator.connection.effectiveType || "Unknown") : "Unknown";
-    let downlink = navigator.connection ? (navigator.connection.downlink || "Unknown") : "Unknown";
-    let rtt = navigator.connection ? (navigator.connection.rtt || "Unknown") : "Unknown";
-    let darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? "🌙 Dark Mode" : "☀️ Light Mode";
-
-    try {
-        await fetch("https://dry-sun-3774my-tracker.millat-ahhanif.workers.dev", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                screenRes, cpuCores, deviceMemory, batteryStatus,
-                netType, downlink, rtt, darkMode,
-                gpuRenderer: getGPURenderer(),
-                canvasId: getCanvasFingerprint()
-            })
-        });
-    } catch (e) {}
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-    setTimeout(sendAdvancedInfo, 1200);
-});
-
-/* =========================================================
-   GREETING, AUDIO & UI UTILS
-========================================================= */
+/* GREETING, AUDIO & UI UTILS */
 function updateDynamicGreeting() {
     const hour = new Date().getHours();
     let text = "✨ শুভকামনা";
@@ -1347,6 +832,25 @@ function animate() {
     requestAnimationFrame(animate);
 }
 animate();
+
+/* FLOWER TOUCH EFFECT */
+function triggerFlowerEffect(e) {
+    const flowers = ['🌸', '🌺', '🌹', '🌷', '🌻', '💐', '✨', '💖', '💮'];
+    const rect = e.target.getBoundingClientRect();
+    for (let i = 0; i < 7; i++) {
+        const flower = document.createElement('div');
+        flower.className = 'flying-flower';
+        flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+        const startX = e.clientX || (rect.left + rect.width / 2);
+        const startY = e.clientY || (rect.top + rect.height / 2);
+        flower.style.left = `${startX + (Math.random() * 50 - 25)}px`;
+        flower.style.top = `${startY + (Math.random() * 20 - 10)}px`;
+        const randX = (Math.random() - 0.5) * 180 + 'px';
+        flower.style.setProperty('--randX', randX);
+        document.body.appendChild(flower);
+        setTimeout(() => flower.remove(), 1400);
+    }
+}
 
 /* COPY & SHARE UTILS */
 function copyNumber(text) {
